@@ -1,60 +1,65 @@
-# Master Business Plan: Dirt Track Motorsport Commercial Agency
-### Brand Working Title: NetworkDirt / NextGen Portal Architecture
+# Business Plan: Dirt Track Motorsport Agency
+### Sponsorship Advisory · Graphic Design · Content Creation
 
 ---
 
-## Executive Summary
+## The Concept
 
-A premium motorsport commercial agency specialising exclusively in **dirt track and sprintcar racing** — a culturally rich, underserved segment of the industry that currently has no agency operating at elite standard. The business pairs high-conviction sponsorship acquisition with a proprietary client portal, positioned not as a grassroots racing service but as **heritage motorsport culture presented like a luxury brand**.
+A full-service commercial agency built exclusively for dirt track and sprintcar racing. Three capabilities — sponsorship advisory, graphic design, and content creation — operating as one integrated offering, supported by a proprietary client portal that gives every team and driver real-time visibility into everything being done on their behalf.
 
-The market gap is proven: the only direct competitor in dirt track commercial services (NetworkDirt) operates at low price points with no technology layer, no portal, and no retention infrastructure. Mainstream racing agencies (TurnOne.io, The Sponsorship Collective) focus on road racing and open-wheel — none have claimed the outlaw dirt racing segment at the premium end.
-
----
-
-## 1. The Market Opportunity
-
-### The Dirt Track Niche
-
-Dirt track and sprintcar racing is one of the largest weekly-attendance motorsport categories in North America, anchored by:
-- **World of Outlaws** (Sprint Cars, Late Models)
-- **Knoxville Nationals** — the Super Bowl of sprint car racing
-- Hundreds of regional series, dirt ovals, and outlaw circuits
-
-Despite massive fan engagement and deep cultural identity, the commercial infrastructure around these teams and drivers is primitive. Most teams rely on:
-- Personal relationships with local businesses
-- Self-managed cold outreach with no strategic framework
-- Generic pitch decks with no data or valuation methodology
-- Zero transparency into what any agency (if they even have one) is doing on their behalf
-
-### The Black Box Problem
-
-Traditional sponsorship representation — even in mainstream motorsport — operates behind closed doors. Teams have no visibility into:
-- Who is being contacted on their behalf
-- What stage deals are at
-- What their media exposure is actually worth in real dollars
-- Whether their assets are professionally organized
-
-This erodes trust and causes churn. The client portal solves this entirely.
-
-### Why Dirt Track, Why Now
-
-- No premium agency has planted a flag in this space
-- Outlaw racing culture has a powerful identity that translates directly into luxury brand storytelling
-- Sponsors that activate in dirt track get exceptional local market penetration and authentic audience alignment — a story that is currently being told poorly or not at all
-- The 2024–2026 trend toward authenticity-driven, niche audience marketing plays directly into sprintcar's cultural strengths
+**The positioning:** Heritage motorsport culture presented like a luxury brand. Not a grassroots racing service. Not a generic sports marketing shop. A premium agency that understands the culture from the inside and executes at a level that matches the companies writing the sponsorship cheques.
 
 ---
 
-## 2. Brand Positioning
+## The Problem
 
-**Not:** a grassroots racing website, a generic sports marketing agency, a "we do all motorsport" shop.
+Dirt track and sprintcar racing is one of the largest weekly-attendance motorsport categories in North America — anchored by the World of Outlaws, Knoxville Nationals, and hundreds of regional outlaw circuits. The fan base is deep, the culture is powerful, and the commercial infrastructure is almost non-existent.
 
-**Yes:** heritage motorsport culture elevated into luxury commercial infrastructure.
+Most teams and drivers face the same three problems simultaneously:
 
-### Creative Direction
-- Aesthetic reference: Knoxville Nationals after dark, outlaw sprintcar culture elevated into luxury branding
-- Visual language: cinematic Americana, fire, grit, chrome, methanol haze, black leather, polished aluminum
-- Feel: luxury fashion campaign applied to dirt racing heritage
+**1. They can't get sponsors.** Cold outreach with generic pitch decks yields ~2% response rates. There is no strategic framework, no targeting methodology, and no one managing the process professionally.
+
+**2. They look amateur.** Car renders, social media, sponsor presentations, and media kits are inconsistent or non-existent. Sponsors compare what they see to what they're used to seeing — and pass.
+
+**3. They have no idea what their agency is doing.** Traditional sponsorship representation operates behind closed doors. Teams hand over their commercial rights and wait, with zero visibility into outreach status, deal stage, or asset valuations.
+
+A single agency that solves all three — and does it with a brand identity that matches the premium of the sport — doesn't exist yet in dirt track racing.
+
+---
+
+## The Business
+
+### What We Do
+
+**Sponsorship Advisory** — finding, pitching, and closing commercial partners for race teams and drivers. Full end-to-end ownership of the process.
+
+**Graphic Design** — professional visual identity for teams and drivers: car liveries, logo packages, pitch deck design, sponsor presentations, media kits, merchandise, and event branding.
+
+**Content Creation** — cinematic photo and video production, social media strategy, driver narrative development, and season-long content that builds a commercial audience sponsors want to reach.
+
+These three services are not sold as separate line items for separate clients. They are a single, integrated programme. A team that comes to us for sponsorship advisory also gets their visual identity and their content done right — because a bad-looking team with weak social content cannot be successfully represented commercially.
+
+### The Portal
+
+Every client gets access to a private, encrypted client portal. This is the operational nerve centre of the relationship.
+
+| Module | What It Shows |
+|---|---|
+| **Live Pipeline Tracker** | Visual deal funnel: Outreach → Pitch Delivered → Negotiation → Signed. Every prospect, in real time. |
+| **Dynamic MBE Counter** | Live Media Brand Exposure valuation — accumulating broadcast impressions and social reach, updated continuously across the season. |
+| **Document Vault** | Secure cloud storage for all assets: car renders, logo packages, media kits, contracts, sponsor presentations. One source of truth. |
+| **Performance & Action Feed** | Activity log, upcoming hospitality appearances, race weekend action items, next steps for both agency and client. |
+
+No other agency in dirt track racing has this. It is the single most powerful retention tool in the business model — clients stay because they are invested in watching the pipeline move.
+
+---
+
+## Brand Identity
+
+### Aesthetic
+Knoxville Nationals after dark. Outlaw sprintcar culture elevated into luxury branding. Cinematic Americana. Fire, grit, chrome, methanol haze. Black leather and polished aluminum.
+
+Not "grassroots racing website." Heritage motorsport culture presented like a luxury fashion campaign.
 
 ### Color System
 | Role | Name | Hex |
@@ -66,246 +71,176 @@ This erodes trust and causes churn. The client portal solves this entirely.
 | Highlight | Flame Amber | `#C97A1D` |
 
 ### Typography
-- **Headlines:** PP Editorial, Canela, Druk Wide (sparingly)
-- **Supporting:** Suisse International, Neue Montreal
-- Usage: oversized type, elegant spacing, cinematic pacing, restrained animation
+- **Headlines:** PP Editorial, Canela — oversized, elegant, cinematic pacing
+- **Supporting:** Suisse International, Neue Montreal — clean, restrained
+- **Sparingly:** Druk Wide for impact moments only
 
-### Tagline Options
-- *Motorsport Influence. Dirt Track Roots.*
-- *Where Outlaw Racing Meets Strategic Capital.*
-- *Built For The Business Behind The Racing.*
-- *Elite Advisory For Modern Motorsport Stakeholders.*
-- *Independent Counsel Inside Sprintcar Racing.*
-
-### Hero Copy
-**Headline:** Built Inside The Fastest Dirt Circles In Motorsport
-
-**Subhead:** Independent partnerships, communications, and strategic advisory for sprintcar teams, motorsport brands, racing properties, and performance-led ventures.
-
-**CTAs:** Request Advisory / View Partnerships
+### Tagline
+*Where Outlaw Racing Meets Strategic Capital.*
 
 ---
 
-## 3. Service Architecture
+## Services & Pricing
 
-### Service 1 — Commercial Partnerships
-Brand alignment, sponsorship packaging, rights negotiation, and activation strategy.
+### Tier 1 — Foundation `$2,500/month`
+For drivers and smaller teams establishing their commercial programme.
 
-Full end-to-end ownership:
-- Targeted market research and business identification
-- Custom-built professional pitch decks and proposals
-- Active outreach and pitch management
-- Full client ownership of all R&D materials (no strings attached)
-
-### Service 2 — Team & Driver Positioning
-Communications, media narrative, partner presentation, and visibility strategy.
-
-### Service 3 — Partners Communications System
-Automated, real-time sponsor engagement infrastructure:
-- Race result notifications fired automatically to the full partner list the moment results post
-- Direct integrations with Race Monitor, MyLaps, and MyRacePass
-- Zero manual updates; consistent professional engagement all season
-
-### Service 4 — ROO / ROI Reporting
-End-of-season performance reports for all program partners:
-- Metrics for reach, brand exposure, and event visibility
-- MBE (Media Brand Exposure) valuation methodology
-- Business-ready document formatting to support renewals
-
-### Service 5 — Event & Series Advisory
-Commercial growth strategy for racing properties, dirt track series, and motorsport platforms.
-
-### Service 6 — Private Strategic Counsel
-Independent senior-level advisory for stakeholders operating inside elite dirt racing.
+- Sponsorship outreach and pitch management (up to 20 active prospects)
+- 1 custom sponsor proposal deck per quarter
+- Social content strategy and monthly content calendar
+- 4 designed social assets per month
+- Portal access: Pipeline Tracker + Document Vault
+- Automated race result notifications to partner list
+- End-of-season ROI report for all partners
 
 ---
 
-## 4. The Client Portal — Core Differentiator
+### Tier 2 — Professional `$5,000/month`
+For established teams with existing partners and active season schedules.
 
-The proprietary portal gives every client a real-time window into all commercial activity. No competitor in the dirt track space has this.
-
-### Architecture
-- **Multi-tenant database infrastructure** — every client's data is fully isolated
-- **Master Admin layer** — agency-wide pipeline view, global asset performance, outreach trajectories
-- **Client layer** — isolated, encrypted login; no cross-visibility between clients
-
-### Four Modules
-
-| Module | Name | What It Shows | Client Benefit |
-|---|---|---|---|
-| A | Live Pipeline Tracker | Deal funnel: Outreach → Pitch → Negotiation → Signed | Total transparency — see exactly who we're talking to |
-| B | Dynamic MBE Asset Counter | Live MBE valuation + audience impressions from broadcast and social | Instant valuation proof; hard data for renewals |
-| C | Document Vault | Secure cloud storage: car renders, logos, team profiles, contracts | Single source of truth for all brand and legal assets |
-| D | Performance & Action Feeds | Next steps, hospitality scheduling, race weekend action items | Perfect alignment between agency and client at all times |
-
-### Tech Stack (Implementation)
-- **Frontend:** Next.js with real-time updates (WebSockets)
-- **Backend:** Node.js or Python/FastAPI; multi-tenant Postgres schema
-- **Storage:** AWS S3 with per-client bucket isolation (Document Vault)
-- **Auth:** Auth0 or Supabase Auth with role-based access control
-- **MBE Data:** Broadcast monitoring API integrations (Nielsen/Kantar) + social analytics
+Everything in Foundation, plus:
+- Expanded outreach (up to 50 active prospects, targeted industry research)
+- Full visual identity package (car livery concept, logo suite, media kit)
+- 12 designed assets per month (social, sponsor-facing, event)
+- Monthly highlight video edit (1–2 min cinematic cut)
+- Full portal access: all four modules including live MBE counter
+- Quarterly partner reporting calls
+- Partner communications system: automated, branded race result notifications
 
 ---
 
-## 5. Competitive Landscape
+### Tier 3 — Elite `Retainer + Success Fee`
+For top-tier sprintcar operations, series-level programmes, and brands.
 
-### NetworkDirt (Direct Dirt Track Competitor)
-- **Positioning:** "Professional Racing Commercial Infrastructure" — functional, no luxury framing
-- **Services:** Sponsorship acquisition ($1,500), Partner comms ($500/yr), ROI reporting ($1,000/szn)
-- **Total per client:** ~$3,000/season
-- **Technology:** None. No portal, no pipeline tracker, no live MBE data
-- **Weakness:** Transactional pricing, low perceived value ceiling, no retention infrastructure, no data layer
-- **Our edge:** Premium positioning, client portal, MBE live counter, full document vault, luxury brand identity
-
-### TurnOne.io (Mainstream Racing, Road/Open-Wheel Focus)
-- **Model:** Done-For-You content and sponsorship outreach; 7-person manual team
-- **Claimed results:** $2.9M raised; 45% outreach response rate
-- **Strength:** Proven outcomes, strong social proof, data-backed positioning
-- **Weakness:** Manually intensive (limits scale), no self-service portal (churn risk), no dirt track presence, high team overhead
-- **Our edge:** Portal-driven retention (clients stay even in off-season), dirt track specialisation, leaner structure
-
-### The Sponsorship Collective (Education / Consultancy)
-- **Model:** Sponsorship education, training, and strategic frameworks; broader market
-- **Weakness:** Not execution-focused; client still has to do the work
-- **Our edge:** Full-service execution + technology layer
-
-### Competitive Summary
-
-| Capability | Us | NetworkDirt | TurnOne.io | Sponsorship Collective |
-|---|---|---|---|---|
-| Dirt track specialisation | Yes | Yes | No | No |
-| Premium brand positioning | Yes | No | Partial | No |
-| Client portal | Yes | No | No | No |
-| Live MBE data | Yes | No | Vanity metrics only | No |
-| Full-service execution | Yes | Yes | Yes | No |
-| Scalable tech layer | Yes | No | Partial | No |
+Everything in Professional, plus:
+- Unlimited outreach pipeline management
+- Full content production (photo + video at selected events)
+- Custom livery design and execution management
+- Full sponsor presentation design and pitch rehearsal
+- Private strategic counsel for team ownership
+- Event and series commercial advisory
+- Success fee: negotiated % of closed sponsorship deal value
+- White-glove portal with dedicated account management
 
 ---
 
-## 6. Revenue Model
+### Standalone Services
+Available outside of retainer for teams not ready for a full programme:
 
-| Stream | Structure | Notes |
+| Service | Price |
+|---|---|
+| Sponsorship pitch deck (custom) | $800 |
+| Car livery concept design | $1,200 |
+| Logo suite + brand identity | $950 |
+| Media kit design | $600 |
+| ROI / MBE season report | $1,000 |
+| Partner comms system (annual) | $500/yr |
+| Content day (photo + video) | $1,500/day |
+
+**Ownership Guarantee:** Every document, proposal, design, and research material produced is client-owned. Whether or not sponsorship is secured, the client walks away with full commercial and creative assets.
+
+---
+
+## The Client Experience
+
+A team signs on. Within the first two weeks:
+
+1. We audit their current commercial position — existing partners, assets, social presence, visual identity gaps
+2. We rebuild or create their core assets: logo suite, car render, media kit, pitch deck
+3. We activate the portal — pipeline tracker goes live, document vault is populated
+4. Outreach begins — targeted prospect list built from industry research; personalised pitches go out
+5. Race result notifications are connected to their partner list — automated from day one
+6. Every week, the client opens their portal and watches the pipeline move
+
+By season end, every partner has received a professional ROI report with hard MBE data. That report is what gets them to renew.
+
+---
+
+## Competitive Landscape
+
+### NetworkDirt (Direct Competitor — Dirt Track)
+Transactional pricing (~$3,000/season all-in), no design capability, no content creation, no portal, no live data. The floor of the market. We are positioned 2–5x above this with substantially more value delivered.
+
+### TurnOne.io (Mainstream Racing — Road/Open-Wheel)
+Proven model ($2.9M raised for clients, 45% outreach response rate) but manually intensive (7-person team), no client portal (churn risk in off-season), no dirt track presence, and no in-house design or content production. Strong proof that this model works — in the wrong niche for us.
+
+### The Sponsorship Collective (Education / Consulting)
+Teaches teams how to get sponsors rather than doing it for them. No execution, no design, no content. Serves a different buyer.
+
+### Our Position
+The only agency in dirt track racing that combines sponsorship advisory, professional design, and content creation under one roof, with a live client portal as the operational backbone. Premium positioning in a segment with no premium competitor.
+
+---
+
+## Go-To-Market
+
+### Months 1–3: Foundation
+- Onboard 3 anchor clients (existing relationships in dirt track / sprintcar)
+- Deliver immediate design work: the fastest proof of quality is a car render or pitch deck
+- Portal MVP live: Pipeline Tracker and Document Vault only
+- Establish MBE methodology — partner with a broadcast monitoring service (do not build in-house yet)
+- Build the agency's own visual identity and website first; it is the pitch deck
+
+### Months 4–8: Prove the Model
+- Close first sponsored deals; document everything with data
+- MBE Counter live (Module B)
+- Expand to 8–12 clients
+- Publish first case study: deal value, MBE generated, partner renewal rate
+- Begin outbound to adjacent series (USAC, regional dirt, Australian speedway)
+
+### Year 2+: Scale
+- 20–30 client roster
+- Full content production capability (in-house or contracted photographer/videographer per event)
+- AI-assisted outreach layer (automated lead enrichment, personalised initial contact)
+- Portal white-label licensing to agencies in other motorsport segments
+- Event and series advisory as a separate revenue stream
+
+---
+
+## Revenue Model
+
+| Stream | Type | Notes |
 |---|---|---|
-| **Retainer** | Monthly fee per client | Core income; covers outreach, representation, portal access |
-| **Success Fee** | % of signed deal value | Aligns incentives; premium clients expect this structure |
-| **Comms System** | Annual fee | Recurring, low-churn; automates sponsor engagement |
-| **ROI Reporting** | Per-season fee | Renewal tool; sponsors use this data to justify continuing |
-| **Portal Licensing** | SaaS tier for white-label | Long-term: license portal to agencies without tech capacity |
-| **Event Advisory** | Project-based retainer | Series and property-level engagements |
+| Monthly retainer | Recurring | Core revenue; tiers 1–2 |
+| Success fee | Variable | % of closed deals; tier 3 and elite clients |
+| Standalone creative | Project | One-off design and content work |
+| Partner comms system | Annual recurring | Low-churn; automated once set up |
+| Portal licensing | SaaS | Long-term; white-label to other agencies |
+| Event / series advisory | Project retainer | Series-level engagements |
 
-### Pricing Guidance (vs. NetworkDirt Benchmark)
-
-NetworkDirt's all-in price is ~$3,000/season. That is the floor of the market. The portal, MBE data, luxury brand positioning, and full-service execution justify a significant premium:
-
-| Tier | Target Client | Price Range |
-|---|---|---|
-| Foundation | Dirt track driver / small team | $3,500–$6,000/season |
-| Professional | Established team, regional series presence | $8,000–$15,000/season |
-| Elite Partner | Top-tier sprintcar operation, WoO-level | Retainer + success fee (negotiated) |
-
----
-
-## 7. Website — Landing Page Architecture
-
-Based on the creative direction brief:
-
-### Structure
-1. **Hero** — Full-bleed cinematic visual (sprintcar entering corner sideways, dirt rooster tails in backlight, methanol flames); headline + subhead + dual CTA
-2. **Services** — Four cards: Commercial Partnerships / Team & Driver Positioning / Event & Series Advisory / Private Strategic Counsel
-3. **Mid-page visual break** — Cinematic editorial photography, World of Outlaws atmosphere
-4. **The Portal** — Module overview; transparency as the differentiator
-5. **Proof / Case Studies** — Deals closed, MBE values generated, partners retained
-6. **Advisory Request** — Simple, friction-free contact form
-
-### Animation Direction
-- Drifting dust particles
-- Slow film-grain movement
-- Subtle camera shake on transitions
-- Parallax dirt textures
-- Cinematic fades, ultra-slow zoom-ins
-- **Avoid:** aggressive racing graphics, neon, "sports website" energy, generic sponsor-grid styling
-
-### Hero Image Generation Prompt
-> "Ultra cinematic sprintcar dirt track racing at night, luxury editorial aesthetic, airborne dirt illuminated by stadium lights, methanol haze, polished sprintcar bodywork, dramatic shadows, shallow depth of field, outlaw racing atmosphere, black and gold tones, premium motorsport branding aesthetic, fashion campaign style, photorealistic, moody, vertical composition, high-end cinematic lighting"
-
----
-
-## 8. Go-To-Market Strategy
-
-### Phase 1 — Beachhead (Months 1–6)
-- Onboard 3–5 anchor clients from existing relationships in dirt track / sprintcar
-- Portal MVP: Module A (Live Pipeline Tracker) only — enough to prove transparency value
-- Build first case studies: document every outreach contact, pitch delivered, deal closed
-- Establish MBE baseline: partner with a monitoring service rather than build in-house
-
-### Phase 2 — Proof of Concept (Months 6–12)
-- Launch portal Modules B and C (MBE Counter + Document Vault)
-- Close 2+ signed sponsorship deals; publish case studies with hard MBE data
-- Begin outbound to adjacent series: USAC, regional dirt oval, Australian speedway
-- Introduce ROI Reporting as a renewal retention product
-
-### Phase 3 — Scale (Year 2+)
-- Full portal (all 4 modules) live for all clients
-- Roster: 15–25 clients
-- Introduce AI-assisted outreach (n8n / Apollo.io enrichment) to reduce manual load
-- Explore portal white-labelling to competing agencies
-- Evaluate success-fee pricing tier for top-level clients
-
----
-
-## 9. AI & Technology Roadmap
-
-Informed by the TurnOne 2.0 AIOS framework, this is the medium-term tech evolution:
-
-### Phase A — Automate the Manual Work
-- Replace manual outreach research with AI-enriched lead generation (Apollo.io + Clay)
-- Automate LinkedIn follow-up sequences for warm prospects
-- Use LLM-assisted personalised pitch drafting (Claude API)
-
-### Phase B — Agentic GTM Layer
-- Sponsorship SDR Agent: automated initial outreach triggered by "dark social" signals (brand manager engages with team content)
-- Content Creator Agent: script generation and video clipping for driver social content
-- Lead Scoring: LLM-based sponsor purchase probability ranking
-
-### Phase C — Platform Play
-- "Sponsorship Readiness Score" as a free top-of-funnel tool (any driver inputs their social handles; AI scores their commercial readiness)
-- Self-serve portal tier for junior drivers at low price point
-- Commission-based pricing for elite clients aligned with deal outcomes
-
-### Governance (Required for 2026)
-- Each AI agent treated as a first-class security principal (no shared API keys)
-- PII masking before data reaches LLM kernel
-- GDPR Article 22 compliance (human-in-the-loop on automated outreach decisions)
-- EU AI Act alignment (enforcement August 2, 2026)
-
----
-
-## 10. Risk Register
-
-| Risk | Probability | Impact | Mitigation |
+### Revenue Targets
+| Stage | Clients | Avg. Monthly Value | Monthly Revenue |
 |---|---|---|---|
-| Portal build lag vs. client expectations | High | High | Ship Module A only first; set clear milestones in client agreements |
-| No deals close early; client churn | Medium | High | Success fee only triggers on closed deals; portal retains clients even between signings |
-| MBE data sourcing inaccurate or expensive | Medium | Medium | Partner with established broadcast monitoring firm; don't build in-house initially |
-| NetworkDirt or TurnOne enters dirt premium segment | Low | High | First-mover brand identity is the moat; luxury positioning is hard to copy quickly |
-| Data breach / confidentiality leak | Low | Critical | Multi-tenant isolation, third-party security audit, SOC 2 roadmap |
-| AI commoditises outreach (response rates drop) | Medium | Medium | Build proprietary sponsor intent data as a moat; shift to relationship-led model |
+| Month 6 | 6 clients | $3,500 | ~$21,000 |
+| Month 12 | 12 clients | $4,000 | ~$48,000 |
+| Year 2 | 25 clients | $4,500 | ~$112,500 |
 
 ---
 
-## 11. Immediate Next Steps
+## Key Risks
 
-- [ ] Lock brand name and secure domain
-- [ ] Commission hero imagery (use AI generation prompt above as starting point)
-- [ ] Scope portal MVP: Module A (pipeline tracker) only, with delivery date
-- [ ] Draft standard client agreement: retainer + success fee + ownership guarantee clause
-- [ ] Onboard first anchor client; use as live case study
-- [ ] Establish MBE methodology: identify monitoring partner (Nielsen, Kantar, or specialist)
-- [ ] Set pricing tiers; present to first 3 prospects
-- [ ] Begin website build: hero + services + portal overview sections first
+| Risk | Mitigation |
+|---|---|
+| No deals close early → client churn | Design and content create immediate visible value; pipeline tracker shows activity even before a deal closes |
+| Portal build delays | Ship design and advisory first; portal MVP (Module A only) can follow 60–90 days in |
+| Capacity crunch as design + content + advisory scale | Define clear creative scope per tier; use contracted photographers and editors for content events |
+| Low-cost competitors undercut on price | Luxury positioning is not price-competitive; the right client is not shopping on cost |
+| MBE data sourcing is complex | Partner with an established monitoring firm in season 1; do not try to build this in-house |
 
 ---
 
-*All materials, proposals, and research produced for clients are client-owned assets — no strings attached.*
+## Immediate Next Steps
 
-*Document Status: Active strategy — portal in implementation phase.*
+- [ ] Lock business name and secure domain
+- [ ] Build the agency's own visual identity (logo, color palette, typography) — this is client one
+- [ ] Design the website: hero section + services + portal overview + contact form
+- [ ] Define portal MVP scope — Module A (pipeline tracker) first, timeline to delivery
+- [ ] Draft standard client agreement: retainer, success fee, ownership guarantee
+- [ ] Commission or generate hero imagery using the cinematic AI prompt
+- [ ] Identify and approach first 3 anchor clients
+- [ ] Choose MBE monitoring partner
+- [ ] Set pricing tiers and prepare first prospect presentations
+
+---
+
+*Status: Pre-launch. Portal in implementation phase. Creative direction defined.*
