@@ -6,318 +6,290 @@
   <title>Apply — Dirtrack Partners & Co.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #F8F6F2; --text: #0A0A0A;
-      --muted: rgba(10,10,10,.5); --red: #E8410A; --red-dark: #C23208;
+      --cream: #F3ECD9; --cream-dark: #EAE1CB;
+      --ink: #1E1A15; --red: #D44010; --mid: rgba(30,26,21,.5);
     }
     html { scroll-behavior: smooth; }
     body {
-      background: var(--bg); color: var(--text);
+      background: var(--cream); color: var(--ink);
       font-family: 'DM Sans', system-ui, sans-serif;
-      font-weight: 300; min-height: 100vh;
-      cursor: none;
+      font-weight: 300; min-height: 100vh; cursor: none;
     }
-
-    /* Paper grain */
-    body::after {
+    body::before {
       content: ''; position: fixed; inset: 0;
-      pointer-events: none; z-index: 9000; opacity: .025;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 300px 300px;
+      pointer-events: none; z-index: 8999; opacity: .04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 400px;
     }
-
-    /* Cursor */
-    #cursor {
-      position: fixed; width: 11px; height: 11px;
-      border: 1.5px solid rgba(10,10,10,.45); border-radius: 50%;
+    #cur {
+      position: fixed; width: 10px; height: 10px;
+      border: 2px solid var(--ink); border-radius: 50%;
       pointer-events: none; z-index: 99999;
       transform: translate(-50%,-50%);
-      transition: width .22s ease, height .22s ease, background .22s ease, border-color .22s ease;
+      transition: width .18s, height .18s, background .18s, border-color .18s;
     }
-    #cursor.big { width: 36px; height: 36px; background: rgba(232,65,10,.08); border-color: var(--red); }
+    #cur.on { width: 32px; height: 32px; background: rgba(212,64,16,.12); border-color: var(--red); }
     a, button { cursor: none; }
+    #ov { position: fixed; inset: 0; background: var(--cream); z-index: 99998; pointer-events: none; opacity: 1; transition: opacity .45s ease; }
 
-    /* Overlay */
-    #overlay { position: fixed; inset: 0; background: var(--bg); z-index: 99998; pointer-events: none; opacity: 1; transition: opacity .4s ease; }
-
-    /* Nav */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      padding: 28px 52px; display: flex; justify-content: space-between; align-items: center;
-      background: rgba(248,246,242,.97);
-      border-bottom: 1px solid rgba(10,10,10,.08);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+      padding: 22px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(243,236,217,.97);
+      border-bottom: 2px solid var(--ink);
     }
-    .wordmark { font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: .18em; color: var(--text); text-decoration: none; }
-    .nav-back { font-size: 11px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color .2s; }
-    .nav-back:hover { color: var(--text); }
+    .logo {
+      font-family: 'Alfa Slab One', serif;
+      font-size: 14px; letter-spacing: .05em;
+      color: var(--ink); text-decoration: none; text-transform: uppercase;
+    }
+    .nav-back {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--mid); text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-back:hover { color: var(--red); }
 
-    /* Page */
     .page {
       min-height: 100vh;
-      padding: 160px 52px 100px;
-      max-width: 760px;
-      margin: 0 auto;
+      padding: 130px 48px 100px;
+      max-width: 780px; margin: 0 auto;
     }
 
-    .page-label {
-      font-size: 10px; letter-spacing: .26em; text-transform: uppercase;
-      color: var(--red); margin-bottom: 24px; display: block;
-      opacity: 0; transform: translateY(10px);
-      transition: opacity .7s ease, transform .7s ease;
+    .page-tag {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: .32em;
+      text-transform: uppercase; color: var(--red);
+      margin-bottom: 20px; display: block;
+      opacity: 0; transform: translateY(8px);
+      transition: opacity .7s, transform .7s;
     }
-    .page-label.on { opacity: 1; transform: translateY(0); }
+    .page-tag.on { opacity: 1; transform: none; }
 
     h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(52px, 9vw, 100px);
-      letter-spacing: .04em; line-height: .9;
-      margin-bottom: 32px;
+      font-family: 'Alfa Slab One', serif;
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: .88; letter-spacing: .02em;
+      text-transform: uppercase; margin-bottom: 24px;
       opacity: 0; transform: translateY(16px);
-      transition: opacity .85s ease .1s, transform .85s ease .1s;
+      transition: opacity .85s ease .08s, transform .85s ease .08s;
     }
-    h1.on { opacity: 1; transform: translateY(0); }
+    h1.on { opacity: 1; transform: none; }
 
-    .page-intro {
-      font-size: 15px; line-height: 1.8;
-      color: var(--muted); max-width: 480px;
-      margin-bottom: 72px;
-      opacity: 0; transform: translateY(12px);
-      transition: opacity .85s ease .2s, transform .85s ease .2s;
+    .page-divider {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 52px;
+      opacity: 0; transition: opacity .8s ease .18s;
     }
-    .page-intro.on { opacity: 1; transform: translateY(0); }
+    .page-divider.on { opacity: 1; }
+    .page-divider span { height: 2px; width: 36px; background: var(--ink); display: block; }
+    .page-divider p {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 12px; font-weight: 600; letter-spacing: .25em;
+      text-transform: uppercase; color: var(--mid);
+    }
 
-    /* Form */
-    form { opacity: 0; transform: translateY(16px); transition: opacity .85s ease .35s, transform .85s ease .35s; }
-    form.on { opacity: 1; transform: translateY(0); }
+    form {
+      opacity: 0; transform: translateY(16px);
+      transition: opacity .85s ease .25s, transform .85s ease .25s;
+    }
+    form.on { opacity: 1; transform: none; }
 
-    .field { margin-bottom: 40px; }
+    .field { margin-bottom: 36px; }
     .field label {
-      display: block; font-size: 10px; letter-spacing: .22em;
-      text-transform: uppercase; color: var(--muted);
-      margin-bottom: 12px; font-weight: 500;
+      display: block; font-family: 'Barlow Condensed', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: .24em;
+      text-transform: uppercase; color: var(--mid); margin-bottom: 10px;
     }
-    .field input,
-    .field select,
-    .field textarea {
+    .field input, .field select, .field textarea {
       width: 100%; background: transparent;
-      border: none; border-bottom: 1px solid rgba(10,10,10,.18);
-      color: var(--text); font-family: 'DM Sans', sans-serif;
+      border: none; border-bottom: 2px solid rgba(30,26,21,.25);
+      color: var(--ink); font-family: 'DM Sans', sans-serif;
       font-size: 16px; font-weight: 300;
-      padding: 12px 0;
-      outline: none;
-      transition: border-color .3s ease;
+      padding: 10px 0; outline: none;
+      transition: border-color .3s;
       appearance: none; -webkit-appearance: none;
     }
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus { border-bottom-color: var(--red); }
-    .field textarea { resize: none; height: 100px; line-height: 1.7; }
-    .field select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230A0A0A' stroke-width='1.5' fill='none' stroke-opacity='.4'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 4px center;
-      cursor: none;
+    .field input:focus, .field select:focus, .field textarea:focus {
+      border-bottom-color: var(--red);
     }
-    .field select option { background: #F8F6F2; color: var(--text); }
-
-    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .field textarea { resize: none; height: 96px; line-height: 1.7; }
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231E1A15' stroke-width='2' fill='none' stroke-opacity='.4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 4px center;
+    }
+    .field select option { background: var(--cream); color: var(--ink); }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
 
     .submit-btn {
       display: block; width: 100%;
-      background: var(--red); color: #fff; border: none;
-      font-family: 'DM Sans', sans-serif; font-weight: 500;
-      font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
-      padding: 20px; margin-top: 16px;
-      transition: background .2s, transform .2s;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 14px; font-weight: 800; letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--cream); background: var(--red); border: 2.5px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 18px; margin-top: 16px;
+      transition: box-shadow .15s, transform .15s;
     }
-    .submit-btn:hover { background: var(--red-dark); transform: translateY(-1px); }
+    .submit-btn:hover { box-shadow: 1px 1px 0 var(--ink); transform: translate(3px, 3px); }
 
-    /* Success state */
-    .success {
-      display: none;
-      text-align: center;
-      padding: 80px 0;
-    }
+    .success { display: none; text-align: center; padding: 80px 0; }
     .success.show { display: block; }
     .success-mark {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 80px; color: var(--red);
+      font-family: 'Alfa Slab One', serif;
+      font-size: 72px; color: var(--red);
       letter-spacing: .05em; display: block;
-      margin-bottom: 24px;
+      text-transform: uppercase; margin-bottom: 20px;
     }
-    .success h2 { font-family: 'Bebas Neue', sans-serif; font-size: 40px; letter-spacing: .05em; margin-bottom: 16px; }
-    .success p { font-size: 14px; color: var(--muted); line-height: 1.9; }
+    .success h2 {
+      font-family: 'Alfa Slab One', serif;
+      font-size: 36px; letter-spacing: .04em;
+      text-transform: uppercase; margin-bottom: 14px;
+    }
+    .success p { font-size: 14px; color: var(--mid); line-height: 1.9; }
 
-    /* Footer */
     footer {
-      border-top: 1px solid rgba(10,10,10,.1);
-      padding: 48px 52px;
+      border-top: 2px solid var(--ink);
+      padding: 40px 48px;
       display: flex; justify-content: space-between; align-items: center;
-      max-width: none;
+      background: var(--cream-dark);
     }
-    .f-mark { font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: .2em; }
-    .f-copy { font-size: 10px; color: rgba(10,10,10,.2); letter-spacing: .08em; }
+    .f-logo { font-family: 'Alfa Slab One', serif; font-size: 13px; letter-spacing: .05em; text-transform: uppercase; }
+    .f-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(30,26,21,.3); }
 
     @media (max-width: 640px) {
-      .page { padding: 130px 24px 80px; }
-      nav { padding: 20px 24px; }
+      .page { padding: 110px 28px 80px; }
+      nav { padding: 16px 28px; }
       .field-row { grid-template-columns: 1fr; gap: 0; }
-      footer { padding: 40px 24px; flex-direction: column; gap: 16px; text-align: center; }
+      footer { padding: 36px 28px; flex-direction: column; gap: 14px; text-align: center; }
     }
-
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      *, *::before, *::after { animation-duration:.01ms!important; transition-duration:.01ms!important; }
     }
   </style>
 </head>
 <body>
+<div id="cur"></div>
+<div id="ov"></div>
 
-  <div id="cursor"></div>
-  <div id="overlay"></div>
+<nav>
+  <a href="index.html" class="logo">Dirtrack Partners & Co.</a>
+  <a href="index.html" class="nav-back">← Back</a>
+</nav>
 
-  <nav>
-    <a href="index.html" class="wordmark">Dirtrack Partners & Co.</a>
-    <a href="index.html" class="nav-back">← Back</a>
-  </nav>
-
-  <div class="page">
-    <span class="page-label">Programme Application</span>
-    <h1>Apply to<br>Work With Us.</h1>
-    <p class="page-intro">
-      We review every application. We take on a limited number of programmes each season
-      and not every application is accepted. Tell us what you're building.
-    </p>
-
-    <form id="applyForm" novalidate>
-      <div class="field-row">
-        <div class="field">
-          <label for="name">Your Name *</label>
-          <input type="text" id="name" name="name" required autocomplete="name">
-        </div>
-        <div class="field">
-          <label for="email">Email Address *</label>
-          <input type="email" id="email" name="email" required autocomplete="email">
-        </div>
-      </div>
-
-      <div class="field-row">
-        <div class="field">
-          <label for="programme">Programme / Team Name *</label>
-          <input type="text" id="programme" name="programme" required>
-        </div>
-        <div class="field">
-          <label for="series">Series / Track *</label>
-          <input type="text" id="series" name="series" placeholder="e.g. World of Outlaws, USAC, local oval" required>
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="need">What do you need? *</label>
-        <select id="need" name="need" required>
-          <option value="" disabled selected>Select one</option>
-          <option value="advisory">Sponsorship Advisory</option>
-          <option value="design">Graphic Design</option>
-          <option value="content">Content Creation</option>
-          <option value="all">All Three (Full Programme)</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="message">Tell us about your programme *</label>
-        <textarea id="message" name="message" required placeholder="Where you race, who you are, where you want to go commercially..."></textarea>
-      </div>
-
-      <div class="field">
-        <label for="source">How did you hear about us?</label>
-        <input type="text" id="source" name="source">
-      </div>
-
-      <button type="submit" class="submit-btn">Submit Application</button>
-    </form>
-
-    <div class="success" id="success">
-      <span class="success-mark">✓</span>
-      <h2>Application Received.</h2>
-      <p>
-        We'll be in touch within 5 business days.<br>
-        Thank you for reaching out.
-      </p>
-    </div>
+<div class="page">
+  <span class="page-tag">★ Programme Application ★</span>
+  <h1>Apply to<br>Work With Us.</h1>
+  <div class="page-divider">
+    <span></span>
+    <p>Limited spots available each season</p>
+    <span></span>
   </div>
 
-  <footer>
-    <span class="f-mark">Dirtrack Partners & Co.</span>
-    <span class="f-copy">© 2025 All rights reserved.</span>
-  </footer>
+  <form id="applyForm" novalidate>
+    <div class="field-row">
+      <div class="field">
+        <label for="name">Your Name *</label>
+        <input type="text" id="name" name="name" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" required autocomplete="email">
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="programme">Programme / Team Name *</label>
+        <input type="text" id="programme" name="programme" required>
+      </div>
+      <div class="field">
+        <label for="series">Series / Track *</label>
+        <input type="text" id="series" name="series" placeholder="e.g. World of Outlaws, USAC, local oval" required>
+      </div>
+    </div>
+    <div class="field">
+      <label for="need">What do you need? *</label>
+      <select id="need" name="need" required>
+        <option value="" disabled selected>Select one</option>
+        <option value="advisory">Sponsorship Advisory</option>
+        <option value="design">Graphic Design</option>
+        <option value="content">Content Creation</option>
+        <option value="all">All Three — Full Programme</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="message">Tell us about your programme *</label>
+      <textarea id="message" name="message" required placeholder="Where you race, who you are, where you want to go commercially..."></textarea>
+    </div>
+    <div class="field">
+      <label for="source">How did you hear about us?</label>
+      <input type="text" id="source" name="source">
+    </div>
+    <button type="submit" class="submit-btn">Submit Application →</button>
+  </form>
 
-  <script>
-    // Overlay
-    const overlay = document.getElementById('overlay');
-    window.addEventListener('load', () => { requestAnimationFrame(() => { overlay.style.opacity = '0'; }); });
+  <div class="success" id="success">
+    <span class="success-mark">★</span>
+    <h2>Application Received.</h2>
+    <p>We'll be in touch within 5 business days.<br>Thank you for reaching out.</p>
+  </div>
+</div>
 
-    // Page transition
-    document.querySelectorAll('a[href]').forEach(link => {
-      const href = link.getAttribute('href');
-      if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) return;
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        overlay.style.pointerEvents = 'all';
-        overlay.style.opacity = '1';
-        setTimeout(() => { window.location.href = href; }, 360);
-      });
-    });
+<footer>
+  <span class="f-logo">Dirtrack Partners & Co.</span>
+  <span class="f-copy">© 2025 — All rights reserved.</span>
+</footer>
 
-    // Cursor
-    const cursor = document.getElementById('cursor');
-    if (window.matchMedia('(hover: hover)').matches) {
-      document.addEventListener('mousemove', e => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top  = e.clientY + 'px';
-      });
-      document.querySelectorAll('a, button, input, select, textarea').forEach(el => {
-        el.addEventListener('mouseenter', () => cursor.classList.add('big'));
-        el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
-      });
-    } else { cursor.style.display = 'none'; }
+<script>
+  const ov = document.getElementById('ov');
+  window.addEventListener('load', () => { requestAnimationFrame(() => { ov.style.opacity = '0'; }); });
 
-    // Reveal on load
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.querySelectorAll('.page-label, h1, .page-intro, form').forEach(el => el.classList.add('on'));
-      }, 200);
-    });
-
-    // Form submit
-    const form = document.getElementById('applyForm');
-    const successEl = document.getElementById('success');
-
-    form.addEventListener('submit', e => {
+  document.querySelectorAll('a[href]').forEach(a => {
+    const h = a.getAttribute('href');
+    if (!h || h.startsWith('#') || h.startsWith('http') || h.startsWith('mailto')) return;
+    a.addEventListener('click', e => {
       e.preventDefault();
-      // Validate required fields
-      const required = form.querySelectorAll('[required]');
-      let valid = true;
-      required.forEach(field => {
-        if (!field.value.trim()) {
-          valid = false;
-          field.style.borderBottomColor = '#E8410A';
-          field.addEventListener('input', () => { field.style.borderBottomColor = ''; }, { once: true });
-        }
-      });
-      if (!valid) return;
-
-      // Submit (configure your form endpoint here — Formspree, Netlify, etc.)
-      // fetch('/api/apply', { method: 'POST', body: new FormData(form) });
-
-      form.style.opacity = '0';
-      form.style.transform = 'translateY(-8px)';
-      setTimeout(() => {
-        form.style.display = 'none';
-        successEl.classList.add('show');
-      }, 400);
+      ov.style.pointerEvents = 'all'; ov.style.opacity = '1';
+      setTimeout(() => { location.href = h; }, 380);
     });
-  </script>
+  });
+
+  const cur = document.getElementById('cur');
+  if (window.matchMedia('(hover: hover)').matches) {
+    document.addEventListener('mousemove', e => { cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px'; });
+    document.querySelectorAll('a, button, input, select, textarea').forEach(el => {
+      el.addEventListener('mouseenter', () => cur.classList.add('on'));
+      el.addEventListener('mouseleave', () => cur.classList.remove('on'));
+    });
+  } else { cur.style.display = 'none'; }
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.page-tag, h1, .page-divider, form').forEach(el => el.classList.add('on'));
+    }, 200);
+  });
+
+  const form = document.getElementById('applyForm');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    let valid = true;
+    form.querySelectorAll('[required]').forEach(f => {
+      if (!f.value.trim()) {
+        valid = false;
+        f.style.borderBottomColor = var(--red);
+        f.addEventListener('input', () => { f.style.borderBottomColor = ''; }, { once: true });
+      }
+    });
+    if (!valid) return;
+    form.style.opacity = '0'; form.style.transform = 'translateY(-8px)';
+    setTimeout(() => { form.style.display = 'none'; document.getElementById('success').classList.add('show'); }, 380);
+  });
+</script>
 </body>
 </html>
