@@ -1,4 +1,4 @@
-# Business Plan: Dirt Track Motorsport Agency
+# Business Plan: Dirtrack Partners & Co
 ### Sponsorship Advisory · Graphic Design · Content Creation
 
 ---
