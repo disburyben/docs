@@ -1,0 +1,123 @@
+---
+title: "The Five Pillars"
+description: "The core concepts that make Hermes work: Memory, Skills, Soul, Crons, and the Self-Improving Loop"
+---
+
+These are the core concepts that make Hermes work. Understanding them upfront makes the entire
+setup process click much faster.
+
+<Tip>
+  A quick mental model: **Memory** is *what to remember*. **Skills** are *how to do it again*.
+  **Soul** is *who the agent is*. **Crons** make it *proactive*. The **Self-Improving Loop**
+  ties them all together.
+</Tip>
+
+## Pillar 1: Memory
+
+Memory is the small, durable context Hermes carries across sessions. Two main files load at the
+start of every session:
+
+<CardGroup cols={2}>
+  <Card title="user.md" icon="user">
+    Who you are, your style, your preferences, and what you *don't* like.
+  </Card>
+  <Card title="memory.md" icon="brain">
+    Your environments, the projects you're working on, and business context.
+  </Card>
+</CardGroup>
+
+AI agents wake up stateless — think of the movie *Memento*. Your job is to make sure the context
+files are holistic so the agent doesn't repeat itself. Hermes will update these files
+automatically as you work, but you should still nudge it:
+
+> "Chuck that in memory."
+>
+> "Don't ever do this again."
+
+<Warning>
+  **Beginner nuance:** Save durable preferences and facts to memory. Use session search for old
+  conversations (Hermes stores sessions in a SQLite database). **Do not** store secrets or
+  temporary task status in memory.
+</Warning>
+
+## Pillar 2: Skills
+
+Skills are **procedural memory** — reusable playbooks for how to do a task well. Think of a skill
+as a recipe for chocolate chip pancakes: following the recipe gets you consistent results every
+time, while going off memory gets you inconsistent pancakes.
+
+<Expandable title="How skills are structured">
+  - All skills live in a `skill.md` file with **YAML front matter** at the top.
+  - The YAML front matter tells the agent what the skill does and when to use it.
+  - This is called **progressive disclosure**: the full skill content only loads when needed,
+    preventing context bloat.
+  - Hermes can analyze your workflow and turn repeated tasks into skills automatically.
+  - Skills update with feedback as you use them.
+</Expandable>
+
+## Pillar 3: Soul
+
+The `soul.md` file shapes the **personality** of the assistant. Six different Hermes agents can
+each have a different vibe — concise, sarcastic, formal, whatever you want. The soul also evolves
+over time based on feedback.
+
+<Note>
+  Unlike skills, the soul file is just plain markdown — **no YAML front matter required.**
+</Note>
+
+## Pillar 4: Crons
+
+Crons turn Hermes from reactive into **proactive scheduled automation**, while keeping the full
+agentic loop intact. Just say it in natural language:
+
+> "Every morning at 6 AM, do X, Y, Z."
+
+Hermes creates the cron and runs a **fresh, isolated session** at that time, then sends the
+results back to the original chat.
+
+| Option | What it does |
+| --- | --- |
+| `CONTEXTFROM` | Pass one job's output into another. |
+| `WORKDIR` | Run tools from a specific project folder. |
+| `NOAGENT` | Run a script *without* the agentic harness loop — just the script, no agent reasoning. |
+
+<Warning>
+  Cron sessions **cannot** recursively create more cron jobs, so their prompts need to be
+  self-contained.
+</Warning>
+
+This maps to the **WAT framework**: **W**orkflow, **A**gent, **T**ools. `NOAGENT` mode deploys
+just the workflow — like deploying a Python script on Modal without the agent layer.
+
+## Pillar 5: The Self-Improving Loop
+
+Hermes improves when useful experience gets persisted as memory, skills, and searchable history.
+
+<Steps>
+  <Step title="Do the work">
+    Hermes completes the task with you.
+  </Step>
+  <Step title="The agent learns">
+    Save the important takeaways to memory.
+  </Step>
+  <Step title="Turn steps into skills">
+    Repeatable processes become reusable skills.
+  </Step>
+  <Step title="Search past sessions">
+    The agent pulls from history when context matters.
+  </Step>
+  <Step title="Repeat">
+    Each cycle makes the next one sharper.
+  </Step>
+</Steps>
+
+<Warning>
+  Automatic does not mean magic. The loop works best when you **correct Hermes**, ask it to
+  **save things to memory**, and let it **create and update skills** after complex work.
+</Warning>
+
+## Honorable mention: the context file (`agents.md`)
+
+`agents.md` is the project-level context file — the equivalent of `claude.md` in Claude Code or
+`AGENTS.md` in Codex. It describes the overall project goal and structure for a contained working
+environment. This is most relevant when using Hermes in the terminal for coding work.

@@ -1,0 +1,37 @@
+---
+title: "CLI vs Telegram"
+description: "Same agent, different cockpit — when to use the terminal and when to use the remote control"
+---
+
+Functionally, it's the **same agent** in both interfaces. Telegram does not run a weaker version.
+The difference is **visibility and control**.
+
+<Columns cols={2}>
+  <Card title="CLI is the cockpit" icon="terminal">
+    - Best for deep work: building, coding, living inside the agent.
+    - Better context window visibility.
+    - All slash commands available.
+    - Use when sitting at your computer doing high-risk work.
+  </Card>
+  <Card title="Telegram is the remote control" icon="telegram">
+    - Best for scheduled tasks, quick check-ins, on-the-go work.
+    - Less visibility into context window and session state.
+    - Auto-compaction happens under the hood as you approach token limits.
+    - Don't vibe-code hardcore apps from here — keep it to low-risk tasks.
+  </Card>
+</Columns>
+
+## An important note on context
+
+<Warning>
+  Context is **token-based, not message-based.**
+</Warning>
+
+The model always sees your system prompt, `user.md`, soul, and other context files. As you near
+the context window limit, Hermes runs **auto-compaction**. In Telegram you can't see exactly when
+this happens — which is why high-stakes work is riskier there.
+
+<Tip>
+  Rule of thumb: do high-stakes, high-precision work in the **CLI**. Use **Telegram** for
+  low-risk, on-the-go tasks and checking on your crons.
+</Tip>

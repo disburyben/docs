@@ -1,0 +1,78 @@
+---
+title: "Setting up your VPS"
+description: "Rent a server in the cloud and deploy Hermes with a one-click install on Hostinger"
+---
+
+A **VPS (virtual private server)** is a computer in the cloud you rent from a provider. You get an
+IP address and a password, then SSH in to manage files and install things. This guide uses
+**Hostinger**, which can host Hermes, n8n, OpenCode, and Claude Code side by side.
+
+<Note>
+  You can run **multiple agents on one VPS**, so a single plan goes a long way.
+</Note>
+
+## Choosing a plan
+
+<CardGroup cols={2}>
+  <Card title="Pick a KVM tier" icon="microchip">
+    KVM 1, 2, 4, or 8 set the CPU, RAM, and bandwidth. **Start with KVM 2** and scale up later if
+    needed.
+  </Card>
+  <Card title="Go annual" icon="calendar">
+    The annual plan is recommended — around **$100/year**.
+  </Card>
+</CardGroup>
+
+<Tip>
+  Use code **`NATEHURK`** on annual plans for 10% off.
+</Tip>
+
+## Configuration
+
+When you provision the server, use these settings:
+
+<Steps>
+  <Step title="Choose the OS">
+    **Ubuntu 24.04 LTS.**
+  </Step>
+  <Step title="Use the one-click Hermes deploy">
+    Hostinger offers a one-click Hermes auto-deploy option.
+  </Step>
+  <Step title="Add the free malware scanner">
+    Enable it during setup — it's free.
+  </Step>
+  <Step title="Set a memorable hostname">
+    For example, `youtube-hermes.vps`.
+  </Step>
+  <Step title="Enable daily auto-backups">
+    So a bad day never costs you your setup.
+  </Step>
+</Steps>
+
+## Two install methods
+
+<Tabs>
+  <Tab title="Docker container (recommended)">
+    Hermes lives in a containerized environment inside the VPS, installed with one click via the
+    **Docker Manager**.
+
+    <Check>
+      Docker is easier and recommended for the demo. It lets you run **multiple separated
+      agents** on one VPS, each with its own keys, memory, and tools.
+    </Check>
+  </Tab>
+  <Tab title="Root install">
+    Hermes lives directly on the VPS at the root level. You run the install command in the
+    Hostinger terminal.
+  </Tab>
+</Tabs>
+
+## Next: stay organized with Claude Code
+
+Before you onboard the agent itself, set up a Claude Code project to track everything about your
+VPS agents.
+
+<Card title="Track your agents with Claude Code" icon="folder-tree" href="/hermes/managing-agents">
+  Keep passwords, environment variables, IPs, and Docker setup in one place — the secret to
+  staying organized.
+</Card>

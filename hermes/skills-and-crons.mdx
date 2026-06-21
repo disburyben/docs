@@ -1,0 +1,64 @@
+---
+title: "Your first skill and cron"
+description: "Set up a daily backup cron and learn the two ways to build a skill"
+---
+
+Once GitHub is connected, set up a daily backup cron. Just say it in plain language:
+
+> "Every night at midnight Central Time, push changes to this GitHub repo. Build a skill around
+> this."
+
+## What Hermes does behind the scenes
+
+<Steps>
+  <Step title="Reviews existing skills">
+    It views relevant skills it already has.
+  </Step>
+  <Step title="Sets up the cron">
+    It runs terminal commands to schedule the job.
+  </Step>
+  <Step title="Creates a new skill">
+    For example, `nightly-github-sync`.
+  </Step>
+  <Step title="Updates memory.md">
+    So the new context sticks across sessions.
+  </Step>
+  <Step title="Handles timezones automatically">
+    The container runs in UTC, but Hermes self-checks Central Time so daylight savings doesn't
+    break the schedule.
+  </Step>
+</Steps>
+
+## Permission levels in Telegram
+
+When Hermes wants to run a command, it asks how to proceed:
+
+<CardGroup cols={3}>
+  <Card title="Allow once" icon="1">
+    Approve just this single command.
+  </Card>
+  <Card title="Allow for the session" icon="clock">
+    Approve for the rest of the current session.
+  </Card>
+  <Card title="Always allow" icon="infinity">
+    Approve permanently for this action.
+  </Card>
+</CardGroup>
+
+<Tip>
+  For repetitive trusted actions like committing to a repo, choose **Always Allow** so the cron
+  runs without prompts.
+</Tip>
+
+## Two paths to build a skill
+
+<Tabs>
+  <Tab title="Describe the outcome">
+    Describe what you want in natural language and let Hermes build the skill for you.
+  </Tab>
+  <Tab title="Install from the library">
+    Copy a skill URL from the skills library, paste it to Hermes, and say:
+
+    > "Install this skill and run it."
+  </Tab>
+</Tabs>
