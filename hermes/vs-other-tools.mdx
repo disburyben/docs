@@ -1,0 +1,61 @@
+---
+title: "Hermes vs Claude Code vs OpenCode"
+description: "Each tool has a clear role in the workflow — Hermes complements Claude Code, it doesn't replace it"
+---
+
+Each tool has a clear role in the workflow. Hermes does not replace Claude Code — it
+**complements** it.
+
+<Tabs>
+  <Tab title="Claude Code">
+    Anthropic's coding assistant that lives in your terminal, right next to your code.
+
+    - Used when you're sitting at the desk or laptop doing knowledge work.
+    - The daily driver for ~90% of knowledge work.
+  </Tab>
+  <Tab title="OpenCode">
+    Open source, created by Peter Steinberger (now at OpenAI), with 350,000+ GitHub stars.
+
+    - NVIDIA built **Nemo Code** on top of OpenCode as a separate enterprise stack.
+    - Best for on-the-go work and quick crons through Telegram.
+  </Tab>
+  <Tab title="Hermes">
+    Lighter, faster, and focused on self-improvement.
+
+    - Built for tinkering with open-source models like Qwen and LLaMA.
+    - More stable than OpenCode (fewer breaking updates, in Nate's experience).
+    - Best for on-the-go automation, scheduled crons, and Telegram-based work.
+  </Tab>
+</Tabs>
+
+## At a glance
+
+| | Claude Code | OpenCode | Hermes |
+| --- | --- | --- | --- |
+| **Best for** | Desk-bound knowledge work | On-the-go work & quick crons | On-the-go automation & crons |
+| **Interface** | Terminal | Terminal / Telegram | Telegram / CLI |
+| **Focus** | Coding next to your code | Flexible open-source stack | Self-improvement & stability |
+| **Models** | Claude | Many | Open-source friendly (Qwen, LLaMA) |
+
+## How to use them together
+
+All of these agents work in a **directory (file structure) that syncs to GitHub**. The trick is
+to keep one GitHub repo with your business context and skills, then point any agent at it.
+
+<Steps>
+  <Step title="Keep one source-of-truth repo">
+    Store your business context and skills in a single GitHub repository.
+  </Step>
+  <Step title="Point any agent at the repo">
+    Claude Code, Hermes, OpenCode, and Codex can all work from the same repo.
+  </Step>
+  <Step title="Let each agent adapt it">
+    Each agent understands its own naming convention (`claude.md` vs `agents.md`), so just ask it
+    to adapt the repo to its format.
+  </Step>
+</Steps>
+
+<Tip>
+  Because skills, memory, and context are all just markdown files, moving knowledge between agents
+  is as simple as copying files.
+</Tip>

@@ -1,0 +1,36 @@
+---
+title: "Maintaining Hermes over time"
+description: "Hermes is not a tool you finish setting up — it's a teammate you keep training"
+---
+
+Hermes is not a tool you finish setting up. It's a **teammate you keep training.**
+
+## Maintenance rules
+
+<AccordionGroup>
+  <Accordion icon="rotate-right" title="When the agent gets something wrong twice">
+    Correct it on the spot and tell it to update the relevant skill or memory.
+  </Accordion>
+  <Accordion icon="repeat" title="When you give the same instruction twice">
+    Ask Hermes to write a skill for it.
+  </Accordion>
+  <Accordion icon="comment-dots" title="When the agent is too verbose or off-tone">
+    Edit the `soul.md` file.
+  </Accordion>
+  <Accordion icon="clock" title="When you want a new scheduled task">
+    Build a skill and ask Hermes to schedule the cron.
+  </Accordion>
+  <Accordion icon="triangle-exclamation" title="When something breaks">
+    Check `memory.md` first. **Stale memory is the number one cause of weird agent behavior.**
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  At any time, ask Hermes to **"Read me your memory file"** or **"Read me your soul file"** to see
+  what's actually in there.
+</Tip>
+
+<Warning>
+  Stale `memory.md` is the **number one cause** of weird agent behavior. Check it first when
+  things go sideways.
+</Warning>

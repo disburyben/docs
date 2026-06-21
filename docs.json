@@ -48,6 +48,39 @@
         ]
       },
       {
+        "tab": "Hermes Agent",
+        "groups": [
+          {
+            "group": "Introduction",
+            "pages": [
+              "hermes/introduction",
+              "hermes/concepts",
+              "hermes/vs-other-tools"
+            ]
+          },
+          {
+            "group": "Setup",
+            "pages": [
+              "hermes/vps-setup",
+              "hermes/managing-agents",
+              "hermes/onboarding",
+              "hermes/github-backup",
+              "hermes/skills-and-crons"
+            ]
+          },
+          {
+            "group": "Operating Hermes",
+            "pages": [
+              "hermes/cli-vs-telegram",
+              "hermes/security",
+              "hermes/maintenance",
+              "hermes/scaling",
+              "hermes/key-takeaways"
+            ]
+          }
+        ]
+      },
+      {
         "tab": "API reference",
         "groups": [
           {

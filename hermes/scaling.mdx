@@ -1,0 +1,82 @@
+---
+title: "Scaling to multiple agents"
+description: "When and how to split into dedicated agents — without creating a mega-agent mess"
+---
+
+As you grow, you may want dedicated agents for different roles. **Don't force it.** Use the main
+one until you naturally hit the criteria below.
+
+## How to separate agents on one VPS
+
+<CardGroup cols={2}>
+  <Card title="One container each" icon="docker">
+    Each agent runs in its own Docker container.
+  </Card>
+  <Card title="Private memory & keys" icon="key">
+    Each container has its own memory, tools, and private API keys.
+  </Card>
+  <Card title="No clashes" icon="shield">
+    Containers don't share `.env` files, so keys don't clash across agents.
+  </Card>
+  <Card title="The office analogy" icon="building">
+    The VPS is the building; each agent is a separate office with its own keys.
+  </Card>
+</CardGroup>
+
+## Decision tree for a new agent
+
+<Steps>
+  <Step title="Different permissions, secrets, or tools?">
+    If **yes**, create a new agent.
+  </Step>
+  <Step title="Separate long-term memory?">
+    If **yes**, create a new agent.
+  </Step>
+  <Step title="Ongoing or repeated work (not a one-off)?">
+    If **yes**, create a new agent.
+  </Step>
+  <Step title="None of the above?">
+    Keep it inside your main personal Hermes.
+  </Step>
+</Steps>
+
+## Bad pattern vs good pattern
+
+<Columns cols={2}>
+  <Card title="Bad: the mega-agent" icon="bomb">
+    One agent with all API keys, all skills, and every cron. High confusion, high risk if it
+    breaks.
+  </Card>
+  <Card title="Good: split by vertical" icon="circle-check">
+    Split agents by vertical (marketing, finance, ops) or by platform/role. Cleaner memory, easier
+    debugging, lower risk.
+  </Card>
+</Columns>
+
+<Tip>
+  Migration is easy because skills, memory, and crons are just markdown files. Move them between
+  agents as needed.
+</Tip>
+
+## The Hermes dashboard
+
+Hermes ships with a built-in dashboard for recent sessions, connected platforms, a Kanban board,
+keys, configs, skills, and plugins.
+
+<Accordion icon="gauge" title="How to open it">
+  Tell Hermes you want to open the dashboard, and give it your VPS route and Docker container
+  setup info. Hermes will open the gateway and tunnel so you can access the local dashboard.
+
+  The first attempt may feel rough. Once it works, **save it as a skill** so future opens are just
+  "Open dashboard" plus three commands.
+</Accordion>
+
+### When it's useful
+
+- Multiple agents working on different projects (Kanban view).
+- Visualizing tasks across agents.
+- A quick way to manage crons, plugins, and configs.
+
+<Note>
+  Nate rarely uses the dashboard because most of his Hermes work happens on the go via Telegram.
+</Note>

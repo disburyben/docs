@@ -1,0 +1,44 @@
+---
+title: "Managing agents with Claude Code"
+description: "Maintain a Claude Code project to track every VPS agent's passwords, configs, and credentials"
+---
+
+Maintain a Claude Code project — for example, one called `uppit-agents` — to track every VPS agent:
+passwords, environment variables, IP addresses, Docker setup, and security notes. **This is the
+secret to staying organized.**
+
+## Why set this up
+
+<CardGroup cols={2}>
+  <Card title="One source of truth" icon="vault">
+    A centralized place for all VPS configs and credentials.
+  </Card>
+  <Card title="Self-healing" icon="heart-pulse">
+    If a Hermes agent shuts down, Claude Code can root in and help you boot it back up.
+  </Card>
+  <Card title="No memorization" icon="terminal">
+    You don't have to memorize VPS commands or terminal syntax.
+  </Card>
+  <Card title="Clear communication" icon="comments">
+    When things break, just describe what you see and let Claude Code translate.
+  </Card>
+</CardGroup>
+
+## What to track per agent
+
+<Expandable title="Per-agent checklist">
+  - Admin username and admin password (saved to a `.env` file in the project).
+  - IP address and hostname.
+  - Whether it's a Docker or root install.
+  - Tool availability, skills, and file paths.
+  - Security notes and integrations.
+</Expandable>
+
+<Warning>
+  Keep credentials in a `.env` file that is **git-ignored**. Never commit secrets to the repo,
+  even a private one.
+</Warning>
+
+<Card title="Now onboard your agent" icon="robot" href="/hermes/onboarding" horizontal>
+  With your tracking project ready, connect to Hermes and bring it online.
+</Card>

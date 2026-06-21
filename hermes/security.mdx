@@ -1,0 +1,49 @@
+---
+title: "API keys & security"
+description: "Treat Hermes like a new hire: least privilege, named keys, and a hardened VPS"
+---
+
+<Note>
+  Treat Hermes like a new employee or intern. You wouldn't hand a new hire your credit card — the
+  same rule applies here.
+</Note>
+
+## Account and key hygiene
+
+<CardGroup cols={2}>
+  <Card title="Separate accounts" icon="envelope">
+    Give each Hermes agent its own Gmail or AgentMail account, not your personal one.
+  </Card>
+  <Card title="Strict scopes" icon="lock">
+    If you must share a key, use one with very strict scopes.
+  </Card>
+  <Card title="Named keys per agent" icon="tag">
+    Use named API keys per agent (separate OpenRouter or Perplexity keys) so you can track
+    spending per agent.
+  </Card>
+  <Card title="Least privilege" icon="shield-halved">
+    Apply the principle of least privilege — only the credentials and tools needed for the job.
+  </Card>
+</CardGroup>
+
+## VPS hardening
+
+<Steps>
+  <Step title="Set up a firewall">
+    Configure a firewall in Hostinger (Nate uses one called **Upguard**).
+  </Step>
+  <Step title="Lock down access">
+    Restrict to your IP and block unused ports.
+  </Step>
+  <Step title="Ask for help">
+    Ask Hermes or Claude Code to research your environment and recommend a firewall config.
+  </Step>
+  <Step title="Automate audits">
+    Build a nightly or weekly security audit skill that checks for vulnerabilities.
+  </Step>
+</Steps>
+
+<Warning>
+  Never paste API keys into chat. Use `hermes config set KEY_NAME <value>` from inside the Docker
+  container — see [Connecting Hermes to GitHub](/hermes/github-backup#how-to-save-the-api-key-safely).
+</Warning>

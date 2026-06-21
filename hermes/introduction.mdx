@@ -1,0 +1,92 @@
+---
+title: "What is Hermes Agent"
+description: "An open-source, self-improving personal AI assistant that runs on your own infrastructure"
+---
+
+Hermes Agent is an open-source AI agent from **Noose Research**. It's MIT licensed and one of
+the fastest-growing open-source projects on GitHub. Unlike a hosted assistant, Hermes runs on
+**your own infrastructure** and grows with you over time through a self-improving loop built on
+[skills](/hermes/concepts#pillar-2-skills) and [memory](/hermes/concepts#pillar-1-memory).
+
+<Note>
+  This guide summarizes the key concepts, models, and steps for going from zero to your own
+  personal AI assistant. Credit to **Nate Herk** for the original walkthrough.
+</Note>
+
+## Where it runs
+
+Hermes is lightweight enough to run almost anywhere.
+
+<Columns cols={3}>
+  <Card title="A machine you own" icon="server">
+    A Mac Mini, a laptop, or a VPS (virtual private server).
+  </Card>
+  <Card title="Docker" icon="docker">
+    Inside a containerized environment for clean isolation.
+  </Card>
+  <Card title="Android" icon="mobile">
+    On a phone via Termux.
+  </Card>
+</Columns>
+
+## Messaging platforms
+
+Hermes can be driven through the chat apps you already use:
+
+<CardGroup cols={5}>
+  <Card title="Telegram" icon="telegram" />
+  <Card title="Discord" icon="discord" />
+  <Card title="Slack" icon="slack" />
+  <Card title="WhatsApp" icon="whatsapp" />
+  <Card title="iMessage" icon="comment" />
+</CardGroup>
+
+<Tip>
+  This guide focuses on the **Telegram** setup, which is the fastest path to an agent you can
+  talk to from anywhere.
+</Tip>
+
+## What it comes with out of the box
+
+<CardGroup cols={2}>
+  <Card title="91 built-in skills" icon="puzzle-piece">
+    Installed by default, ready to use on day one.
+  </Card>
+  <Card title="520+ community skills" icon="store">
+    Access to a skills hub, including 16 official Anthropic skills.
+  </Card>
+  <Card title="Rich capabilities" icon="wand-magic-sparkles">
+    Vision, browser automation, image generation, text-to-speech, terminal commands, and task
+    planning.
+  </Card>
+  <Card title="Voice replies" icon="microphone">
+    Hermes can respond with audio voice notes, not just text.
+  </Card>
+</CardGroup>
+
+## The mindset shift
+
+<Warning>
+  If you're confused about anything Hermes-related, **ask Hermes**.
+</Warning>
+
+Hermes can read its own documentation and figure out how to install or use new things. Drop in
+an X post link or a documentation URL and tell it to implement what you want — it will do the
+research and wire it up for you.
+
+## Where to go next
+
+<CardGroup cols={2}>
+  <Card title="The Five Pillars" icon="building-columns" href="/hermes/concepts">
+    Memory, Skills, Soul, Crons, and the Self-Improving Loop — the mental model behind everything.
+  </Card>
+  <Card title="Hermes vs other tools" icon="scale-balanced" href="/hermes/vs-other-tools">
+    How Hermes fits alongside Claude Code and OpenCode.
+  </Card>
+  <Card title="Set up your VPS" icon="server" href="/hermes/vps-setup">
+    Rent a server and deploy Hermes with a one-click install.
+  </Card>
+  <Card title="Onboard your agent" icon="robot" href="/hermes/onboarding">
+    Pick a model, connect Telegram, and say your first hello.
+  </Card>
+</CardGroup>

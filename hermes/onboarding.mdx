@@ -1,0 +1,76 @@
+---
+title: "Onboarding your Hermes agent"
+description: "Pick an inference provider and model, connect Telegram, and authorize your account"
+---
+
+Once Hermes is deployed, click **Open in Hostinger** to access the chat. Sign in with the admin
+username and password you saved during [VPS setup](/hermes/vps-setup).
+
+## Step 1: Choose an inference provider
+
+Many providers are available, but the cheapest non-open-source option is **OpenAI Codex**. This
+lets you use your existing ChatGPT subscription ($20, $100, or $200/month) instead of paying per
+API call.
+
+<Steps>
+  <Step title="Open the sign-in URL">
+    Use the URL Hermes provides.
+  </Step>
+  <Step title="Authorize access">
+    Approve the connection in your browser.
+  </Step>
+  <Step title="Copy the 9-digit code">
+    Paste it back into the terminal.
+  </Step>
+</Steps>
+
+## Step 2: Choose a model
+
+<Card title="Pick GPT-5.5" icon="microchip">
+  It offers the best balance of capability and cost for most workflows.
+</Card>
+
+## Step 3: Set up Telegram
+
+<Steps>
+  <Step title="Select Telegram">
+    Hit **space** to select Telegram, then **enter** to confirm.
+  </Step>
+  <Step title="Create a bot with BotFather">
+    In Telegram, open **BotFather** and send `/newbot`.
+  </Step>
+  <Step title="Name your bot">
+    Give the bot a name and a unique username.
+  </Step>
+  <Step title="Paste the bot token">
+    Copy the bot token and paste it into the VPS terminal.
+  </Step>
+</Steps>
+
+## Step 4: Authorize your Telegram account
+
+<Steps>
+  <Step title="Get your user ID">
+    Search for the **USERINFO** bot in Telegram and message it to get your user ID.
+  </Step>
+  <Step title="Set the home channel user">
+    Paste your user ID into the terminal as the home channel user.
+  </Step>
+  <Step title="Confirm the home channel">
+    Confirm **yes** when asked if this is the home channel.
+  </Step>
+</Steps>
+
+## Step 5: Save your setup info
+
+Hermes shows you your tool availability, settings paths, API keys location, and configuration
+paths.
+
+<Warning>
+  Copy **all** of this and paste it into your [Claude Code tracking project](/hermes/managing-agents).
+  You'll need it later when troubleshooting.
+</Warning>
+
+<Card title="Next: connect to GitHub" icon="github" href="/hermes/github-backup" horizontal>
+  The first thing every new Hermes agent should do — back up its skills, memory, and config.
+</Card>
