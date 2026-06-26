@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ranking 10 AI Full-Stack Website Development Teams (2026)</title>
+<style>
+  :root{
+    --bg:#0f1115; --panel:#171a21; --panel2:#1d212b; --ink:#e8ebf0; --muted:#9aa3b2;
+    --line:#2a2f3a; --accent:#6ea8fe; --good:#36c98b; --warn:#f0b440; --bad:#ef6f6f;
+    --chip:#222734;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1080px;margin:0 auto;padding:32px 22px 80px}
+  header.hero{padding:38px 0 18px;border-bottom:1px solid var(--line);margin-bottom:30px}
+  .kicker{color:var(--accent);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:12px}
+  h1{font-size:34px;line-height:1.2;margin:.3em 0 .25em}
+  h2{font-size:25px;margin:46px 0 14px;padding-top:14px;border-top:1px solid var(--line)}
+  h3{font-size:20px;margin:26px 0 8px}
+  .sub{color:var(--muted);max-width:760px}
+  .meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .pill{background:var(--chip);border:1px solid var(--line);color:var(--muted);
+    border-radius:999px;padding:5px 12px;font-size:13px}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:18px 0}
+  .panel.tight{padding:16px 18px}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+  th,td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+  th{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+  tbody tr:hover{background:var(--panel2)}
+  .rank{font-weight:700;color:var(--accent);font-size:17px;width:42px}
+  .score-cell{font-weight:700}
+  .num{font-variant-numeric:tabular-nums;text-align:center}
+  .bar{height:8px;border-radius:6px;background:#2a2f3a;overflow:hidden;min-width:70px}
+  .bar > i{display:block;height:100%;border-radius:6px}
+  .tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px;border:1px solid var(--line)}
+  .t-good{color:var(--good);border-color:#1f4d3a;background:#10241b}
+  .t-warn{color:var(--warn);border-color:#4d3f1f;background:#241f10}
+  .t-bad{color:var(--bad);border-color:#4d2222;background:#241010}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}h1{font-size:27px}.wrap{padding:20px 14px 60px}}
+  .scorebox{display:flex;gap:18px;flex-wrap:wrap;margin:8px 0 18px}
+  .sb{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:10px 14px;min-width:150px;flex:1}
+  .sb .lab{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .sb .val{font-size:22px;font-weight:700}
+  .sb .val small{font-size:13px;color:var(--muted);font-weight:500}
+  ul.claims{list-style:none;padding:0;margin:8px 0}
+  ul.claims li{padding:8px 0 8px 22px;border-bottom:1px dashed var(--line);position:relative}
+  ul.claims li:before{content:"";position:absolute;left:2px;top:14px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  ul.claims li.warnbullet:before{background:var(--bad)}
+  .src{display:inline-block;margin-left:4px;font-size:12px;color:var(--muted);word-break:break-all}
+  .verdict{background:var(--panel2);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:14px 18px;margin-top:14px;color:#d7dce6}
+  .teamhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .badge{font-size:13px;color:var(--muted)}
+  nav.toc{columns:2;column-gap:26px;font-size:14px}
+  nav.toc a{display:block;padding:4px 0;color:var(--ink)}
+  @media(max-width:600px){nav.toc{columns:1}}
+  .note{font-size:13.5px;color:var(--muted)}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-top:6px}
+  .legend b{color:var(--ink)}
+  code{background:var(--chip);padding:2px 6px;border-radius:5px;font-size:13px}
+  .footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+  .refcol{font-size:13.5px;line-height:1.5}
+  .refcol li{margin-bottom:6px;word-break:break-word}
+  h2 .anchor{font-size:13px;color:var(--muted);font-weight:400;margin-left:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">Market &amp; Build-Opportunity Research</div>
+  <h1>Ranking 10 AI Full-Stack Website Development Teams</h1>
+  <p class="sub">Ten productizable concepts for an "AI dev team" — a coordinated group of specialized agents and skills that builds, ships, or maintains websites and web apps — scored and ranked on <b>Demand</b>, <b>Competition</b>, and <b>Buildability</b>. Every quantitative claim links to its source.</p>
+  <div class="meta-row">
+    <span class="pill">Compiled June 2026</span>
+    <span class="pill">10 concepts &middot; 220+ sourced claims</span>
+    <span class="pill">Analyst + GitHub + HN + freelance + reviews</span>
+    <span class="pill">Composite opportunity score (max 30)</span>
+  </div>
+</header>
+
+<!-- ================= METHODOLOGY ================= -->
+<section class="panel">
+  <h3 style="margin-top:0">How to read this report</h3>
+  <p class="note">Each concept is a "team" = a grouping of specialized agents (e.g. Product Manager, Frontend, Backend, QA) plus skills/tools, aimed at one website-building job-to-be-done. Real shipping products are cited as the competitive reality for each.</p>
+  <div class="legend">
+    <span><b>Demand</b> 1&ndash;10 &mdash; size + growth + willingness-to-pay (higher = better)</span>
+    <span><b>Competition</b> 1&ndash;10 &mdash; intensity of funded incumbents (higher = <i>more</i> crowded / worse)</span>
+    <span><b>Buildability</b> 1&ndash;10 &mdash; feasibility today with current agent tech (higher = easier)</span>
+  </div>
+  <p class="note" style="margin-top:14px"><b>Composite opportunity score</b> = Demand + Buildability + (11 &minus; Competition). Max 30. This rewards big, buildable markets and penalizes crowded ones. Ties broken by Demand, then Buildability, then Competition. This is a directional decision aid, not investment advice; market-size and ARR figures are third-party estimates/projections and are sourced inline.</p>
+</section>
+
+<!-- ================= EXEC SUMMARY ================= -->
+<h2 id="summary">Executive summary</h2>
+<div class="panel">
+<p><b>The headline finding: there is no uncrowded category.</b> Every one of the ten concepts scored <b>8 or 9 out of 10 on competition</b> — each already has at least one well-funded incumbent shipping the exact "AI team" value proposition. Demand is genuine and large almost everywhere (the AI website-builder market alone is ~$3.24B in 2026 growing ~20%/yr <a href="https://www.precedenceresearch.com/ai-powered-website-builder-market">[Precedence]</a>), so the deciding variables become <b>buildability</b> and whether a <b>defensible wedge</b> exists where incumbents are weak.</p>
+<p>The two concepts that rise to the top do so by being slightly <i>less</i> saturated and squarely buildable: <b>Web QA &amp; Testing</b> and <b>Website Migration &amp; Redesign</b>. Both decompose cleanly into agent roles, attack quantifiable pain (flaky tests cost ~$2.6M/yr for a 100-engineer team <a href="https://getautonoma.com/blog/cost-of-flaky-tests">[Autonoma]</a>; 9 in 10 site migrations lose SEO traffic <a href="https://www.numentechnology.co.uk/blog/website-migration-seo-strategy">[Numen]</a>), and turn their hardest sub-problem (reliability / redirect-and-SEO preservation) into the moat. The <b>SaaS MVP Builder</b> ranks #1 on raw opportunity because demand is explosive (Lovable $200M ARR <a href="https://www.bloomberg.com/news/articles/2025-11-18/lovable-hits-200-million-arr-and-raising-funds-above-6-billion-valuation">[Bloomberg]</a>) — but it is also the bloodiest battlefield ($6.6B Lovable, ~$9B Replit), so its high score carries the highest execution risk.</p>
+<p>At the bottom, the <b>Autonomous Full Dev Team</b> ("agency in a box") has the best story and the worst odds: the very many-sequential-agents topology that makes it attractive is the one that compounds errors fastest — multi-agent systems fail 41&ndash;87% of the time in production <a href="https://www.augmentcode.com/guides/why-multi-agent-llm-systems-fail-and-how-to-fix-them">[Augment]</a> — against $26B-valued incumbents (Cognition/Devin). Great demo, not yet a defensible product.</p>
+</div>
+
+<!-- ================= RANKING TABLE ================= -->
+<h2 id="ranking">The ranking</h2>
+<div class="panel" style="overflow-x:auto">
+<table>
+<thead><tr>
+  <th>#</th><th>Team concept</th>
+  <th class="num">Demand</th><th class="num">Comp.</th><th class="num">Build</th>
+  <th class="num">Score</th><th>Opportunity</th>
+</tr></thead>
+<tbody>
+<tr><td class="rank">1</td><td><a href="#t1"><b>SaaS MVP Builder</b></a><br><span class="note">PM+Architect+FE+BE+Auth+Payments</span></td>
+  <td class="num">9</td><td class="num">9</td><td class="num">7</td><td class="num score-cell">18</td>
+  <td><div class="bar"><i style="width:60%;background:var(--good)"></i></div></td></tr>
+<tr><td class="rank">2</td><td><a href="#t5"><b>Web QA &amp; Testing</b></a><br><span class="note">TestGen+E2E+Visual+A11y+Triage</span></td>
+  <td class="num">8</td><td class="num">8</td><td class="num">7</td><td class="num score-cell">18</td>
+  <td><div class="bar"><i style="width:60%;background:var(--good)"></i></div></td></tr>
+<tr><td class="rank">3</td><td><a href="#t2"><b>Landing Page &amp; Marketing Site</b></a><br><span class="note">Brand+Copy+FE+SEO+Analytics</span></td>
+  <td class="num">8</td><td class="num">9</td><td class="num">7</td><td class="num score-cell">17</td>
+  <td><div class="bar"><i style="width:56.7%;background:var(--good)"></i></div></td></tr>
+<tr><td class="rank">4</td><td><a href="#t9"><b>Website Migration &amp; Redesign</b></a><br><span class="note">Crawl+Extract+Redesign+Replatform+QA</span></td>
+  <td class="num">8</td><td class="num">8</td><td class="num">6</td><td class="num score-cell">17</td>
+  <td><div class="bar"><i style="width:56.7%;background:var(--good)"></i></div></td></tr>
+<tr><td class="rank">5</td><td><a href="#t4"><b>Internal Tools &amp; Dashboards</b></a><br><span class="note">DataModel+CRUD UI+API+RBAC+Integrations</span></td>
+  <td class="num">8</td><td class="num">9</td><td class="num">6</td><td class="num score-cell">16</td>
+  <td><div class="bar"><i style="width:53.3%;background:var(--warn)"></i></div></td></tr>
+<tr><td class="rank">6</td><td><a href="#t8"><b>Design-to-Code</b></a><br><span class="note">Figma import+Components+Responsive+Export</span></td>
+  <td class="num">8</td><td class="num">9</td><td class="num">6</td><td class="num score-cell">16</td>
+  <td><div class="bar"><i style="width:53.3%;background:var(--warn)"></i></div></td></tr>
+<tr><td class="rank">7</td><td><a href="#t3"><b>E-commerce Store Builder</b></a><br><span class="note">Catalog+Storefront+Checkout+Inventory+Merch</span></td>
+  <td class="num">8</td><td class="num">9</td><td class="num">5</td><td class="num score-cell">15</td>
+  <td><div class="bar"><i style="width:50%;background:var(--warn)"></i></div></td></tr>
+<tr><td class="rank">8</td><td><a href="#t7"><b>Local Business / SMB Sites</b></a><br><span class="note">Template+LocalSEO+Booking+Maps/Reviews+Copy</span></td>
+  <td class="num">7</td><td class="num">9</td><td class="num">6</td><td class="num score-cell">15</td>
+  <td><div class="bar"><i style="width:50%;background:var(--warn)"></i></div></td></tr>
+<tr><td class="rank">9</td><td><a href="#t6"><b>SEO &amp; Content Sites</b></a><br><span class="note">Keyword+Writer+TechSEO+Publisher+Analytics</span></td>
+  <td class="num">6</td><td class="num">9</td><td class="num">7</td><td class="num score-cell">15</td>
+  <td><div class="bar"><i style="width:50%;background:var(--warn)"></i></div></td></tr>
+<tr><td class="rank">10</td><td><a href="#t10"><b>Autonomous Full Dev Team</b></a><br><span class="note">PM+TechLead+Engineers+QA+DevOps+Reviewer</span></td>
+  <td class="num">8</td><td class="num">9</td><td class="num">4</td><td class="num score-cell">14</td>
+  <td><div class="bar"><i style="width:46.7%;background:var(--bad)"></i></div></td></tr>
+</tbody>
+</table>
+<p class="note">Comp. = competition intensity (higher is worse). Opportunity bar = composite &divide; 30.</p>
+</div>
+
+<!-- ================= CROSS-CUTTING ================= -->
+<h2 id="findings">Cross-cutting findings</h2>
+<div class="grid2">
+  <div class="panel tight"><h3 style="margin-top:0">1. Competition is universal, not differential</h3><p class="note">All ten categories score 8&ndash;9 on competition. The base capability ("AI builds a website") is commoditized; incumbents have moved the goalpost to "ship to production." Differentiation now lives in distribution, proprietary data, and trust — not generation. <a href="https://www.nxcode.io/resources/news/lovable-vs-bolt-new-2026-ai-app-builder-comparison">[nxcode]</a></p></div>
+  <div class="panel tight"><h3 style="margin-top:0">2. Reliability is the real moat</h3><p class="note">Across QA, internal tools, e-commerce and autonomous dev, the hard 20% is the same: AI-generated code carries security flaws 40&ndash;62% of the time <a href="https://www.paperclipped.de/en/blog/ai-generated-code-security-vulnerabilities/">[src]</a>, and ~45% introduces an OWASP vuln <a href="https://www.veracode.com/blog/ai-generated-code-security-risks/">[Veracode]</a>. Whoever solves trust wins.</p></div>
+  <div class="panel tight"><h3 style="margin-top:0">3. Vertical wedges beat horizontal plays</h3><p class="note">Every winning verdict points the same way: don't fight Lovable/Retool/Shopify head-on. Pick one vertical, one stack, or one unforgiving guarantee (SEO-preserved migration, compliance-grade RBAC, accessibility-as-a-service) where incumbents are weak.</p></div>
+  <div class="panel tight"><h3 style="margin-top:0">4. One category is structurally shrinking</h3><p class="note">SEO/content sites face an eroding core thesis: AI Overviews cut top-result CTR ~58% and 60% of searches are now zero-click <a href="https://ahrefs.com/blog/ai-overviews-reduce-clicks-update/">[Ahrefs]</a>, while Google penalizes scaled AI content with 50&ndash;80% traffic drops <a href="https://www.digitalapplied.com/blog/scaled-content-abuse-google-march-update-ai-pages-decimated">[src]</a>. Demand is migrating to GEO/AEO.</p></div>
+</div>
+
+<!-- ================= GLOBAL COMMUNITY SIGNAL ================= -->
+<h2 id="signal">Global community &amp; primary-source signal</h2>
+<div class="panel">
+<p class="note" style="margin-top:0">This layer cross-checks the analyst/funding data above against <b>grassroots primary sources</b>: GitHub (hard star counts), Hacker News (Show/Launch/Ask HN threads), Indie Hackers, dev.to / practitioner blogs, Product Hunt, and freelance marketplaces (Upwork/Fiverr) plus buyer reviews (G2/Capterra/Vercel Community).</p>
+<p class="note"><b>Transparency on coverage.</b> In this run the egress policy blocked <code>reddit.com</code> (Reddit also blocks the crawler), <code>google.com</code>, <code>hn.algolia.com</code>, and direct fetches of <code>news.ycombinator.com</code> / <code>producthunt.com</code>. Consequence: <b>no Reddit permalinks could be verified</b> (so none are cited rather than fabricate them), and HN <b>upvote/comment counts are not exact</b> — HN item URLs and titles were confirmed via search, but engagement metrics are directional. GitHub data (via API) and general-web sources are fully verified.</p>
+</div>
+
+<h3>GitHub hard data — open-source traction (stars, 26 Jun 2026)</h3>
+<div class="panel" style="overflow-x:auto">
+<p class="note" style="margin-top:0">Star counts are the cleanest available popularity proxy. They show the open-source "AI dev team" pattern is simultaneously <b>proven buildable</b> and <b>heavily commoditized</b> — and reveal where the developer energy actually concentrates.</p>
+<table>
+<thead><tr><th>Concept</th><th>Notable OSS project</th><th class="num">Stars</th><th>Signal</th></tr></thead>
+<tbody>
+<tr><td>QA &amp; Testing</td><td><a href="https://github.com/browser-use/browser-use">browser-use</a></td><td class="num">100.8k</td><td>Browser-agent tooling is the hottest single repo in the set</td></tr>
+<tr><td>Design-to-Code</td><td><a href="https://github.com/abi/screenshot-to-code">abi/screenshot-to-code</a></td><td class="num">73.1k</td><td>Screenshot→code is a flagship OSS use case</td></tr>
+<tr><td>Autonomous Dev</td><td><a href="https://github.com/OpenHands/OpenHands">OpenHands</a> · <a href="https://github.com/FoundationAgents/MetaGPT">MetaGPT</a></td><td class="num">78.4k · 69.1k</td><td>"AI software company" is the most-starred concept overall</td></tr>
+<tr><td>SaaS MVP Builder</td><td><a href="https://github.com/AntonOsika/gpt-engineer">gpt-engineer</a> (→Lovable) · <a href="https://github.com/dyad-sh/dyad">dyad</a></td><td class="num">55.2k · 20.7k</td><td>OSS clones of the paid builders are abundant — thin moat</td></tr>
+<tr><td>Internal Tools</td><td><a href="https://github.com/appsmithorg/appsmith">appsmith</a> · <a href="https://github.com/ToolJet/ToolJet">ToolJet</a> · <a href="https://github.com/Budibase/budibase">budibase</a></td><td class="num">40.2k · 38.1k · 28.1k</td><td>Three mature OSS Retool alternatives already exist</td></tr>
+<tr><td>E-commerce</td><td><a href="https://github.com/medusajs/medusa">medusajs/medusa</a></td><td class="num">34.7k</td><td>Strong OSS headless-commerce base to build on</td></tr>
+<tr><td>Frameworks (all)</td><td><a href="https://github.com/microsoft/autogen">AutoGen</a> · <a href="https://github.com/crewAIInc/crewAI">CrewAI</a> · <a href="https://github.com/langchain-ai/langgraph">LangGraph</a></td><td class="num">59.3k · 54.4k · 35.8k</td><td>Orchestration plumbing for any "team" is off-the-shelf</td></tr>
+</tbody>
+</table>
+<p class="note">Takeaway: every concept already has a high-star OSS implementation or framework. Buildability is confirmed across the board — and so is commoditization. <a href="https://github.com/stackblitz/bolt.new">bolt.new</a> itself is open-source (16.4k stars, 14.7k forks, 8.2k open issues), underscoring how little the base capability is a moat.</p>
+</div>
+
+<h3>Community signal by concept</h3>
+<div class="grid2">
+  <div class="panel tight"><h4 style="margin-top:0">#1 SaaS MVP Builder — hot but backlash-prone</h4>
+  <ul class="claims">
+    <li>Canonical launch thread: Bolt.new Show HN (Oct 2024).<span class="src"><a href="https://news.ycombinator.com/item?id=41840323">news.ycombinator.com</a></span></li>
+    <li>Crowded YC field, e.g. "Launch HN: Marblism – full-stack apps from a prompt."<span class="src"><a href="https://news.ycombinator.com/item?id=41568343">news.ycombinator.com</a></span></li>
+    <li class="warnbullet">Reliability/cost backlash is visible: "Startup launch destroyed by Bolt.new's AI. 10M tokens gone."<span class="src"><a href="https://news.ycombinator.com/item?id=46321594">news.ycombinator.com</a></span></li>
+    <li>OSS clones are everywhere (gpt-engineer 55k, aider 47k, dyad 21k) — base capability commoditized.<span class="src"><a href="https://github.com/AntonOsika/gpt-engineer">github.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#2 Web QA &amp; Testing — tooling red-hot, startups HN-quiet</h4>
+  <ul class="claims">
+    <li>Tooling momentum is enormous: browser-use 100.8k stars, Stagehand 23.3k, Microsoft playwright-mcp 34.4k.<span class="src"><a href="https://github.com/browser-use/browser-use">github.com</a></span></li>
+    <li>"Vibe coding creates a QA gap" thesis recurs, e.g. "Launch HN: TesterArmy (YC P26)."<span class="src"><a href="https://news.ycombinator.com/item?id=48586299">news.ycombinator.com</a></span></li>
+    <li class="warnbullet">PMF caution: marquee QA startups (Momentic, Meticulous) are nearly absent from HN, and Octomind posted a 2026 wind-down.<span class="src"><a href="https://news.ycombinator.com/item?id=37645376">news.ycombinator.com</a></span></li>
+    <li><b>Clearest "agents actually work" signal of all 10:</b> Playwright shipped first-party Planner/Generator/Healer agents, and practitioners report 3–5× faster authoring — credible because tests self-verify (pass/fail).<span class="src"><a href="https://playwright.dev/docs/test-agents">playwright.dev</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#3 Landing Page — real demand, "generic" skepticism</h4>
+  <ul class="claims">
+    <li>Recurring demand: "Ask HN: quickest way to build a landing page?"<span class="src"><a href="https://news.ycombinator.com/item?id=43457402">news.ycombinator.com</a></span></li>
+    <li>Concrete wedge surfaced by users: an AI landing-page builder with an <b>API</b> (Framer's lacks one).<span class="src"><a href="https://news.ycombinator.com/item?id=41346076">news.ycombinator.com</a></span></li>
+    <li>Early category launch: "Show HN: AI-powered alternative to Webflow and Framer."<span class="src"><a href="https://news.ycombinator.com/item?id=40488101">news.ycombinator.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#4 Migration &amp; Redesign — the cleanest wedge</h4>
+  <ul class="claims">
+    <li>Real freelance demand: ~218 "website migration" + ~233 "WordPress migration" open Upwork jobs (snippet-sourced).<span class="src"><a href="https://www.upwork.com/freelance-jobs/website-migration/">upwork.com</a></span></li>
+    <li><b>Structural pain = export lock-in:</b> Wix has "no copy button… it is a rebuild"; Webflow won't export dynamic elements.<span class="src"><a href="https://www.digital4design.com/blog/wix-to-wordpress-migration-guide-2026/">digital4design.com</a></span></li>
+    <li class="warnbullet">Migration tools silently break sites (All-in-One WP Migration 1-star: "stuck at 80%… site completely broken").<span class="src"><a href="https://wordpress.org/support/topic/bad-product-and-customer-service/">wordpress.org</a></span></li>
+    <li><b>Supply is now emerging:</b> a multi-agent migrator already has traction — <code>ai-website-cloner-template</code> (≈21.2k stars) dispatches builder agents in parallel git worktrees, one per section, for WordPress/Webflow/Squarespace→Next.js.<span class="src"><a href="https://github.com/JCodesMore/ai-website-cloner-template">github.com</a></span></li>
+    <li>Persistent unmet demand on HN: "Ask HN: Where After WordPress?" and "Is Next.js the New WordPress?"<span class="src"><a href="https://news.ycombinator.com/item?id=41852382">news.ycombinator.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#5 Internal Tools — strongest monetization wedge</h4>
+  <ul class="claims">
+    <li>Persistent demand: recurring "Retool / ToolJet / Appsmith alternative" shopping threads on HN.<span class="src"><a href="https://news.ycombinator.com/item?id=31264880">news.ycombinator.com</a></span></li>
+    <li><b>Wedge #1 — seat pricing:</b> reviews note a 50-person team pays ~$30,000/yr just for Retool's platform.<span class="src"><a href="https://www.g2.com/products/retool/pricing">g2.com</a></span></li>
+    <li><b>Wedge #2 — lock-in:</b> "no way to export your apps as standalone code… you're rebuilding from scratch."<span class="src"><a href="https://www.superblocks.com/blog/retool-reviews">superblocks.com</a></span></li>
+    <li>Code-first anti-Retool stance already launched: "Launch HN: Creo (YC W24) – internal tools with Next.js + AI."<span class="src"><a href="https://news.ycombinator.com/item?id=39907073">news.ycombinator.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#6 Design-to-Code — highest demand, loudest complaints</h4>
+  <ul class="claims">
+    <li>Deepest freelance demand of the set: ~1,325 open Figma jobs on Upwork (snippet-sourced).<span class="src"><a href="https://www.upwork.com/freelance-jobs/figma/">upwork.com</a></span></li>
+    <li>Front-page attention: v0 "Generative UI"; OSS "Onlook" hit #1 HN &amp; #1 trending GitHub.<span class="src"><a href="https://news.ycombinator.com/item?id=44127653">news.ycombinator.com</a></span></li>
+    <li class="warnbullet"><b>Wedge — quality:</b> "no tool produces code a senior dev would ship without significant modification."<span class="src"><a href="https://www.sixtythirtyten.co/blog/from-figma-to-code-ai-design-to-dev-workflows-in-2026">sixtythirtyten.co</a></span></li>
+    <li class="warnbullet"><b>Wedge — pricing:</b> v0 credit-burn rage: "$30 in a single day just to add a couple of category pages."<span class="src"><a href="https://community.vercel.com/t/credits-are-burning-way-too-fast-under-the-new-pricing-model/20288">community.vercel.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#7 E-commerce — crowded &amp; credibility-sensitive</h4>
+  <ul class="claims">
+    <li>The platform itself entered: "Shopify launches an AI-powered store builder" (raises "why build on top?").<span class="src"><a href="https://news.ycombinator.com/item?id=44051792">news.ycombinator.com</a></span></li>
+    <li>Genuine demand for an alternative: "Ask HN: What would a developer-first alternative to Shopify look like?"<span class="src"><a href="https://news.ycombinator.com/item?id=47326306">news.ycombinator.com</a></span></li>
+    <li class="warnbullet">Practitioner consensus: AI gives a fast start but profitability still needs human product/ads work — "AI-built store alone does not convert."<span class="src"><a href="https://www.autods.com/blog/dropshipping-tips-strategies/ai-shopify-store-builder/">autods.com</a></span></li>
+    <li>Deep freelance demand (~2,959 "Shopify" + ~3,559 "e-commerce web design" open Upwork jobs, snippet-sourced); buyer wedge is Shopify's app/fee "cost-stacking."<span class="src"><a href="https://www.upwork.com/freelance-jobs/shopify/">upwork.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#8 Local / SMB — commercially crowded, HN-cold</h4>
+  <ul class="claims">
+    <li>Demand with no trusted winner: "Ask HN: Best AI website builder for small businesses?" (answers default to Wix/GoDaddy).<span class="src"><a href="https://news.ycombinator.com/item?id=47063927">news.ycombinator.com</a></span></li>
+    <li>Durable reviews are mixed: fast/beginner-friendly but "generic, hard to customize," weak export.<span class="src"><a href="https://www.producthunt.com/products/durable-ai-website-builder/reviews">producthunt.com</a></span></li>
+    <li>What actually makes money is the <b>agency/service</b> model, not autonomous agents: Indie Hackers $0→$10k MRR via referrals + manual outreach.<span class="src"><a href="https://www.indiehackers.com/post/0-to-10k-mrr-in-12-months-3-things-that-actually-moved-the-needle-for-my-design-agency-7a98c3577f">indiehackers.com</a></span></li>
+    <li>Large but generic demand (~10,276 "web design" open Upwork jobs); recurring Durable/GoDaddy gripe is generic templates + upsells + domain/export lock-in.<span class="src"><a href="https://www.trustpilot.com/review/durable.com">trustpilot.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#9 SEO &amp; Content — richest templates, worst sentiment</h4>
+  <ul class="claims">
+    <li>Richest open multi-agent template ecosystem (e.g. CrewAI "SEO-Agents" crew) = most buildable AND most commoditized.<span class="src"><a href="https://github.com/stevielkim/Seo-Agents">github.com</a></span></li>
+    <li>Real traction anecdote: an Indie Hackers maker hit 200k monthly Google clicks with AI/programmatic SEO.<span class="src"><a href="https://www.indiehackers.com/post/how-i-used-ai-seo-to-hit-200k-monthly-clicks-from-google-side-project-breakdown-342edb179d">indiehackers.com</a></span></li>
+    <li class="warnbullet">But HN openly associates the category with web spam, and Google deindexes scaled AI content.<span class="src"><a href="https://news.ycombinator.com/item?id=34628798">news.ycombinator.com</a></span></li>
+    <li>The fresher white space is GEO: "Show HN: a tool to help websites appear in AI-generated answers."<span class="src"><a href="https://news.ycombinator.com/item?id=46337875">news.ycombinator.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#10 Autonomous Dev — most attention, deepest skepticism</h4>
+  <ul class="claims">
+    <li>Most-starred concept (OpenHands 78.4k, MetaGPT 69.1k, ChatDev 33.6k) — and MetaGPT's commercial "MGX/Atoms AI dev team" claims 500k users.<span class="src"><a href="https://github.com/FoundationAgents/MetaGPT">github.com</a></span></li>
+    <li>Canonical hype→backlash arc: Devin's launch mega-thread, then "Debunking Devin."<span class="src"><a href="https://news.ycombinator.com/item?id=40008109">news.ycombinator.com</a></span></li>
+    <li class="warnbullet">Independent testing of Devin: ~85% task-failure rate; OSS creators say it's "not even close" to replacing an engineer.<span class="src"><a href="https://www.theregister.com/2025/01/23/ai_developer_devin_poor_reviews/">theregister.com</a></span></li>
+    <li>Funding ≠ approval: Factory's raise drew "self-driving startups funded out of every garage" comparisons on HN.<span class="src"><a href="https://news.ycombinator.com/item?id=45378910">news.ycombinator.com</a></span></li>
+    <li>The wedge buyers name: AI-agency MVPs already command $12K–$250K, but the #1 fear is unsupervised AI shipping insecure code — so "built-in senior QA/governance" is the opening.<span class="src"><a href="https://www.leanware.co/insights/ai-mvp-development-cost">leanware.co</a></span></li>
+  </ul></div>
+</div>
+
+<div class="panel">
+<h3 style="margin-top:0">What the community layer adds to the ranking</h3>
+<ul class="claims">
+  <li><b>HN's 2026 consensus:</b> the bottleneck is "verification capacity, not code generation" — sentiment has shifted from "is this real?" to "is this trustworthy and economical?"<span class="src"><a href="https://news.ycombinator.com/item?id=47226958">news.ycombinator.com</a></span></li>
+  <li><b>It sharpens the wedges</b> the analyst data only implied: <i>export lock-in</i> (Migration #4), <i>seat-pricing + code-ownership</i> (Internal Tools #5), and <i>maintainable code + fair pricing</i> (Design-to-Code #6) are all <b>buyer-voiced</b> complaints, not vendor spin — the strongest displacement openings in the set.<span class="src"><a href="https://www.superblocks.com/blog/retool-reviews">superblocks.com</a></span></li>
+  <li><b>It confirms the bottom of the ranking.</b> SEO/content is the most crowded <i>and</i> the most community-disliked (web-spam association), and autonomous dev draws the deepest reliability skepticism (~85% Devin failure) — corroborating their low buildability/competition-adjusted scores.<span class="src"><a href="https://www.1clickreport.com/blog/google-may-2026-core-update-programmatic-seo-dead">1clickreport.com</a></span></li>
+  <li><b>Fresh white space the incumbents don't own:</b> GEO / "appear in AI answers," and trust/verification layers for dev agents — both repeatedly named as missing.<span class="src"><a href="https://news.ycombinator.com/item?id=46337875">news.ycombinator.com</a></span></li>
+  <li><b>Two structural patterns for builders:</b> (a) the richest open template ecosystems (SEO, SaaS scaffolding, landing pages) are the <i>most buildable AND most commoditized</i> — high buildability is a moat red flag; (b) agents demonstrably work on <i>bounded, self-verifying</i> tasks (QA, design-to-code on a clean design system) and fail on long-horizon autonomy — and the strongest <i>revenue</i> anecdotes are productized-<b>service</b>/agency models ("charge for the outcome"), not autonomous tools.<span class="src"><a href="https://www.anthropic.com/engineering/multi-agent-research-system">anthropic.com</a></span></li>
+  <li><b>Limitation, stated plainly:</b> Reddit (incl. r/vibecoding, ~252k members per secondary sources) was unreachable this session, so the single richest grassroots channel is absent; HN engagement counts are directional. The scores above are unchanged — this layer corroborates rather than overturns them.<span class="src"><a href="https://github.com/e2b-dev/awesome-ai-agents">github.com</a></span></li>
+</ul>
+</div>
+
+<!-- ================= TOC ================= -->
+<h2 id="detail">Detailed analysis by team</h2>
+<div class="panel">
+<nav class="toc">
+  <a href="#t1">1 &middot; SaaS MVP Builder Team</a>
+  <a href="#t5">2 &middot; Web QA &amp; Testing Team</a>
+  <a href="#t2">3 &middot; Landing Page &amp; Marketing Site Team</a>
+  <a href="#t9">4 &middot; Website Migration &amp; Redesign Team</a>
+  <a href="#t4">5 &middot; Internal Tools &amp; Dashboard Team</a>
+  <a href="#t8">6 &middot; Design-to-Code Team</a>
+  <a href="#t3">7 &middot; E-commerce Store Builder Team</a>
+  <a href="#t7">8 &middot; Local Business / SMB Website Team</a>
+  <a href="#t6">9 &middot; SEO &amp; Content Site Team</a>
+  <a href="#t10">10 &middot; Autonomous Full Dev Team</a>
+</nav>
+<p class="note" style="margin-top:14px">See also: <a href="#signal"><b>Global community &amp; primary-source signal</b></a> (GitHub stars, Hacker News, Indie Hackers, freelance marketplaces, buyer reviews).</p>
+</div>
+
+<!-- ====== TEAM 1 SaaS ====== -->
+<div class="panel" id="t1">
+  <div class="teamhead"><h3 style="margin:0">#1 &middot; SaaS MVP Builder Team</h3><span class="badge">PM &middot; Architect &middot; Frontend &middot; Backend &middot; Auth &middot; Payments &middot; DB &middot; QA</span></div>
+  <p class="note">Takes a prompt and ships a full-stack SaaS MVP with auth, database and billing. Comparables: Lovable, Bolt.new, Replit Agent.</p>
+  <div class="scorebox">
+    <div class="sb"><div class="lab">Demand</div><div class="val">9<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Competition</div><div class="val">9<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Buildability</div><div class="val">7<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Composite</div><div class="val" style="color:var(--good)">18<small>/30</small></div></div>
+  </div>
+  <h4>Demand <span class="tag t-good">9/10</span></h4>
+  <ul class="claims">
+    <li>AI code-tools market ~$7.37B (2025) &rarr; ~$9.35B (2026) &rarr; $29.96B (2031) at 26.23% CAGR.<span class="src"><a href="https://www.mordorintelligence.com/industry-reports/artificial-intelligence-code-tools-market">mordorintelligence.com</a></span></li>
+    <li>Lovable (direct comparable) hit $200M ARR by Nov 2025 — $100M in its first 8 months.<span class="src"><a href="https://www.bloomberg.com/news/articles/2025-11-18/lovable-hits-200-million-arr-and-raising-funds-above-6-billion-valuation">bloomberg.com</a></span></li>
+    <li>Replit grew annualized revenue $2.8M &rarr; $150M in under a year and targets $1B ARR by end-2026 on 40M+ users.<span class="src"><a href="https://getlatka.com/companies/replit.com">getlatka.com</a></span></li>
+    <li>Bolt.new went $0 &rarr; $20M ARR in ~2 months, $40M by Mar 2025, 7M+ users by Dec 2025.<span class="src"><a href="https://sacra.com/c/bolt-new/">sacra.com</a></span></li>
+    <li>~63% of "vibe-coding" users are non-developers (Lovable reports 60%), expanding the buyer base far beyond engineers.<span class="src"><a href="https://www.taskade.com/blog/state-of-vibe-coding">taskade.com</a></span></li>
+    <li>Lovable reports 100,000+ new projects/day with traffic up ~48% month-over-month into early 2026.<span class="src"><a href="https://www.similarweb.com/website/lovable.app/">similarweb.com</a></span></li>
+  </ul>
+  <h4>Competition <span class="tag t-bad">9/10 intensity</span></h4>
+  <ul class="claims">
+    <li>Lovable raised $330M Series B at a $6.6B valuation (Dec 2025); $552M total raised.<span class="src"><a href="https://techcrunch.com/2025/12/18/vibe-coding-startup-lovable-raises-330m-at-a-6-6b-valuation/">techcrunch.com</a></span></li>
+    <li>Replit raised $250M at a $3B valuation (Sep 2025), reportedly rising toward ~$9B.<span class="src"><a href="https://www.bloomberg.com/news/articles/2025-09-10/ai-coding-startup-replit-valued-at-3-billion-with-new-funding">bloomberg.com</a></span></li>
+    <li>Bolt/StackBlitz raised a $105.5M Series B (~$700M val.), $135M total, and launched "Bolt Cloud" to own the full stack.<span class="src"><a href="https://sacra.com/c/bolt-new/">sacra.com</a></span></li>
+    <li>Analysts already frame 2026 as AI-coding "platform wars" with each tool staking distinct positioning.<span class="src"><a href="https://medium.com/@aftab001x/the-2026-ai-coding-platform-wars-replit-vs-windsurf-vs-bolt-new">medium.com</a></span></li>
+    <li>Moats are real: bundled infra (auth/DB/billing/deploy) + high switching costs + distribution.<span class="src"><a href="https://www.taskade.com/blog/state-of-vibe-coding">taskade.com</a></span></li>
+    <li>Top-of-funnel is expensive: Cursor ~25.5M and Replit ~20.9M monthly visits.<span class="src"><a href="https://www.similarweb.com/website/bolt.new/competitors/">similarweb.com</a></span></li>
+  </ul>
+  <h4>Buildability <span class="tag t-warn">7/10</span></h4>
+  <ul class="claims">
+    <li>Frontier models now sustain long-horizon SWE: Claude Opus 4.5/4.6 hit ~80%+ SWE-bench Verified with 1M-token context.<span class="src"><a href="https://www.anthropic.com/news/claude-opus-4-6">anthropic.com</a></span></li>
+    <li>Multi-agent orchestration is productized: Claude Code subagents / Agent Teams map directly to a PM/FE/BE/QA crew.<span class="src"><a href="https://www.developersdigest.tech/blog/claude-code-agent-teams-subagents-2026">developersdigest.tech</a></span></li>
+    <li>Mature frameworks (LangGraph — Klarna/Uber/JPMorgan; CrewAI — ~60% of Fortune 500) supply state/routing/tracing.<span class="src"><a href="https://markaicode.com/vs/langgraph-vs-crewai-multi-agent-production/">markaicode.com</a></span></li>
+    <li>The Stripe/auth/DB integration pattern is well-trodden via production boilerplates, lowering the "billing" build cost.<span class="src"><a href="https://www.aibuilderclub.com/blog/claude-code-agent-teams-guide">aibuilderclub.com</a></span></li>
+    <li class="warnbullet"><b>Hard part:</b> 40&ndash;62% of AI-generated code carries security flaws and 1 in 5 vibe-coded orgs hit systemic issues (auth bypass, hardcoded keys) — needs heavy guardrails.<span class="src"><a href="https://www.paperclipped.de/en/blog/ai-generated-code-security-vulnerabilities/">paperclipped.de</a></span></li>
+  </ul>
+  <div class="verdict"><b>Verdict.</b> Explosive, multi-billion-dollar demand with the fastest ARR ramps in software history — and the bloodiest field, with $6.6B/$9B/$700M incumbents pouring hundreds of millions into integrated infra and distribution. Buildable today, but stateful billing, secure deploy, and multi-agent reliability are the genuinely hard parts. Win by entering narrow (a vertical or a trust/security/compliance wedge), not as "another vibe-coder."</div>
+</div>
+
+<!-- ====== TEAM 2 (rank 2) QA ====== -->
+<div class="panel" id="t5">
+  <div class="teamhead"><h3 style="margin:0">#2 &middot; Web QA &amp; Testing Team</h3><span class="badge">Test-gen &middot; E2E/Playwright &middot; Visual regression &middot; Accessibility &middot; Bug triage</span></div>
+  <p class="note">Tests and hardens web apps. Comparables: QA Wolf, Meticulous, Momentic, Reflect, Tricentis/Testim.</p>
+  <div class="scorebox">
+    <div class="sb"><div class="lab">Demand</div><div class="val">8<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Competition</div><div class="val">8<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Buildability</div><div class="val">7<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Composite</div><div class="val" style="color:var(--good)">18<small>/30</small></div></div>
+  </div>
+  <h4>Demand <span class="tag t-good">8/10</span></h4>
+  <ul class="claims">
+    <li>Software testing &amp; QA services market ~$50.7B (2026) &rarr; $107.2B (2033) at 11.5% CAGR.<span class="src"><a href="https://www.coherentmarketinsights.com/industry-reports/software-testing-and-qa-services-market">coherentmarketinsights.com</a></span></li>
+    <li>The faster-growing automation-testing slice is ~$21.5B (2025) at 16.5&ndash;16.7% CAGR.<span class="src"><a href="https://www.mordorintelligence.com/industry-reports/automation-testing-market">mordorintelligence.com</a></span></li>
+    <li>Test maintenance/flakiness consumes ~40&ndash;50% of QA team time (60&ndash;70% for some) — recurring, addressable labor.<span class="src"><a href="https://medium.com/qa-flow/the-hidden-test-automation-maintenance-cost-consuming-50-of-qa-time-a8a462cd9084">medium.com/qa-flow</a></span></li>
+    <li>Flaky tests cost ~$120K/yr (20-eng team) to ~$2.6M/yr (100-person); prevalence rose 10%&rarr;26% of teams.<span class="src"><a href="https://getautonoma.com/blog/cost-of-flaky-tests">getautonoma.com</a></span></li>
+    <li>Legally-forced demand: 5,000+ accessibility lawsuits in 2025 (+37% YoY) and a DOJ WCAG 2.1 AA mandate effective Apr 2026.<span class="src"><a href="https://www.prnewswire.com/news-releases/2025-mid-year-report-ada-website-accessibility-lawsuits-surge-37-as-litigation-expands-nationwide-302541655.html">prnewswire.com</a></span></li>
+    <li>Proven willingness to pay: QA Wolf engagements run ~$72K&ndash;$126K/yr (~$40/test/month).<span class="src"><a href="https://bug0.com/knowledge-base/qa-wolf-pricing">bug0.com</a></span></li>
+  </ul>
+  <h4>Competition <span class="tag t-warn">8/10 intensity</span></h4>
+  <ul class="claims">
+    <li>QA Wolf raised a $36M Series B (~$57M total), 130+ customers — scaled incumbent in the exact niche.<span class="src"><a href="https://www.prnewswire.com/news-releases/qa-wolf-raises-36-million-series-b-and-opens-waitlist-for-android-and-ios-test-automation-302204038.html">prnewswire.com</a></span></li>
+    <li>Momentic raised a $15M Series A (Nov 2025) spanning E2E, visual, API and accessibility — overlaps all five sub-agents.<span class="src"><a href="https://momentic.ai/blog/seed-round">momentic.ai</a></span></li>
+    <li>Meticulous (YC, $4M seed, Coatue) auto-generates visual/regression tests from recorded sessions.<span class="src"><a href="https://www.meticulous.ai/blog/meticulous-announces-4m-seed-round">meticulous.ai</a></span></li>
+    <li>2026 trackers count 22+ emerging AI QA platforms — heavy startup saturation.<span class="src"><a href="https://quashbugs.com/blog/new-ai-testing-tools-emerging">quashbugs.com</a></span></li>
+    <li>Incumbents consolidating: Tricentis acquired Testim (Mar 2025) and Virtuoso (Oct 2025); top-10 vendors hold ~half of revenue.<span class="src"><a href="https://www.mordorintelligence.com/industry-reports/automation-testing-market">mordorintelligence.com</a></span></li>
+    <li>Tooling moat is thin: Playwright + its AI/MCP self-healing ecosystem is free and overtaking Selenium/Cypress.<span class="src"><a href="https://testdino.com/blog/playwright-ai-ecosystem">testdino.com</a></span></li>
+  </ul>
+  <h4>Buildability <span class="tag t-warn">7/10</span></h4>
+  <ul class="claims">
+    <li>Mature, free primitives: Playwright is the default cross-browser E2E/trace/API foundation for new projects.<span class="src"><a href="https://testdino.com/blog/playwright-ai-ecosystem">testdino.com</a></span></li>
+    <li>LLM test generation works but isn't perfect: GPT-4 &rarr; Playwright scripts at ~78% first-pass accuracy (human loop still needed).<span class="src"><a href="https://www.nxcode.io/resources/news/stagehand-vs-browser-use-vs-playwright-ai-browser-automation-2026">nxcode.io</a></span></li>
+    <li class="warnbullet">Autonomous browser agents lag scripted tests: ~72&ndash;78% WebVoyager task completion vs ~98% hand-written Playwright.<span class="src"><a href="https://www.digitalapplied.com/blog/browser-automation-ai-agents-playwright-stagehand-2026">digitalapplied.com</a></span></li>
+    <li>Maintenance/flakiness is the central engineering challenge — and therefore the durable differentiator.<span class="src"><a href="https://medium.com/qa-flow/the-hidden-test-automation-maintenance-cost-consuming-50-of-qa-time-a8a462cd9084">medium.com/qa-flow</a></span></li>
+    <li>Self-healing is feasible but partial: ~75%+ success on selector-related failures via DOM/a11y-tree approaches.<span class="src"><a href="https://testdino.com/blog/playwright-ai-ecosystem">testdino.com</a></span></li>
+  </ul>
+  <div class="verdict"><b>Verdict.</b> A large, fast-growing market with concrete six-to-seven-figure pain and legally-forced accessibility spend, plus proven ~$90K/yr contracts. Slightly less crowded (8/10) than the builder categories, and buildable on free primitives. The moat lives in the hard 20% — reliability, flake-resistance, maintenance — where agents still trail deterministic scripts. Strong #2; win specifically on reliability/maintenance or accessibility-compliance-as-a-service.</div>
+</div>
+
+<!-- ====== TEAM 3 (rank 3) Landing ====== -->
+<div class="panel" id="t2">
+  <div class="teamhead"><h3 style="margin:0">#3 &middot; Landing Page &amp; Marketing Site Team</h3><span class="badge">Brand/Designer &middot; Copywriter &middot; Frontend &middot; SEO &middot; Analytics</span></div>
+  <p class="note">Produces high-converting marketing pages and small sites. Comparables: Framer AI, Durable, Unbounce, Relume.</p>
+  <div class="scorebox">
+    <div class="sb"><div class="lab">Demand</div><div class="val">8<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Competition</div><div class="val">9<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Buildability</div><div class="val">7<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Composite</div><div class="val" style="color:var(--good)">17<small>/30</small></div></div>
+  </div>
+  <h4>Demand <span class="tag t-good">8/10</span></h4>
+  <ul class="claims">
+    <li>AI website-builder market ~$3.24B (2026) &rarr; $17.43B (2035) at ~20.5% CAGR.<span class="src"><a href="https://www.precedenceresearch.com/ai-powered-website-builder-market">precedenceresearch.com</a></span></li>
+    <li>The dedicated landing-page-builder sub-market is ~$694M&ndash;$820M (2026) &rarr; ~$2.25B (2035) at ~15.8% CAGR.<span class="src"><a href="https://www.futuremarketinsights.com/reports/landing-page-builders-market">futuremarketinsights.com</a></span></li>
+    <li>58% of small businesses now use generative AI (up from 23% in 2023); SMEs hold ~49% of builder revenue.<span class="src"><a href="https://www.precedenceresearch.com/ai-powered-website-builder-market">precedenceresearch.com</a></span></li>
+    <li>Willingness to pay: ~$600/yr ARPU (~$1,200 for e-commerce); 93% keep investing, 62% increasing spend.<span class="src"><a href="https://www.custommarketinsights.com/report/ai-powered-website-builder-market/">custommarketinsights.com</a></span></li>
+    <li>Market-expanding, not just shifting: ~93&ndash;95% of Hostinger Horizons users are first-time builders; ~0.8 days to publish.<span class="src"><a href="https://www.hostinger.com/blog/ai-website-builder-statistics">hostinger.com</a></span></li>
+    <li>SMBs allocate ~7.7%+ of revenue to marketing — a real budget pool high-converting pages tap.<span class="src"><a href="https://faststrat.ai/how-much-should-smb-spend-on-marketing/">faststrat.ai</a></span></li>
+  </ul>
+  <h4>Competition <span class="tag t-bad">9/10 intensity</span></h4>
+  <ul class="claims">
+    <li>Framer raised $100M Series D (Aug 2025) at $2B, crossed $50M ARR, ~500K MAU.<span class="src"><a href="https://siliconangle.com/2025/08/28/professional-website-design-platform-framer-raises-100m-2b-valuation/">siliconangle.com</a></span></li>
+    <li>Durable claims 3M+ business owners served — large SMB distribution already locked up.<span class="src"><a href="https://genesysgrowth.com/blog/unbounce-vs-framer-ai-vs-durable">genesysgrowth.com</a></span></li>
+    <li>Adjacent giants expand in trivially: Lovable ~$400M ARR (Feb 2026); v0 4M+ users (Vercel $300M @ $9.3B).<span class="src"><a href="https://www.nxcode.io/resources/news/lovable-vs-bolt-new-2026-ai-app-builder-comparison">nxcode.io</a></span></li>
+    <li>10+ established "best of 2026" landing-page tools indicate heavy saturation with low switching friction.<span class="src"><a href="https://www.perspective.co/article/ai-landing-page-builder">perspective.co</a></span></li>
+    <li>Incumbents bundle every "team" role (copy/design/SEO/hosting) into one product, e.g. Framer.<span class="src"><a href="https://www.framer.com/ai/">framer.com</a></span></li>
+  </ul>
+  <h4>Buildability <span class="tag t-warn">7/10</span></h4>
+  <ul class="claims">
+    <li>Multi-agent design&rarr;code&rarr;deploy pipelines are an active, demonstrated 2026 research area.<span class="src"><a href="https://arxiv.org/pdf/2512.06046">arxiv.org</a></span></li>
+    <li>Off-the-shelf orchestration exists (Mastra, CrewAI, AutoGen) for a Brand/Copy/FE/SEO/Analytics crew.<span class="src"><a href="https://is4.ai/blog/our-blog-1/top-12-multi-agent-ai-frameworks-2026-335">is4.ai</a></span></li>
+    <li class="warnbullet">Design taste is the hardest gap — AI output trends generic ("every Wix page looks like a Wix page").<span class="src"><a href="https://www.perspective.co/article/ai-landing-page-builder">perspective.co</a></span></li>
+    <li>Code fidelity has matured (Design2Code / Figma-to-React), reducing frontend-agent risk.<span class="src"><a href="https://www.replay.build/blog/the-best-ai-coding-agents-for-frontend-development-in-2026">replay.build</a></span></li>
+    <li class="warnbullet">Conversion lift needs a real A/B feedback loop; one-shot generation can't guarantee it.<span class="src"><a href="https://unicornplatform.com/blog/landing-page-conversion-optimization-in-2026/">unicornplatform.com</a></span></li>
+  </ul>
+  <div class="verdict"><b>Verdict.</b> Large, double-digit-CAGR market with proven SMB willingness to pay — but one of the most saturated corners of AI tooling (Framer $2B, Lovable $6.6B, Vercel/v0 $9.3B, Durable 3M+). Generation is commoditized; moats now live in distribution, brand, and conversion data. Technically shippable; viable only with a sharp wedge (vertical niche, agency-replacement workflow, or proprietary conversion data).</div>
+</div>
+
+<!-- ====== TEAM 4 (rank 4) Migration ====== -->
+<div class="panel" id="t9">
+  <div class="teamhead"><h3 style="margin:0">#4 &middot; Website Migration &amp; Redesign Team</h3><span class="badge">Crawl/Audit &middot; Content extract &middot; Redesign &middot; Replatform/Code-migrate &middot; QA</span></div>
+  <p class="note">Modernizes and migrates existing sites (e.g. WordPress &rarr; Next.js). Comparables: Builder.io, Webflow AI, Wix, migration agencies.</p>
+  <div class="scorebox">
+    <div class="sb"><div class="lab">Demand</div><div class="val">8<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Competition</div><div class="val">8<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Buildability</div><div class="val">6<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Composite</div><div class="val" style="color:var(--good)">17<small>/30</small></div></div>
+  </div>
+  <h4>Demand <span class="tag t-good">8/10</span></h4>
+  <ul class="claims">
+    <li>Recurring replacement cycle: sites redesign every ~2.5&ndash;3 years (agencies as often as ~1.7).<span class="src"><a href="https://www.sixthcitymarketing.com/web-design-stats/">sixthcitymarketing.com</a></span></li>
+    <li>Web-design services market ~$55&ndash;61B (2025) growing ~8.5&ndash;10.7% CAGR.<span class="src"><a href="https://www.mordorintelligence.com/industry-reports/web-design-market">mordorintelligence.com</a></span></li>
+    <li>Replatforming budgets: ~$10K refresh &rarr; $75K+ full replatform &rarr; $150K&ndash;$500K+ enterprise.<span class="src"><a href="https://www.webstacks.com/blog/website-replatforming">webstacks.com</a></span></li>
+    <li>Agency redesigns commonly $5K&ndash;$75K+, most B2B $50K&ndash;$150K — high per-project WTP to undercut.<span class="src"><a href="https://www.webfx.com/web-design/pricing/redesign/">webfx.com</a></span></li>
+    <li>Enormous installed base: ~1.34B websites; WordPress alone powers ~42% of the web.<span class="src"><a href="https://w3techs.com/technologies/details/cm-wordpress">w3techs.com</a></span></li>
+    <li>WordPress is in its first sustained decline (~36%&rarr;~33%) as Wix/Shopify grow — an active switching wave.<span class="src"><a href="https://www.gravitykit.com/wordpress-market-share-2026/">gravitykit.com</a></span></li>
+  </ul>
+  <h4>Competition <span class="tag t-warn">8/10 intensity</span></h4>
+  <ul class="claims">
+    <li>Builder.io Visual Copilot/Fusion already converts designs and existing sites into production code (React/Next/Vue/Svelte).<span class="src"><a href="https://www.builder.io/blog/figma-to-nextjs-ai">builder.io</a></span></li>
+    <li>Wix (Harmony/Aria) and Webflow embed AI redesign and content-migration natively — squeezing third-party tools.<span class="src"><a href="https://www.cmswire.com/digital-experience/wix-unveils-ai-site-builder-for-agile-digital-experience/">cmswire.com</a></span></li>
+    <li>A mature CMS-migration / WordPress-replatforming agency ecosystem already exists.<span class="src"><a href="https://gitnation.com/contents/hand-picked-headless-cms-migration-services-2026-best-agencies-reviewed">gitnation.com</a></span></li>
+    <li>Figma-to-code is saturated with direct substitutes (Builder.io, Locofy, Anima, v0, Framer).<span class="src"><a href="https://www.aidesigner.ai/blog/figma-to-code-tools">aidesigner.ai</a></span></li>
+    <li>Defensibility lives in deep design-system/repo integration, not raw conversion.<span class="src"><a href="https://www.builder.io/blog/figma-to-nextjs-ai">builder.io</a></span></li>
+  </ul>
+  <h4>Buildability <span class="tag t-warn">6/10</span></h4>
+  <ul class="claims">
+    <li>Proven but human-gated: Google's FSE 2025 study had LLMs generate 74% of changes / ~69% of edits across 39 migrations, ~50% time saved.<span class="src"><a href="https://arxiv.org/abs/2504.09691">arxiv.org</a></span></li>
+    <li class="warnbullet">Legacy-logic fidelity is the hard part — LLMs "struggle to maintain comprehensive understanding" and "cannot be trusted" for critical systems without review.<span class="src"><a href="https://closeloop.com/blog/llms-in-legacy-system-migration/">closeloop.com</a></span></li>
+    <li class="warnbullet">SEO is unforgiving: ~9 of 10 migrations fail to improve rankings, most lose 20&ndash;50% of organic traffic, ~523-day recovery, 17% never recover.<span class="src"><a href="https://www.numentechnology.co.uk/blog/website-migration-seo-strategy">numentechnology.co.uk</a></span></li>
+    <li>But redirects are a structured, automatable problem (1:1 URL mapping + staging validation) — exactly a QA/redirects agent's job.<span class="src"><a href="https://www.digitalapplied.com/blog/seo-site-migration-2026-zero-traffic-loss-playbook">digitalapplied.com</a></span></li>
+    <li>Crawl/audit and content-extraction legs are the most tractable today; AI modernization accuracy ~93% (vs 75% manual).<span class="src"><a href="https://www.effectivesoft.com/blog/ai-legacy-code-modernization-migration.html">effectivesoft.com</a></span></li>
+  </ul>
+  <div class="verdict"><b>Verdict.</b> A large, recurring-revenue market that decomposes cleanly into agent roles, with real codegen feasibility (Google's own data: LLMs do 70%+ of migration edits) and slightly lower competition than the builder categories. The defensible play is <i>not</i> flashy redesign (commoditized) but an integrated, QA-heavy pipeline that <b>guarantees redirect/SEO preservation</b> with human-in-the-loop sign-off — turning the most unforgiving failure mode into the moat. A genuine #4 opportunity.</div>
+</div>
+
+<!-- ====== TEAM 5 (rank 5) Internal Tools ====== -->
+<div class="panel" id="t4">
+  <div class="teamhead"><h3 style="margin:0">#5 &middot; Internal Tools &amp; Dashboard Builder Team</h3><span class="badge">Data modeler &middot; CRUD UI &middot; Backend/API &middot; Auth/RBAC &middot; Integrations</span></div>
+  <p class="note">Builds internal business apps, admin panels and dashboards. Comparables: Retool AI, Appsmith, Superblocks, Budibase.</p>
+  <div class="scorebox">
+    <div class="sb"><div class="lab">Demand</div><div class="val">8<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Competition</div><div class="val">9<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Buildability</div><div class="val">6<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Composite</div><div class="val" style="color:var(--warn)">16<small>/30</small></div></div>
+  </div>
+  <h4>Demand <span class="tag t-good">8/10</span></h4>
+  <ul class="claims">
+    <li>Gartner: low-code market reaches $44.5B in 2026 (~19% CAGR); ~75% of new apps built with low-code.<span class="src"><a href="https://kissflow.com/low-code/gartner-forecasts-on-low-code-development-market/">kissflow.com</a></span></li>
+    <li>Even the conservative estimate (Mordor) puts low-code at $31.59B in 2026 — a multi-billion-dollar floor.<span class="src"><a href="https://www.mordorintelligence.com/industry-reports/low-code-development-platform-market">mordorintelligence.com</a></span></li>
+    <li>Retool-commissioned survey: IT/eng teams spend ~40% of time building/maintaining internal tools; 76% call it a distraction.<span class="src"><a href="https://www.prnewswire.com/news-releases/survey-it-and-engineering-teams-spend-40-of-their-time-building-and-maintaining-internal-tools-and-workflows-distracting-from-building-products-that-actually-drive-business-revenue-301733700.html">prnewswire.com</a></span></li>
+    <li>86% of orgs plan to increase/maintain internal-tools spend; teams build ~6.7 internal apps/year.<span class="src"><a href="https://www.prnewswire.com/news-releases/survey-it-and-engineering-teams-spend-40-of-their-time-building-and-maintaining-internal-tools-and-workflows-distracting-from-building-products-that-actually-drive-business-revenue-301733700.html">prnewswire.com</a></span></li>
+    <li>84% of enterprises already adopted low-code/no-code; ~65% to accelerate internal delivery.<span class="src"><a href="https://kissflow.com/low-code/low-code-trends-statistics/">kissflow.com</a></span></li>
+    <li>Caveat: incumbents already capture much of this TAM, so the wedge is the unmet AI-native portion.<span class="src"><a href="https://blog.tooljet.com/low-code-statistics-2026/">blog.tooljet.com</a></span></li>
+  </ul>
+  <h4>Competition <span class="tag t-bad">9/10 intensity</span></h4>
+  <ul class="claims">
+    <li>Retool hit $120M ARR (Oct 2025) at a $3.2B valuation; Amazon/Brex/Coinbase run thousands of internal apps on it.<span class="src"><a href="https://sacra.com/c/retool/">sacra.com</a></span></li>
+    <li>Retool already ships "Enterprise AppGen" + Agents with inherited SSO/RBAC/audit — the exact AI value prop.<span class="src"><a href="https://retool.com/blog/introducing-enterprise-appgen">retool.com</a></span></li>
+    <li>Open-source incumbents crowd the base layer: Appsmith raised $51M+ ($41M Series B, Insight).<span class="src"><a href="https://www.appsmith.com/blog/series-b-funding">appsmith.com</a></span></li>
+    <li>Superblocks raised $37M + a $23M Series A (May 2025) specifically for secure AI app generation.<span class="src"><a href="https://www.businesswire.com/news/home/20250520713435/en/Superblocks-Raises-$23M-to-Securely-Generate-Enterprise-Apps-in-the-Era-of-AI-Vibe-Coding">businesswire.com</a></span></li>
+    <li>Horizontal players encroach: Lovable ~$500M ARR at $6.6B, &gt;50% of Fortune 500 using it.<span class="src"><a href="https://sacra.com/c/lovable/">sacra.com</a></span></li>
+    <li>Moats favor incumbents: maintained connectors + deployed RBAC/SSO + audit + managed runtime.<span class="src"><a href="https://retool.com/blog/introducing-enterprise-appgen">retool.com</a></span></li>
+  </ul>
+  <h4>Buildability <span class="tag t-warn">6/10</span></h4>
+  <ul class="claims">
+    <li>The generation loop is proven: Retool AppGen/Agents produce queries, UI and workflows from natural language and deploy.<span class="src"><a href="https://thenewstack.io/retools-new-ai-powered-app-builder-lets-non-developers-build-enterprise-apps/">thenewstack.io</a></span></li>
+    <li class="warnbullet">Security/RBAC is the hard part: ~45% of AI-generated code introduces an OWASP vuln, ~2.7&times; human density.<span class="src"><a href="https://www.veracode.com/blog/ai-generated-code-security-risks/">veracode.com</a></span></li>
+    <li class="warnbullet">Concrete landmine: CVE-2025-48757 — Lovable generated Supabase schemas without RLS, exposing 170+ production apps.<span class="src"><a href="https://blog.vibecoder.me/security-researchers-ai-code-vulnerability-crisis">blog.vibecoder.me</a></span></li>
+    <li>AI defaults to over-broad permissions (~41% of backend code; ~33% of cloud scripts expose priv-esc) — needs deterministic guardrails.<span class="src"><a href="https://www.softwareseni.com/ai-generated-code-security-risks-why-vulnerabilities-increase-2-74x-and-how-to-prevent-them/">softwareseni.com</a></span></li>
+    <li>Connectors are a heavy, ongoing non-AI build — replicating Retool-grade coverage + managed runtime is substantial.<span class="src"><a href="https://www.superblocks.com/blog/budibase-vs-appsmith">superblocks.com</a></span></li>
+  </ul>
+  <div class="verdict"><b>Verdict.</b> Real, large demand (~$32&ndash;44B, 84% adoption, 40% of eng time burned) — but the most contested wedge, with Retool ($120M ARR), Appsmith, Superblocks and Lovable already shipping AI app-gen plus the moats (RBAC/SSO, connectors, runtimes) a newcomer must rebuild. The load-bearing differentiators are exactly where naive AI fails (the ~45% vuln rate, RLS omissions). Viable only with a sharp vertical, data-ecosystem, or security/compliance guarantee.</div>
+</div>
+
+<!-- ====== TEAM 6 (rank 6) Design-to-Code ====== -->
+<div class="panel" id="t8">
+  <div class="teamhead"><h3 style="margin:0">#6 &middot; Design-to-Code Team</h3><span class="badge">Figma/Image import &middot; Design-system/Components &middot; Responsive layout &middot; Code export</span></div>
+  <p class="note">Turns designs/screenshots into production frontend code (React/Tailwind). Comparables: Vercel v0, Builder.io, Anima, Locofy, Figma Make.</p>
+  <div class="scorebox">
+    <div class="sb"><div class="lab">Demand</div><div class="val">8<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Competition</div><div class="val">9<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Buildability</div><div class="val">6<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Composite</div><div class="val" style="color:var(--warn)">16<small>/30</small></div></div>
+  </div>
+  <h4>Demand <span class="tag t-good">8/10</span></h4>
+  <ul class="claims">
+    <li>AI code-tools market $9.35B (2026) &rarr; $29.96B (2031) at 26.23% CAGR — design-to-code sits inside it.<span class="src"><a href="https://www.mordorintelligence.com/industry-reports/artificial-intelligence-code-tools-market">mordorintelligence.com</a></span></li>
+    <li>v0 crossed 4M users, 3M+ builders, 100M+ apps generated in under a year — massive pull for the workflow.<span class="src"><a href="https://shipper.now/vercel-v0-stats/">shipper.now</a></span></li>
+    <li>v0 revenue grew $100M &rarr; $180M+ (2024&rarr;2025); Teams/Enterprise &gt;50% of revenue — strong, enterprise WTP.<span class="src"><a href="https://shipper.now/vercel-v0-stats/">shipper.now</a></span></li>
+    <li>Expensive frontend labor persists: React salaries $180K&ndash;$520K; React jobs projected +22% (667,600).<span class="src"><a href="https://standout.work/blog/react-engineers-2026">standout.work</a></span></li>
+    <li>67% of design teams and 65%+ of product teams have adopted AI codegen workflows.<span class="src"><a href="https://www.banani.co/blog/ai-design-to-code-tools">banani.co</a></span></li>
+    <li>Established price points with uptake: v0 at $20 / $30 / $100 per-seat tiers.<span class="src"><a href="https://v0.app/pricing">v0.app</a></span></li>
+  </ul>
+  <h4>Competition <span class="tag t-bad">9/10 intensity</span></h4>
+  <ul class="claims">
+    <li>Vercel raised $300M Series F at $9.3B (Sep 30 2025), funding v0 directly.<span class="src"><a href="https://sacra.com/c/vercel/">sacra.com</a></span></li>
+    <li>Builder.io raised $62.2M total incl. $20M from Microsoft's M12; Visual Copilot leads Figma-to-code.<span class="src"><a href="https://cmscritic.com/builderio-nets-20m-from-microsofts-venture-fund-what-it-means-for-the-future-of-headless-cms">cmscritic.com</a></span></li>
+    <li>Figma itself is integrating: Config 2026 launched code layers; Figma Make edits codebases and opens PRs.<span class="src"><a href="https://www.cmswire.com/digital-experience/figma-launches-code-layers-motion-at-config-2026/">cmswire.com</a></span></li>
+    <li>Anima is Figma's Dev Mode launch partner and most-installed plugin; IBM invested (Feb 2026).<span class="src"><a href="https://www.locofy.ai/figma-to-code-tool-comparison">locofy.ai</a></span></li>
+    <li>Frothy adjacent market: Lovable $400M ARR, Replit $9B, Base44 $80M exit; "37 v0 alternatives" tested in 2026.<span class="src"><a href="https://www.saastr.com/how-vercel-hit-9-3b-and-replit-hit-3b-after-a-decade-the-long-paths-to-ai-overnight-success/">saastr.com</a></span></li>
+    <li>Moats are thin and use-case-segmented (Stitch/v0/Lovable/Bolt each solve a different problem).<span class="src"><a href="https://lovable.dev/guides/lovable-vs-bolt-vs-v0">lovable.dev</a></span></li>
+  </ul>
+  <h4>Buildability <span class="tag t-warn">6/10</span></h4>
+  <ul class="claims">
+    <li>The reference stack is proven and replicable: Next.js + Tailwind + shadcn/ui (v0's architecture).<span class="src"><a href="https://www.nxcode.io/resources/news/v0-vs-bolt-vs-lovable-ai-app-builder-comparison-2025">nxcode.io</a></span></li>
+    <li class="warnbullet">Maintainability is the gap: most UI-to-code pipelines emit monolithic flat files with weak modular boundaries.<span class="src"><a href="https://aimultiple.com/design-to-code">aimultiple.com</a></span></li>
+    <li class="warnbullet">Pixel-accuracy + sound structure remain open research problems (the VSA paper exists precisely for this).<span class="src"><a href="https://arxiv.org/pdf/2512.20034">arxiv.org</a></span></li>
+    <li>Hard-coded values clutter exports; tools work best for UI-heavy work, not complex full-stack logic.<span class="src"><a href="https://www.banani.co/blog/ai-design-to-code-tools">banani.co</a></span></li>
+    <li>Design-system/token fidelity is a real differentiator but hard — exactly where Builder.io competes.<span class="src"><a href="https://www.locofy.ai/figma-to-code-tool-comparison">locofy.ai</a></span></li>
+  </ul>
+  <div class="verdict"><b>Verdict.</b> Strong, fast-growing demand and proven WTP (v0 $180M+, enterprise-heavy) — but one of the best-funded battlegrounds, with Vercel ($9.3B), Microsoft-backed Builder.io, IBM-backed Anima, and Figma itself vertically integrating. An MVP is achievable on the shadcn stack, but the value-defining problems (pixel-accuracy, maintainable component structure, design-system mapping) are unsolved and are exactly where incumbents already compete. Win on a sharp wedge (design-system fidelity for a specific stack), not general design-to-code.</div>
+</div>
+
+<!-- ====== TEAM 7 (rank 7) Ecommerce ====== -->
+<div class="panel" id="t3">
+  <div class="teamhead"><h3 style="margin:0">#7 &middot; E-commerce Store Builder Team</h3><span class="badge">Catalog &middot; Storefront &middot; Checkout/Payments &middot; Inventory &middot; Merchandising/SEO</span></div>
+  <p class="note">Builds and launches online stores. Comparables: Shopify Sidekick/Magic, Wix AI eCommerce.</p>
+  <div class="scorebox">
+    <div class="sb"><div class="lab">Demand</div><div class="val">8<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Competition</div><div class="val">9<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Buildability</div><div class="val">5<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Composite</div><div class="val" style="color:var(--warn)">15<small>/30</small></div></div>
+  </div>
+  <h4>Demand <span class="tag t-good">8/10</span></h4>
+  <ul class="claims">
+    <li>Global e-commerce sales forecast to reach $6.88T in 2026 (+7.2%), ~21% of total retail.<span class="src"><a href="https://www.shopify.com/enterprise/blog/global-ecommerce-statistics">shopify.com</a></span></li>
+    <li>Q4 2025 saw 1,067,000 new e-commerce stores created globally — the highest quarter on record.<span class="src"><a href="https://www.mobiloud.com/blog/ecommerce-platform-market-share-usa">mobiloud.com</a></span></li>
+    <li>750,000 shops used Shopify's Sidekick AI for the first time in Q3 2025 (~100M cumulative conversations).<span class="src"><a href="https://www.fool.com/earnings/call-transcripts/2025/11/27/shopify-shop-q3-2025-earnings-call-transcript/">fool.com</a></span></li>
+    <li>88% of small businesses use AI tools; 84% willing to automate marketing-content creation.<span class="src"><a href="https://newsroom.paypal-corp.com/2025-06-10-Beyond-Efficiency-Small-Businesses-Look-to-AI-for-Competitive-Edge,-New-Survey-Shows">paypal-corp.com</a></span></li>
+    <li>SBE Council survey: SMBs credit AI/digital tools as growth drivers and plan to maintain/increase investment.<span class="src"><a href="https://sbecouncil.org/2025/10/23/new-sbe-council-survey-small-businesses-confident-about-2025-year-end-performance-ai-digital-tools-and-multi-channel-strategies-driving-growth-and-competitiveness/">sbecouncil.org</a></span></li>
+    <li>Top adoption barrier is uncertainty (29% don't know what tools do / where to start) — an end-to-end "team" addresses it.<span class="src"><a href="https://www.hellorep.ai/blog/the-future-of-ai-in-ecommerce-40-statistics-on-conversational-ai-agents-for-2025">hellorep.ai</a></span></li>
+  </ul>
+  <h4>Competition <span class="tag t-bad">9/10 intensity</span></h4>
+  <ul class="claims">
+    <li>Consolidated platform layer: Shopify ~30%, Wix Stores 23%, Squarespace 16%, WooCommerce 14% (US).<span class="src"><a href="https://www.mobiloud.com/blog/ecommerce-platform-market-share-usa">mobiloud.com</a></span></li>
+    <li>Shopify posted $2.68B Q2 2025 revenue (+31% YoY) and ships native AI directly into the platform.<span class="src"><a href="https://finance.yahoo.com/news/e-commerce-platform-company-evaluation-151900022.html">finance.yahoo.com</a></span></li>
+    <li>Shopify's 2026 strategy is "agentic store management" with multi-agent workflows — occupying this exact position.<span class="src"><a href="https://wearepresta.com/shopify-ai-the-definitive-strategic-blueprint-for-2026/">wearepresta.com</a></span></li>
+    <li>The Shopify App Store had ~17,591 active apps (+51% YoY); ~87% of merchants already use apps — extreme saturation.<span class="src"><a href="https://craftberry.co/articles/shopify-app-store-statistics">craftberry.co</a></span></li>
+    <li>Deep distribution moats: incumbents own payments, hosting and the merchant relationship.<span class="src"><a href="https://www.mobiloud.com/blog/ecommerce-platform-market-share-usa">mobiloud.com</a></span></li>
+  </ul>
+  <h4>Buildability <span class="tag t-bad">5/10</span></h4>
+  <ul class="claims">
+    <li class="warnbullet">PCI DSS 4.0.1 became fully mandatory (Mar 31 2025) with complex script-inventory/CSP/SRI requirements.<span class="src"><a href="https://www.ampcuscyber.com/blogs/pci-dss-for-ecommerce/">ampcuscyber.com</a></span></li>
+    <li>Mitigation: hosted Shopify Payments / Stripe Checkout dramatically reduces (never zeroes) PCI scope.<span class="src"><a href="https://www.dwt.com/blogs/privacy--security-law-blog/2025/03/pci-faqs-card-processing-ecommerce-merchants">dwt.com</a></span></li>
+    <li class="warnbullet">Reliability/hallucination is the #1 AI adoption challenge (55%) — dangerous for checkout/pricing/inventory actions.<span class="src"><a href="https://www.mirakl.com/blog/ai-commerce-readiness-gap">mirakl.com</a></span></li>
+    <li>Agents need real-time inventory/pricing accuracy and clean structured data; legacy systems weren't built for it.<span class="src"><a href="https://www.crispidea.com/agentic-ai-retail-ecommerce-2026/">crispidea.com</a></span></li>
+    <li>Deloitte 2026: data quality remains the most-cited challenge in scaling AI — hits catalog/inventory agents directly.<span class="src"><a href="https://www.getmaxim.ai/articles/the-state-of-ai-hallucinations-in-2025-challenges-solutions-and-the-maxim-ai-advantage/">getmaxim.ai</a></span></li>
+  </ul>
+  <div class="verdict"><b>Verdict.</b> Strong, proven demand (a ~$6.9T market still adding 1M+ stores per quarter; 750K shops trying Sidekick in one quarter) — but the most defended battleground: Shopify, Wix, Squarespace and WooCommerce all ship first-party AI agents on top of a 17,000+ app ecosystem. Buildability is held back by payments compliance, real-time inventory accuracy, and hallucination on financially consequential actions. Viability hinges on going cross-platform/headless or serving an underserved segment (complex catalogs, B2B, migrations) rather than being "a worse Sidekick."</div>
+</div>
+
+<!-- ====== TEAM 8 (rank 8) Local ====== -->
+<div class="panel" id="t7">
+  <div class="teamhead"><h3 style="margin:0">#8 &middot; Local Business / SMB Website Team</h3><span class="badge">Template/Design &middot; Local SEO &middot; Booking &middot; Maps &amp; Reviews &middot; Copy</span></div>
+  <p class="note">Auto-builds sites for restaurants, salons, trades, clinics — an AI replacement for small web agencies. Comparables: Durable, B12, GoDaddy Airo, Hocoos, Wix.</p>
+  <div class="scorebox">
+    <div class="sb"><div class="lab">Demand</div><div class="val">7<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Competition</div><div class="val">9<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Buildability</div><div class="val">6<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Composite</div><div class="val" style="color:var(--warn)">15<small>/30</small></div></div>
+  </div>
+  <h4>Demand <span class="tag t-warn">7/10</span></h4>
+  <ul class="claims">
+    <li>~27% of US small businesses still have no website (down from 36% in 2020) — a large but shrinking unserved base.<span class="src"><a href="https://leadsagent.io/blog/businesses-without-website-statistics">leadsagent.io</a></span></li>
+    <li>Trades/contractors have the highest no-website rates (45&ndash;56%), confirming the target verticals are underpenetrated.<span class="src"><a href="https://www.sonatasites.com/blog/27-percent-small-businesses-no-website-2025">sonatasites.com</a></span></li>
+    <li>WTP: 36% of SMBs spend $1K&ndash;$10K on a website (median ~$5K); boutique agencies charge $6K&ndash;$35K+.<span class="src"><a href="https://leadpages.com/blog/average-cost-of-website-design-for-small-business">leadpages.com</a></span></li>
+    <li>Recurring revenue potential: maintenance/hosting/support runs $1K&ndash;$6K/yr ($50&ndash;$200/mo) per site.<span class="src"><a href="https://gruffygoat.com/blog/small-business-website-cost">gruffygoat.com</a></span></li>
+    <li>The US web-design services industry is ~$47.4B (2025) across 202,692 businesses — the spend pool to disrupt.<span class="src"><a href="https://www.ibisworld.com/united-states/industry/web-design-services/4586/">ibisworld.com</a></span></li>
+    <li class="warnbullet">Caveat: only 16% of holdouts cite cost (down from 26%); 34% say a website is "not relevant" — hard to convert.<span class="src"><a href="https://www.sonatasites.com/blog/27-percent-small-businesses-no-website-2025">sonatasites.com</a></span></li>
+  </ul>
+  <h4>Competition <span class="tag t-bad">9/10 intensity</span></h4>
+  <ul class="claims">
+    <li>GoDaddy rolled out Airo Site Designer (Sept 2025) and agentic Airo.ai with six new AI agents by Nov 2025.<span class="src"><a href="https://aboutus.godaddy.net/newsroom/news-releases/press-release-details/2025/GoDaddy-Brings-Agentic-AI-to-Small-Businesses-with-Launch-of-Airo-ai/default.aspx">godaddy.net</a></span></li>
+    <li>Wix has 282M+ users, 6.3M paid, launched agentic "Wix Harmony" (Jan 2026); 50%+ of new users use AI setup.<span class="src"><a href="https://sqmagazine.co.uk/wix-statistics/">sqmagazine.co.uk</a></span></li>
+    <li>Durable: 3M+ business owners, $20M+ raised ($14M Series A, Spark) — bundles site + CRM + invoicing + AI marketing.<span class="src"><a href="https://techcrunch.com/2023/12/12/durable-cements-14m-to-build-ai-powered-tools-for-small-businesses-in-service-industries/">techcrunch.com</a></span></li>
+    <li>B12: $28.1M raised, $8.3M revenue (2025) with built-in scheduling — another funded direct competitor.<span class="src"><a href="https://getlatka.com/companies/b12.io">getlatka.com</a></span></li>
+    <li>Hocoos already ships the exact vertical bundle (booking/SEO/ecommerce/logo) at $15/mo — commoditized and price-compressed.<span class="src"><a href="https://www.fathertech.net/hocoos-ai-website-builder-review-2025-should-you-trust-the-hype-real-pros-cons-use-cases/">fathertech.net</a></span></li>
+    <li>The AI-builder pie is only ~$1.5&ndash;3.8B (2025) yet crowded with hosting giants + VC-funded pure-plays — little white space.<span class="src"><a href="https://market.us/report/ai-powered-website-builder-market/">market.us</a></span></li>
+  </ul>
+  <h4>Buildability <span class="tag t-warn">6/10</span></h4>
+  <ul class="claims">
+    <li>Core "full site in seconds" is proven and shipping (Durable ~30s) — generation is feasible today.<span class="src"><a href="https://max-productive.ai/ai-tools/durable/">max-productive.ai</a></span></li>
+    <li class="warnbullet">The Google Business Profile API (for Maps &amp; Reviews) is a "controlled API" — approval is one of the hardest parts.<span class="src"><a href="https://almcorp.com/blog/google-business-profile-api-management-at-scale/">almcorp.com</a></span></li>
+    <li class="warnbullet">Local SEO needs continuous freshness (reviews/posts) and per-location NAP sync — maintenance is ongoing, not one-shot.<span class="src"><a href="https://slashpost.ai/blogs/google-business-profile/google-business-profile-api-documentation-2026">slashpost.ai</a></span></li>
+    <li class="warnbullet">SMB SaaS churn runs ~3&ndash;7%/month (70% in first 90 days); weak support already sinks competitors like Hocoos.<span class="src"><a href="https://www.fathertech.net/hocoos-ai-website-builder-review-2025-should-you-trust-the-hype-real-pros-cons-use-cases/">fathertech.net</a></span></li>
+    <li>Booking/scheduling and payments integrations are mature and well-trodden (Stripe, calendars).<span class="src"><a href="https://www.toolsforhumans.ai/ai-tools/b12-ai-website-builder">toolsforhumans.ai</a></span></li>
+  </ul>
+  <div class="verdict"><b>Verdict.</b> Real but maturing demand (~$47B web-design pool, 27% still website-less) where the convertible segment is shrinking and only 16% are blocked by cost. Competition is the killer (9/10): GoDaddy, Wix, Durable, B12 and Hocoos already ship the exact bundle, often at $15/mo. The hard part isn't building the site — it's the Google Business Profile approval gate, continuous local-SEO maintenance, and brutal SMB churn/support economics. Needs a sharp single-vertical wedge, not a generic "AI replaces web agencies" play.</div>
+</div>
+
+<!-- ====== TEAM 9 (rank 9) SEO ====== -->
+<div class="panel" id="t6">
+  <div class="teamhead"><h3 style="margin:0">#9 &middot; SEO &amp; Content Site Team</h3><span class="badge">Keyword research &middot; Content writer &middot; Technical/Internal-linking SEO &middot; Publisher &middot; Analytics</span></div>
+  <p class="note">Builds and grows programmatic/content websites. Comparables: Jasper, Surfer SEO, Byword, Cuppa, Writesonic.</p>
+  <div class="scorebox">
+    <div class="sb"><div class="lab">Demand</div><div class="val">6<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Competition</div><div class="val">9<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Buildability</div><div class="val">7<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Composite</div><div class="val" style="color:var(--warn)">15<small>/30</small></div></div>
+  </div>
+  <h4>Demand <span class="tag t-warn">6/10</span></h4>
+  <ul class="claims">
+    <li>Content-marketing software market ~$11B (2025) &rarr; ~$13.15B (2026) at 19.6% CAGR.<span class="src"><a href="https://www.researchandmarkets.com/reports/5782715/content-marketing-software-market-report">researchandmarkets.com</a></span></li>
+    <li>SEO software market ~$41.34B (2025) &rarr; ~$45.90B (2026) at 12.04% CAGR.<span class="src"><a href="https://www.360iresearch.com/library/intelligence/seo-software">360iresearch.com</a></span></li>
+    <li>Demand is migrating to GEO: the GEO-services market is forecast $1.01B (2025) &rarr; $7.3B (2031) at ~34% CAGR.<span class="src"><a href="https://finance.yahoo.com/news/generative-engine-optimization-geo-services-151200019.html">finance.yahoo.com</a></span></li>
+    <li>Strong WTP: Conductor survey — 97% of enterprise leaders saw positive AEO impact in 2025; 94% increasing GEO/AEO in 2026.<span class="src"><a href="https://www.businesswire.com/news/home/20260113439299/en/New-Conductor-Survey-of-Enterprise-CMOs-Shows-AEOGEO-Investment-Is-Accelerating-and-Late-Movers-Are-at-Risk">businesswire.com</a></span></li>
+    <li>Established price points: Surfer SEO $99&ndash;$999/mo; Byword $99/mo.<span class="src"><a href="https://surferseo.com/pricing/">surferseo.com</a></span></li>
+    <li class="warnbullet"><b>Structural headwind:</b> AI Overviews correlate with ~58% lower CTR for the top result; 60% of searches are now zero-click.<span class="src"><a href="https://ahrefs.com/blog/ai-overviews-reduce-clicks-update/">ahrefs.com</a></span></li>
+  </ul>
+  <h4>Competition <span class="tag t-bad">9/10 intensity</span></h4>
+  <ul class="claims">
+    <li>200+ AI SEO tools now on the market — extreme saturation.<span class="src"><a href="https://medium.com/@timsoulo/best-ai-seo-tools-for-2026-content-optimization-keyword-research-and-ai-visibility-6e9a13c354db">medium.com</a></span></li>
+    <li>Semrush reached ~$471.4M ARR (Dec 2025) with 118,000+ customers — a deep data/distribution moat.<span class="src"><a href="https://www.saastr.com/5-interesting-learnings-from-semrush-at-425000000-in-arr/">saastr.com</a></span></li>
+    <li>Ahrefs generated ~$149.1M revenue (2024) with the deepest backlink moat (30.6T+ backlinks).<span class="src"><a href="https://electroiq.com/stats/ahrefs-vs-semrush-statistics/">electroiq.com</a></span></li>
+    <li>The AI-writer niche is funded but churning: Jasper raised $131M at $1.5B; ARR fell $120M (2023) &rarr; ~$88M (2025).<span class="src"><a href="https://getlatka.com/companies/jasper.ai">getlatka.com</a></span></li>
+    <li>Near-identical comparables already ship: Byword (WordPress/Webflow programmatic), Cuppa ("thousands of pages at scale").<span class="src"><a href="https://byword.ai/programmatic_seo">byword.ai</a></span></li>
+    <li>Incumbents absorb the AI layer fast — Semrush's AI Toolkit is its fastest-growing product.<span class="src"><a href="https://digiexe.com/blog/semrush-statistics/">digiexe.com</a></span></li>
+  </ul>
+  <h4>Buildability <span class="tag t-warn">7/10</span></h4>
+  <ul class="claims">
+    <li>The component pieces (keyword research, drafting, CMS publishing, analytics) are mature and automatable today.<span class="src"><a href="https://byword.ai/">byword.ai</a></span></li>
+    <li class="warnbullet">Google penalties: the March 2026 update targeted "scaled content abuse" — sites saw 50&ndash;80% traffic drops.<span class="src"><a href="https://www.digitalapplied.com/blog/scaled-content-abuse-google-march-update-ai-pages-decimated">digitalapplied.com</a></span></li>
+    <li>Quality is the gate: surviving output must pair AI with original research and E-E-A-T signals, not pure scale.<span class="src"><a href="https://www.breaklineagency.com/guide-to-googles-scaled-content-abuse/">breaklineagency.com</a></span></li>
+    <li class="warnbullet">Even correct content faces the ~58% CTR collapse under AI Overviews — a buildable product can still fail on ROI.<span class="src"><a href="https://ahrefs.com/blog/ai-overviews-reduce-clicks-update/">ahrefs.com</a></span></li>
+    <li>Playbook is commoditized (200+ tools, free LLMs) — the moat is proprietary data + quality control, not orchestration.<span class="src"><a href="https://freddiechatt.com/ai-seo-tools/">freddiechatt.com</a></span></li>
+  </ul>
+  <div class="verdict"><b>Verdict.</b> Buildable and in a large paying market — but the most strategically endangered concept here. The core thesis (publish content sites to capture Google organic traffic) is eroding in real time (AI Overviews ~58% CTR collapse, 60% zero-click) and actively punished (50&ndash;80% drops for scaled AI content). The field is brutally saturated (200+ tools, $471M-ARR Semrush). Pursue only by leading with E-E-A-T-grade quality and GEO/AI-answer visibility — never the classic "spin up programmatic pages at scale," the single riskiest bet in SEO today.</div>
+</div>
+
+<!-- ====== TEAM 10 (rank 10) Autonomous ====== -->
+<div class="panel" id="t10">
+  <div class="teamhead"><h3 style="margin:0">#10 &middot; Autonomous Full Dev Team (Agency in a Box)</h3><span class="badge">PM &middot; Tech Lead &middot; Engineers &middot; QA &middot; DevOps &middot; Code Reviewer</span></div>
+  <p class="note">A large orchestrated team that takes a brief and delivers a complete custom web app end-to-end, including deploy. Comparables: Devin (Cognition), Factory.ai, GitHub Copilot Agent, MetaGPT/ChatDev.</p>
+  <div class="scorebox">
+    <div class="sb"><div class="lab">Demand</div><div class="val">8<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Competition</div><div class="val">9<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Buildability</div><div class="val">4<small>/10</small></div></div>
+    <div class="sb"><div class="lab">Composite</div><div class="val" style="color:var(--bad)">14<small>/30</small></div></div>
+  </div>
+  <h4>Demand <span class="tag t-good">8/10</span></h4>
+  <ul class="claims">
+    <li>Custom software-development market ~$50&ndash;66B in 2026 (Mordor $50.94B; TBRC $65.85B at 22.1% CAGR).<span class="src"><a href="https://www.thebusinessresearchcompany.com/report/custom-software-development-global-market-report">thebusinessresearchcompany.com</a></span></li>
+    <li>Gartner: AI-agent software spend reaches $206.5B (2026) and $376.3B (2027), up from $86.4B (2025).<span class="src"><a href="https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025">gartner.com</a></span></li>
+    <li>Gartner: 40% of enterprise apps will embed task-specific AI agents by end-2026 (from &lt;5% in 2025).<span class="src"><a href="https://www.gartner.com/en/newsroom/press-releases/2025-08-26-gartner-predicts-40-percent-of-enterprise-apps-will-feature-task-specific-ai-agents-by-2026-up-from-less-than-5-percent-in-2025">gartner.com</a></span></li>
+    <li>Cognition's Devin reportedly hit ~$492M ARR (13&times; from $37M in May 2025), enterprise usage +50% MoM for six months.<span class="src"><a href="https://enterprisedna.co/resources/news/cognition-devin-1-billion-25-billion-valuation-2026/">enterprisedna.co</a></span></li>
+    <li>Factory's "Droids" are used daily by hundreds of thousands of devs (Nvidia, Adobe, EY), revenue doubling MoM for six months.<span class="src"><a href="https://techcrunch.com/2026/04/16/factory-hits-1-5b-valuation-to-build-ai-coding-for-enterprises/">techcrunch.com</a></span></li>
+    <li class="warnbullet">Caution: Gartner expects &gt;40% of agentic-AI projects to be canceled by end-2027 (cost, unclear ROI, weak controls).<span class="src"><a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027">gartner.com</a></span></li>
+  </ul>
+  <h4>Competition <span class="tag t-bad">9/10 intensity</span></h4>
+  <ul class="claims">
+    <li>Cognition (Devin) raised ~$1B at a $25B pre-money valuation (May 2026), up from $10.2B eight months earlier.<span class="src"><a href="https://techcrunch.com/2026/05/27/ai-coding-startup-cognition-raises-1b-at-25b-pre-money-valuation/">techcrunch.com</a></span></li>
+    <li>Factory raised a $150M Series C at $1.5B (Apr 2026, Khosla/Sequoia/Insight/NEA) for "agent-native development."<span class="src"><a href="https://factory.ai/news/series-c">factory.ai</a></span></li>
+    <li>A multi-front war among well-capitalized rivals: Factory, Cursor, Cognition, and Anthropic's Claude Code.<span class="src"><a href="https://techcrunch.com/2026/04/16/factory-hits-1-5b-valuation-to-build-ai-coding-for-enterprises/">techcrunch.com</a></span></li>
+    <li>GitHub Copilot ships an autonomous coding agent + a GA "agent control plane" app (Jun 17 2026) — default distribution.<span class="src"><a href="https://devops.com/github-copilot-gets-its-own-app-and-agents-are-the-reason-why/">devops.com</a></span></li>
+    <li>Cognition's moat includes marquee logos (Mercedes-Benz, NASA, Goldman Sachs) and ~90% AI-written own code.<span class="src"><a href="https://thenextweb.com/news/cognition-just-raised-1-billion-at-a-26-billion-valuation-and-90-of-its-own-code-is-written-by-its-ai">thenextweb.com</a></span></li>
+    <li>Open-source commoditizes the concept: MetaGPT (~57k stars) and ChatDev (~25k) already simulate a full software company.<span class="src"><a href="https://github.com/FoundationAgents/MetaGPT">github.com/FoundationAgents/MetaGPT</a></span></li>
+  </ul>
+  <h4>Buildability <span class="tag t-bad">4/10</span></h4>
+  <ul class="claims">
+    <li class="warnbullet">Compounding errors are brutal: at 95% per-step over 10 steps, success is 59%; at 90% it's 35%; at 85% it's 20%.<span class="src"><a href="https://www.zartis.com/the-compounding-errors-problem-why-multi-agent-systems-fail-and-the-architecture-that-fixes-it/">zartis.com</a></span></li>
+    <li class="warnbullet">Multi-agent LLM systems fail ~41&ndash;86.7% of the time in production across 14 documented failure modes.<span class="src"><a href="https://www.augmentcode.com/guides/why-multi-agent-llm-systems-fail-and-how-to-fix-them">augmentcode.com</a></span></li>
+    <li class="warnbullet">Long-horizon limits: on tasks needing &gt;4 hours, agent success rates fall below 10%.<span class="src"><a href="https://www.augmentcode.com/guides/why-multi-agent-llm-systems-fail-and-how-to-fix-them">augmentcode.com</a></span></li>
+    <li class="warnbullet">SWE-bench Verified is ~95%-saturated, but ~19.78% of "solved" cases pass by coincidence/reward-hacking — scores overstate reliability.<span class="src"><a href="https://www.codesota.com/benchmark/swe-bench-verified-agentic">codesota.com</a></span></li>
+    <li><b>Tailwind:</b> METR finds agent task-time-horizons double ~every 7 months; Opus 4.6's 50% horizon is ~12 hours — feasibility rises each quarter.<span class="src"><a href="https://theaidigest.org/time-horizons">theaidigest.org</a></span></li>
+  </ul>
+  <div class="verdict"><b>Verdict.</b> The best story, the worst odds. Demand is large (a $50&ndash;66B market under a $200B+ agent-spend wave; Devin ~$492M ARR) — but it's the single most contested, best-capitalized arena (Cognition $26B, Factory $1.5B, Copilot's default distribution) and the many-sequential-agents topology compounds errors fastest (p<sup>n</sup> collapse, 41&ndash;87% failure, sub-10% past four hours). Rising METR horizons mean the window is opening, but a startup today races far better-funded incumbents on the exact unsolved dimension. A credible demo is achievable; a trustworthy deploy-included product is not yet defensible.</div>
+</div>
+
+<!-- ================= REFERENCES ================= -->
+<h2 id="sources">Sources &amp; methodology notes</h2>
+<div class="panel">
+<p class="note">All figures above are drawn from the linked third-party sources and reflect their reporting as of June 2026. Market-size and ARR/valuation figures are estimates or projections by research firms and outlets, not audited numbers, and analyst estimates frequently disagree (the report cites competing estimates where they exist). Direct fetches to a few primary sources (some Ahrefs, Search Engine Journal, and report-vendor pages) returned anti-bot 403s during research; in those cases the headline figure was taken from the search-engine result snippet of that same URL and, where possible, corroborated by an independent source. Scores are the analyst judgement of this report applied through the stated rubric, not a market consensus.</p>
+<p class="note"><b>Scoring rubric.</b> Demand, Competition and Buildability each scored 1&ndash;10 from the evidence per concept. Competition is "intensity" (higher = more crowded/worse). Composite opportunity = Demand + Buildability + (11 &minus; Competition), max 30. Ties broken by Demand, then Buildability, then Competition (lower wins).</p>
+<p class="note">Research was conducted in two passes (June 2026): (1) an analyst/funding pass — one dedicated deep-research run per concept across market-research firms, funding announcements, and product pages; and (2) a global community/primary-source pass across GitHub (star counts via API), Hacker News, Indie Hackers, dev.to/practitioner blogs, Product Hunt, freelance marketplaces (Upwork/Fiverr), and buyer reviews (G2/Capterra/Trustpilot/Vercel Community) — totalling ~280 live searches/fetches and 220+ cited claims. <b>Egress note:</b> Reddit, Google, the HN Algolia API, and direct HN/Product Hunt page fetches were blocked by the session's network policy, so no Reddit permalinks are cited and HN engagement counts are directional (item URLs/titles verified via search). GitHub and general-web sources are fully verified.</p>
+</div>
+
+<div class="footer">
+  <p><b>Ranking 10 AI Full-Stack Website Development Teams</b> &middot; Research report compiled June 26, 2026.<br>
+  Prepared as a build-opportunity decision aid. Not investment advice. Verify all third-party figures against primary sources before acting on them.</p>
+</div>
+
+</div>
+</body>
+</html>
