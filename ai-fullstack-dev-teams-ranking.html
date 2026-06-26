@@ -78,8 +78,8 @@
   <p class="sub">Ten productizable concepts for an "AI dev team" — a coordinated group of specialized agents and skills that builds, ships, or maintains websites and web apps — scored and ranked on <b>Demand</b>, <b>Competition</b>, and <b>Buildability</b>. Every quantitative claim links to its source.</p>
   <div class="meta-row">
     <span class="pill">Compiled June 2026</span>
-    <span class="pill">10 concepts &middot; ~130 sourced claims</span>
-    <span class="pill">Scoring 1&ndash;10 per dimension</span>
+    <span class="pill">10 concepts &middot; 220+ sourced claims</span>
+    <span class="pill">Analyst + GitHub + HN + freelance + reviews</span>
     <span class="pill">Composite opportunity score (max 30)</span>
   </div>
 </header>
@@ -158,6 +158,127 @@
   <div class="panel tight"><h3 style="margin-top:0">4. One category is structurally shrinking</h3><p class="note">SEO/content sites face an eroding core thesis: AI Overviews cut top-result CTR ~58% and 60% of searches are now zero-click <a href="https://ahrefs.com/blog/ai-overviews-reduce-clicks-update/">[Ahrefs]</a>, while Google penalizes scaled AI content with 50&ndash;80% traffic drops <a href="https://www.digitalapplied.com/blog/scaled-content-abuse-google-march-update-ai-pages-decimated">[src]</a>. Demand is migrating to GEO/AEO.</p></div>
 </div>
 
+<!-- ================= GLOBAL COMMUNITY SIGNAL ================= -->
+<h2 id="signal">Global community &amp; primary-source signal</h2>
+<div class="panel">
+<p class="note" style="margin-top:0">This layer cross-checks the analyst/funding data above against <b>grassroots primary sources</b>: GitHub (hard star counts), Hacker News (Show/Launch/Ask HN threads), Indie Hackers, dev.to / practitioner blogs, Product Hunt, and freelance marketplaces (Upwork/Fiverr) plus buyer reviews (G2/Capterra/Vercel Community).</p>
+<p class="note"><b>Transparency on coverage.</b> In this run the egress policy blocked <code>reddit.com</code> (Reddit also blocks the crawler), <code>google.com</code>, <code>hn.algolia.com</code>, and direct fetches of <code>news.ycombinator.com</code> / <code>producthunt.com</code>. Consequence: <b>no Reddit permalinks could be verified</b> (so none are cited rather than fabricate them), and HN <b>upvote/comment counts are not exact</b> — HN item URLs and titles were confirmed via search, but engagement metrics are directional. GitHub data (via API) and general-web sources are fully verified.</p>
+</div>
+
+<h3>GitHub hard data — open-source traction (stars, 26 Jun 2026)</h3>
+<div class="panel" style="overflow-x:auto">
+<p class="note" style="margin-top:0">Star counts are the cleanest available popularity proxy. They show the open-source "AI dev team" pattern is simultaneously <b>proven buildable</b> and <b>heavily commoditized</b> — and reveal where the developer energy actually concentrates.</p>
+<table>
+<thead><tr><th>Concept</th><th>Notable OSS project</th><th class="num">Stars</th><th>Signal</th></tr></thead>
+<tbody>
+<tr><td>QA &amp; Testing</td><td><a href="https://github.com/browser-use/browser-use">browser-use</a></td><td class="num">100.8k</td><td>Browser-agent tooling is the hottest single repo in the set</td></tr>
+<tr><td>Design-to-Code</td><td><a href="https://github.com/abi/screenshot-to-code">abi/screenshot-to-code</a></td><td class="num">73.1k</td><td>Screenshot→code is a flagship OSS use case</td></tr>
+<tr><td>Autonomous Dev</td><td><a href="https://github.com/OpenHands/OpenHands">OpenHands</a> · <a href="https://github.com/FoundationAgents/MetaGPT">MetaGPT</a></td><td class="num">78.4k · 69.1k</td><td>"AI software company" is the most-starred concept overall</td></tr>
+<tr><td>SaaS MVP Builder</td><td><a href="https://github.com/AntonOsika/gpt-engineer">gpt-engineer</a> (→Lovable) · <a href="https://github.com/dyad-sh/dyad">dyad</a></td><td class="num">55.2k · 20.7k</td><td>OSS clones of the paid builders are abundant — thin moat</td></tr>
+<tr><td>Internal Tools</td><td><a href="https://github.com/appsmithorg/appsmith">appsmith</a> · <a href="https://github.com/ToolJet/ToolJet">ToolJet</a> · <a href="https://github.com/Budibase/budibase">budibase</a></td><td class="num">40.2k · 38.1k · 28.1k</td><td>Three mature OSS Retool alternatives already exist</td></tr>
+<tr><td>E-commerce</td><td><a href="https://github.com/medusajs/medusa">medusajs/medusa</a></td><td class="num">34.7k</td><td>Strong OSS headless-commerce base to build on</td></tr>
+<tr><td>Frameworks (all)</td><td><a href="https://github.com/microsoft/autogen">AutoGen</a> · <a href="https://github.com/crewAIInc/crewAI">CrewAI</a> · <a href="https://github.com/langchain-ai/langgraph">LangGraph</a></td><td class="num">59.3k · 54.4k · 35.8k</td><td>Orchestration plumbing for any "team" is off-the-shelf</td></tr>
+</tbody>
+</table>
+<p class="note">Takeaway: every concept already has a high-star OSS implementation or framework. Buildability is confirmed across the board — and so is commoditization. <a href="https://github.com/stackblitz/bolt.new">bolt.new</a> itself is open-source (16.4k stars, 14.7k forks, 8.2k open issues), underscoring how little the base capability is a moat.</p>
+</div>
+
+<h3>Community signal by concept</h3>
+<div class="grid2">
+  <div class="panel tight"><h4 style="margin-top:0">#1 SaaS MVP Builder — hot but backlash-prone</h4>
+  <ul class="claims">
+    <li>Canonical launch thread: Bolt.new Show HN (Oct 2024).<span class="src"><a href="https://news.ycombinator.com/item?id=41840323">news.ycombinator.com</a></span></li>
+    <li>Crowded YC field, e.g. "Launch HN: Marblism – full-stack apps from a prompt."<span class="src"><a href="https://news.ycombinator.com/item?id=41568343">news.ycombinator.com</a></span></li>
+    <li class="warnbullet">Reliability/cost backlash is visible: "Startup launch destroyed by Bolt.new's AI. 10M tokens gone."<span class="src"><a href="https://news.ycombinator.com/item?id=46321594">news.ycombinator.com</a></span></li>
+    <li>OSS clones are everywhere (gpt-engineer 55k, aider 47k, dyad 21k) — base capability commoditized.<span class="src"><a href="https://github.com/AntonOsika/gpt-engineer">github.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#2 Web QA &amp; Testing — tooling red-hot, startups HN-quiet</h4>
+  <ul class="claims">
+    <li>Tooling momentum is enormous: browser-use 100.8k stars, Stagehand 23.3k, Microsoft playwright-mcp 34.4k.<span class="src"><a href="https://github.com/browser-use/browser-use">github.com</a></span></li>
+    <li>"Vibe coding creates a QA gap" thesis recurs, e.g. "Launch HN: TesterArmy (YC P26)."<span class="src"><a href="https://news.ycombinator.com/item?id=48586299">news.ycombinator.com</a></span></li>
+    <li class="warnbullet">PMF caution: marquee QA startups (Momentic, Meticulous) are nearly absent from HN, and Octomind posted a 2026 wind-down.<span class="src"><a href="https://news.ycombinator.com/item?id=37645376">news.ycombinator.com</a></span></li>
+    <li><b>Clearest "agents actually work" signal of all 10:</b> Playwright shipped first-party Planner/Generator/Healer agents, and practitioners report 3–5× faster authoring — credible because tests self-verify (pass/fail).<span class="src"><a href="https://playwright.dev/docs/test-agents">playwright.dev</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#3 Landing Page — real demand, "generic" skepticism</h4>
+  <ul class="claims">
+    <li>Recurring demand: "Ask HN: quickest way to build a landing page?"<span class="src"><a href="https://news.ycombinator.com/item?id=43457402">news.ycombinator.com</a></span></li>
+    <li>Concrete wedge surfaced by users: an AI landing-page builder with an <b>API</b> (Framer's lacks one).<span class="src"><a href="https://news.ycombinator.com/item?id=41346076">news.ycombinator.com</a></span></li>
+    <li>Early category launch: "Show HN: AI-powered alternative to Webflow and Framer."<span class="src"><a href="https://news.ycombinator.com/item?id=40488101">news.ycombinator.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#4 Migration &amp; Redesign — the cleanest wedge</h4>
+  <ul class="claims">
+    <li>Real freelance demand: ~218 "website migration" + ~233 "WordPress migration" open Upwork jobs (snippet-sourced).<span class="src"><a href="https://www.upwork.com/freelance-jobs/website-migration/">upwork.com</a></span></li>
+    <li><b>Structural pain = export lock-in:</b> Wix has "no copy button… it is a rebuild"; Webflow won't export dynamic elements.<span class="src"><a href="https://www.digital4design.com/blog/wix-to-wordpress-migration-guide-2026/">digital4design.com</a></span></li>
+    <li class="warnbullet">Migration tools silently break sites (All-in-One WP Migration 1-star: "stuck at 80%… site completely broken").<span class="src"><a href="https://wordpress.org/support/topic/bad-product-and-customer-service/">wordpress.org</a></span></li>
+    <li><b>Supply is now emerging:</b> a multi-agent migrator already has traction — <code>ai-website-cloner-template</code> (≈21.2k stars) dispatches builder agents in parallel git worktrees, one per section, for WordPress/Webflow/Squarespace→Next.js.<span class="src"><a href="https://github.com/JCodesMore/ai-website-cloner-template">github.com</a></span></li>
+    <li>Persistent unmet demand on HN: "Ask HN: Where After WordPress?" and "Is Next.js the New WordPress?"<span class="src"><a href="https://news.ycombinator.com/item?id=41852382">news.ycombinator.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#5 Internal Tools — strongest monetization wedge</h4>
+  <ul class="claims">
+    <li>Persistent demand: recurring "Retool / ToolJet / Appsmith alternative" shopping threads on HN.<span class="src"><a href="https://news.ycombinator.com/item?id=31264880">news.ycombinator.com</a></span></li>
+    <li><b>Wedge #1 — seat pricing:</b> reviews note a 50-person team pays ~$30,000/yr just for Retool's platform.<span class="src"><a href="https://www.g2.com/products/retool/pricing">g2.com</a></span></li>
+    <li><b>Wedge #2 — lock-in:</b> "no way to export your apps as standalone code… you're rebuilding from scratch."<span class="src"><a href="https://www.superblocks.com/blog/retool-reviews">superblocks.com</a></span></li>
+    <li>Code-first anti-Retool stance already launched: "Launch HN: Creo (YC W24) – internal tools with Next.js + AI."<span class="src"><a href="https://news.ycombinator.com/item?id=39907073">news.ycombinator.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#6 Design-to-Code — highest demand, loudest complaints</h4>
+  <ul class="claims">
+    <li>Deepest freelance demand of the set: ~1,325 open Figma jobs on Upwork (snippet-sourced).<span class="src"><a href="https://www.upwork.com/freelance-jobs/figma/">upwork.com</a></span></li>
+    <li>Front-page attention: v0 "Generative UI"; OSS "Onlook" hit #1 HN &amp; #1 trending GitHub.<span class="src"><a href="https://news.ycombinator.com/item?id=44127653">news.ycombinator.com</a></span></li>
+    <li class="warnbullet"><b>Wedge — quality:</b> "no tool produces code a senior dev would ship without significant modification."<span class="src"><a href="https://www.sixtythirtyten.co/blog/from-figma-to-code-ai-design-to-dev-workflows-in-2026">sixtythirtyten.co</a></span></li>
+    <li class="warnbullet"><b>Wedge — pricing:</b> v0 credit-burn rage: "$30 in a single day just to add a couple of category pages."<span class="src"><a href="https://community.vercel.com/t/credits-are-burning-way-too-fast-under-the-new-pricing-model/20288">community.vercel.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#7 E-commerce — crowded &amp; credibility-sensitive</h4>
+  <ul class="claims">
+    <li>The platform itself entered: "Shopify launches an AI-powered store builder" (raises "why build on top?").<span class="src"><a href="https://news.ycombinator.com/item?id=44051792">news.ycombinator.com</a></span></li>
+    <li>Genuine demand for an alternative: "Ask HN: What would a developer-first alternative to Shopify look like?"<span class="src"><a href="https://news.ycombinator.com/item?id=47326306">news.ycombinator.com</a></span></li>
+    <li class="warnbullet">Practitioner consensus: AI gives a fast start but profitability still needs human product/ads work — "AI-built store alone does not convert."<span class="src"><a href="https://www.autods.com/blog/dropshipping-tips-strategies/ai-shopify-store-builder/">autods.com</a></span></li>
+    <li>Deep freelance demand (~2,959 "Shopify" + ~3,559 "e-commerce web design" open Upwork jobs, snippet-sourced); buyer wedge is Shopify's app/fee "cost-stacking."<span class="src"><a href="https://www.upwork.com/freelance-jobs/shopify/">upwork.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#8 Local / SMB — commercially crowded, HN-cold</h4>
+  <ul class="claims">
+    <li>Demand with no trusted winner: "Ask HN: Best AI website builder for small businesses?" (answers default to Wix/GoDaddy).<span class="src"><a href="https://news.ycombinator.com/item?id=47063927">news.ycombinator.com</a></span></li>
+    <li>Durable reviews are mixed: fast/beginner-friendly but "generic, hard to customize," weak export.<span class="src"><a href="https://www.producthunt.com/products/durable-ai-website-builder/reviews">producthunt.com</a></span></li>
+    <li>What actually makes money is the <b>agency/service</b> model, not autonomous agents: Indie Hackers $0→$10k MRR via referrals + manual outreach.<span class="src"><a href="https://www.indiehackers.com/post/0-to-10k-mrr-in-12-months-3-things-that-actually-moved-the-needle-for-my-design-agency-7a98c3577f">indiehackers.com</a></span></li>
+    <li>Large but generic demand (~10,276 "web design" open Upwork jobs); recurring Durable/GoDaddy gripe is generic templates + upsells + domain/export lock-in.<span class="src"><a href="https://www.trustpilot.com/review/durable.com">trustpilot.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#9 SEO &amp; Content — richest templates, worst sentiment</h4>
+  <ul class="claims">
+    <li>Richest open multi-agent template ecosystem (e.g. CrewAI "SEO-Agents" crew) = most buildable AND most commoditized.<span class="src"><a href="https://github.com/stevielkim/Seo-Agents">github.com</a></span></li>
+    <li>Real traction anecdote: an Indie Hackers maker hit 200k monthly Google clicks with AI/programmatic SEO.<span class="src"><a href="https://www.indiehackers.com/post/how-i-used-ai-seo-to-hit-200k-monthly-clicks-from-google-side-project-breakdown-342edb179d">indiehackers.com</a></span></li>
+    <li class="warnbullet">But HN openly associates the category with web spam, and Google deindexes scaled AI content.<span class="src"><a href="https://news.ycombinator.com/item?id=34628798">news.ycombinator.com</a></span></li>
+    <li>The fresher white space is GEO: "Show HN: a tool to help websites appear in AI-generated answers."<span class="src"><a href="https://news.ycombinator.com/item?id=46337875">news.ycombinator.com</a></span></li>
+  </ul></div>
+
+  <div class="panel tight"><h4 style="margin-top:0">#10 Autonomous Dev — most attention, deepest skepticism</h4>
+  <ul class="claims">
+    <li>Most-starred concept (OpenHands 78.4k, MetaGPT 69.1k, ChatDev 33.6k) — and MetaGPT's commercial "MGX/Atoms AI dev team" claims 500k users.<span class="src"><a href="https://github.com/FoundationAgents/MetaGPT">github.com</a></span></li>
+    <li>Canonical hype→backlash arc: Devin's launch mega-thread, then "Debunking Devin."<span class="src"><a href="https://news.ycombinator.com/item?id=40008109">news.ycombinator.com</a></span></li>
+    <li class="warnbullet">Independent testing of Devin: ~85% task-failure rate; OSS creators say it's "not even close" to replacing an engineer.<span class="src"><a href="https://www.theregister.com/2025/01/23/ai_developer_devin_poor_reviews/">theregister.com</a></span></li>
+    <li>Funding ≠ approval: Factory's raise drew "self-driving startups funded out of every garage" comparisons on HN.<span class="src"><a href="https://news.ycombinator.com/item?id=45378910">news.ycombinator.com</a></span></li>
+    <li>The wedge buyers name: AI-agency MVPs already command $12K–$250K, but the #1 fear is unsupervised AI shipping insecure code — so "built-in senior QA/governance" is the opening.<span class="src"><a href="https://www.leanware.co/insights/ai-mvp-development-cost">leanware.co</a></span></li>
+  </ul></div>
+</div>
+
+<div class="panel">
+<h3 style="margin-top:0">What the community layer adds to the ranking</h3>
+<ul class="claims">
+  <li><b>HN's 2026 consensus:</b> the bottleneck is "verification capacity, not code generation" — sentiment has shifted from "is this real?" to "is this trustworthy and economical?"<span class="src"><a href="https://news.ycombinator.com/item?id=47226958">news.ycombinator.com</a></span></li>
+  <li><b>It sharpens the wedges</b> the analyst data only implied: <i>export lock-in</i> (Migration #4), <i>seat-pricing + code-ownership</i> (Internal Tools #5), and <i>maintainable code + fair pricing</i> (Design-to-Code #6) are all <b>buyer-voiced</b> complaints, not vendor spin — the strongest displacement openings in the set.<span class="src"><a href="https://www.superblocks.com/blog/retool-reviews">superblocks.com</a></span></li>
+  <li><b>It confirms the bottom of the ranking.</b> SEO/content is the most crowded <i>and</i> the most community-disliked (web-spam association), and autonomous dev draws the deepest reliability skepticism (~85% Devin failure) — corroborating their low buildability/competition-adjusted scores.<span class="src"><a href="https://www.1clickreport.com/blog/google-may-2026-core-update-programmatic-seo-dead">1clickreport.com</a></span></li>
+  <li><b>Fresh white space the incumbents don't own:</b> GEO / "appear in AI answers," and trust/verification layers for dev agents — both repeatedly named as missing.<span class="src"><a href="https://news.ycombinator.com/item?id=46337875">news.ycombinator.com</a></span></li>
+  <li><b>Two structural patterns for builders:</b> (a) the richest open template ecosystems (SEO, SaaS scaffolding, landing pages) are the <i>most buildable AND most commoditized</i> — high buildability is a moat red flag; (b) agents demonstrably work on <i>bounded, self-verifying</i> tasks (QA, design-to-code on a clean design system) and fail on long-horizon autonomy — and the strongest <i>revenue</i> anecdotes are productized-<b>service</b>/agency models ("charge for the outcome"), not autonomous tools.<span class="src"><a href="https://www.anthropic.com/engineering/multi-agent-research-system">anthropic.com</a></span></li>
+  <li><b>Limitation, stated plainly:</b> Reddit (incl. r/vibecoding, ~252k members per secondary sources) was unreachable this session, so the single richest grassroots channel is absent; HN engagement counts are directional. The scores above are unchanged — this layer corroborates rather than overturns them.<span class="src"><a href="https://github.com/e2b-dev/awesome-ai-agents">github.com</a></span></li>
+</ul>
+</div>
+
 <!-- ================= TOC ================= -->
 <h2 id="detail">Detailed analysis by team</h2>
 <div class="panel">
@@ -173,6 +294,7 @@
   <a href="#t6">9 &middot; SEO &amp; Content Site Team</a>
   <a href="#t10">10 &middot; Autonomous Full Dev Team</a>
 </nav>
+<p class="note" style="margin-top:14px">See also: <a href="#signal"><b>Global community &amp; primary-source signal</b></a> (GitHub stars, Hacker News, Indie Hackers, freelance marketplaces, buyer reviews).</p>
 </div>
 
 <!-- ====== TEAM 1 SaaS ====== -->
@@ -567,7 +689,7 @@
 <div class="panel">
 <p class="note">All figures above are drawn from the linked third-party sources and reflect their reporting as of June 2026. Market-size and ARR/valuation figures are estimates or projections by research firms and outlets, not audited numbers, and analyst estimates frequently disagree (the report cites competing estimates where they exist). Direct fetches to a few primary sources (some Ahrefs, Search Engine Journal, and report-vendor pages) returned anti-bot 403s during research; in those cases the headline figure was taken from the search-engine result snippet of that same URL and, where possible, corroborated by an independent source. Scores are the analyst judgement of this report applied through the stated rubric, not a market consensus.</p>
 <p class="note"><b>Scoring rubric.</b> Demand, Competition and Buildability each scored 1&ndash;10 from the evidence per concept. Competition is "intensity" (higher = more crowded/worse). Composite opportunity = Demand + Buildability + (11 &minus; Competition), max 30. Ties broken by Demand, then Buildability, then Competition (lower wins).</p>
-<p class="note">Research was conducted via ~140 live web searches and fetches across the ten concepts (one dedicated research pass per concept), June 2026.</p>
+<p class="note">Research was conducted in two passes (June 2026): (1) an analyst/funding pass — one dedicated deep-research run per concept across market-research firms, funding announcements, and product pages; and (2) a global community/primary-source pass across GitHub (star counts via API), Hacker News, Indie Hackers, dev.to/practitioner blogs, Product Hunt, freelance marketplaces (Upwork/Fiverr), and buyer reviews (G2/Capterra/Trustpilot/Vercel Community) — totalling ~280 live searches/fetches and 220+ cited claims. <b>Egress note:</b> Reddit, Google, the HN Algolia API, and direct HN/Product Hunt page fetches were blocked by the session's network policy, so no Reddit permalinks are cited and HN engagement counts are directional (item URLs/titles verified via search). GitHub and general-web sources are fully verified.</p>
 </div>
 
 <div class="footer">
