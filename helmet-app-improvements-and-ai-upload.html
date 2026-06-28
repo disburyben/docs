@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KR Design Studio — Improvement Roadmap &amp; AI "Upload Your Design"</title>
+<style>
+  :root{
+    --bg:#0c0c0c; --fg:#ededed; --mut:#8a8a8a; --line:#ededed; --line-dim:#2a2a2a;
+    --card:#131313; --accent:#d7ff2e; --blue:#1f4fe0; --red:#ff3b30; --green:#34d058; --purp:#a06bff;
+    --disp:'Space Grotesk',-apple-system,Segoe UI,Roboto,sans-serif;
+    --mono:'Space Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--disp);-webkit-font-smoothing:antialiased;}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-dim);}
+  a:hover{border-color:var(--accent);}
+  .wrap{max-width:1080px;margin:0 auto;padding:40px 22px 120px;}
+  header.hero{border:3px solid var(--line);padding:34px 28px;margin-bottom:14px;box-shadow:8px 8px 0 var(--purp);background:#000;}
+  header.hero .kicker{font:700 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.22em;color:var(--purp);}
+  header.hero h1{font:700 clamp(28px,5vw,46px)/1.02 var(--disp);letter-spacing:-.03em;text-transform:uppercase;margin:14px 0 10px;}
+  header.hero p{color:var(--mut);font:400 14px/1.5 var(--mono);margin:0;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+  .meta span{border:2px solid var(--line-dim);padding:6px 10px;font:700 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--mut);}
+  .meta span b{color:var(--fg);}
+  nav.toc{border:2px solid var(--line);padding:18px 22px;margin:22px 0 36px;background:var(--card);}
+  nav.toc h2{font:700 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.18em;color:var(--purp);margin:0 0 12px;}
+  nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px;font:500 14px/1.9 var(--disp);}
+  @media(max-width:640px){nav.toc ol{columns:1;}}
+  h2.sec{font:700 clamp(20px,3vw,28px)/1.1 var(--disp);text-transform:uppercase;letter-spacing:-.02em;margin:54px 0 6px;padding-top:18px;border-top:3px solid var(--line);}
+  h2.sec::before{content:attr(data-n);display:inline-block;color:var(--purp);font:700 14px/1 var(--mono);margin-right:12px;vertical-align:middle;}
+  h3{font:700 19px/1.2 var(--disp);text-transform:uppercase;letter-spacing:-.01em;margin:28px 0 8px;}
+  h4{font:700 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin:18px 0 6px;}
+  p{margin:8px 0;}
+  .lead{font-size:17px;color:#cfcfcf;}
+  ul,ol{margin:8px 0;padding-left:22px;} li{margin:5px 0;}
+  .card{border:2px solid var(--line);background:var(--card);padding:22px 24px;margin:18px 0;box-shadow:5px 5px 0 #000;}
+  .card.hot{box-shadow:5px 5px 0 var(--purp);}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;}
+  th,td{border:2px solid var(--line-dim);padding:9px 11px;text-align:left;vertical-align:top;}
+  th{background:#000;color:var(--accent);font:700 11px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.06em;}
+  tr:nth-child(even) td{background:#101010;}
+  .pill{display:inline-block;font:700 10px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;padding:4px 7px;border:1px solid var(--line-dim);margin:2px 3px 2px 0;}
+  .pill.easy{border-color:var(--green);color:var(--green);}
+  .pill.med{border-color:var(--accent);color:var(--accent);}
+  .pill.hard{border-color:var(--red);color:var(--red);}
+  .pill.now{border-color:var(--purp);color:var(--purp);}
+  .callout{border-left:4px solid var(--accent);background:#101010;padding:14px 18px;margin:16px 0;font-size:14.5px;}
+  .callout.warn{border-color:var(--red);} .callout.win{border-color:var(--green);} .callout.note{border-color:var(--purp);}
+  code{font:400 13px var(--mono);background:#000;border:1px solid var(--line-dim);padding:1px 5px;color:var(--accent);}
+  pre{background:#000;border:2px solid var(--line-dim);padding:14px 16px;overflow-x:auto;font:400 12.5px/1.6 var(--mono);color:#cfcfcf;}
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;margin:18px 0;}
+  .step{flex:1;min-width:150px;border:2px solid var(--line);background:#0f0f0f;padding:14px 14px;position:relative;}
+  .step .n{font:700 10px/1 var(--mono);color:var(--purp);letter-spacing:.1em;}
+  .step h5{margin:6px 0 6px;font:700 13px/1.15 var(--disp);text-transform:uppercase;}
+  .step p{margin:0;font:400 12px/1.5 var(--mono);color:var(--mut);}
+  .step .tech{margin-top:8px;font:700 10px/1.4 var(--mono);color:var(--accent);}
+  .arrow{display:flex;align-items:center;justify-content:center;color:var(--purp);font:700 20px/1 var(--mono);padding:0 4px;}
+  @media(max-width:720px){.flow{flex-direction:column;} .arrow{transform:rotate(90deg);padding:6px 0;}}
+  .src{font:400 12px/1.5 var(--mono);} .src a{color:#9fb0ff;}
+  sup a{font-size:11px;border:none;color:#9fb0ff;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;} @media(max-width:720px){.grid2{grid-template-columns:1fr;}}
+  footer{margin-top:60px;border-top:3px solid var(--line);padding-top:20px;color:var(--mut);font:400 12px/1.6 var(--mono);}
+  .legend{font:400 12px/1.5 var(--mono);color:var(--mut);}
+  .tag{display:inline-block;font:700 11px/1 var(--mono);padding:3px 8px;border:2px solid var(--purp);color:var(--purp);text-transform:uppercase;letter-spacing:.06em;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">Product &amp; Technology Roadmap</div>
+  <h1>KR Design Studio —<br>What to Build Next</h1>
+  <p>Improvement areas, concrete technology to implement, and a deep dive on the flagship feature: <b>"Upload Your Design" → AI regenerates a customer's photo/sketch onto the 3D helmet.</b></p>
+  <div class="meta">
+    <span>Date <b>2026-06-28</b></span>
+    <span>For <b>KR Design Studio</b></span>
+    <span>Stack <b>three.js · Vercel serverless · in-house production</b></span>
+    <span>Flagship <b>AI design upload</b></span>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#where">Where you stand</a></li>
+    <li><a href="#areas">Areas to improve</a></li>
+    <li><a href="#tech">Technology to implement</a></li>
+    <li><a href="#upload">★ "Upload Your Design" — AI feature</a></li>
+    <li><a href="#pipeline">The AI pipeline (3 approaches)</a></li>
+    <li><a href="#infra">Infrastructure on your stack</a></li>
+    <li><a href="#risks">Risks: IP, moderation, cost</a></li>
+    <li><a href="#roadmap">Phased roadmap &amp; effort matrix</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ol>
+</nav>
+
+<!-- WHERE -->
+<h2 class="sec" data-n="01" id="where">Where you stand</h2>
+<p class="lead">From the competitor research: you already have the rare full stack — a real-time three.js 3D editor (Layers, decals, finishes, PDF/PNG export) <b>plus</b> commerce (accounts, orders, payments, admin) <b>plus</b> in-house production. Only Helmade matches that combination, and theirs took an agency + a 3D studio + Magento to build.</p>
+<p>That means the next wins are <b>not</b> "catch up on basics." They are: (1) <b>visual realism</b> to reach the Helmade/VELDT tier, (2) a <b>signature differentiator</b> no competitor has — which is exactly your AI design-upload idea, and (3) <b>distribution</b> (traffic/brand). This doc focuses on (1) and (2), the parts you control with code.</p>
+
+<!-- AREAS -->
+<h2 class="sec" data-n="02" id="areas">Areas to improve</h2>
+<table>
+  <tr><th>Area</th><th>Why it matters</th><th>Effort</th></tr>
+  <tr><td><b>PBR special-effect finishes</b></td><td>Your gloss/matte trails the metalflake/carbon/chrome/candy finishes VELDT (via Emersya) and Helmade show. Biggest realism lever. <sup><a href="#s-emersya">[1]</a></sup></td><td><span class="pill med">Medium</span></td></tr>
+  <tr><td><b>HDRI environment lighting + tone mapping</b></td><td>Image-based lighting + ACES tone mapping is the single fastest jump from "3D model" to "photoreal."</td><td><span class="pill easy">Low</span></td></tr>
+  <tr><td><b>AR preview (WebXR / model-viewer)</b></td><td>VELDT's headline feature; cheap to add, high "wow." <sup><a href="#s-emersya">[1]</a></sup></td><td><span class="pill easy">Low</span></td></tr>
+  <tr><td><b>★ AI "upload your design"</b></td><td>No competitor has it. Turns a rough sketch/photo into a livery on the shell — see <a href="#upload">§04</a>.</td><td><span class="pill hard">High</span></td></tr>
+  <tr><td><b>Real shell library breadth</b></td><td>Add accurate Arai/Bell/Stilo/Sparco/Zamp/Schuberth shells (esp. karting) — competitors all advertise specific models.</td><td><span class="pill med">Medium</span></td></tr>
+  <tr><td><b>Preset livery + sponsor-logo library</b></td><td>"5-minute, no skills" onboarding (Online Helmet Designer's hook) + accurate sponsor placement racers actually need.</td><td><span class="pill med">Medium</span></td></tr>
+  <tr><td><b>Shareable interactive links + gallery</b></td><td>Social proof + viral loop + lets customers iterate with you live instead of email.</td><td><span class="pill easy">Low</span></td></tr>
+  <tr><td><b>5-view production sheet</b></td><td>Auto L/R/front/back/top export to streamline your own in-house paint/print step.</td><td><span class="pill easy">Low</span></td></tr>
+  <tr><td><b>Performance: compressed assets</b></td><td>Draco/meshopt geometry + KTX2 textures keep mobile snappy as models get richer.</td><td><span class="pill easy">Low</span></td></tr>
+  <tr><td><b>SEO / marketing surface</b></td><td>Your real gap vs. rivals is traffic, not product. Per-model landing pages, OG share cards, a gallery feed.</td><td><span class="pill med">Medium</span></td></tr>
+</table>
+
+<!-- TECH -->
+<h2 class="sec" data-n="03" id="tech">Technology to implement</h2>
+<div class="grid2">
+  <div class="card">
+    <h4>Rendering / three.js</h4>
+    <ul>
+      <li><code>MeshPhysicalMaterial</code> — <b>clearcoat</b> (gloss lacquer), <b>iridescence</b> (candy/pearl), <b>sheen</b>, <b>metalness/roughness</b> maps, <b>anisotropy</b> (brushed metal).</li>
+      <li><b>HDRI IBL</b>: <code>RGBELoader</code>/<code>EXRLoader</code> + <code>PMREMGenerator</code> for real reflections; <code>ACESFilmicToneMapping</code>.</li>
+      <li><b>Post-processing</b>: subtle bloom, SSAO, optional screen-space reflections.</li>
+      <li><b>DecalGeometry</b> for sticker/logo placement on curved shells; raycast-to-UV for paint-where-you-click. <sup><a href="#s-decals">[2]</a></sup></li>
+      <li><b>Render targets</b> to output depth / normal / edge maps of the live view — the key input for the AI feature (<a href="#pipeline">§05</a>).</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Assets &amp; performance</h4>
+    <ul>
+      <li>glTF + <b>Draco</b> or <b>meshopt</b> geometry compression.</li>
+      <li><b>KTX2 / Basis</b> GPU-compressed textures (smaller, faster upload).</li>
+      <li>LOD + lazy-load shells; cache via CDN.</li>
+    </ul>
+    <h4>AI services (no GPU on Vercel — call out to these)</h4>
+    <ul>
+      <li><b>Replicate</b> / <b>fal.ai</b> / <b>Stability API</b> — hosted SDXL + ControlNet, pay-per-call.</li>
+      <li><b>Meshy</b> / <b>3D AI Studio</b> — AI texture-from-image APIs that auto-handle UV/projection. <sup><a href="#s-meshy">[3]</a></sup></li>
+      <li><b>SAM</b> (segment), <b>rembg</b> (bg removal), <b>OpenCV.js</b> (perspective de-warp), <b>Real-ESRGAN</b> (upscale), <b>potrace/vectorizer</b> (vectorize line art).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- UPLOAD -->
+<h2 class="sec" data-n="04" id="upload">★ "Upload Your Design" — the flagship AI feature</h2>
+<p class="lead">The pitch: a customer photographs a napkin sketch, a kid's drawing, an old helmet, or uploads a flat 2D concept — and your app <b>regenerates that design as a real livery on their chosen 3D helmet</b>, orbitable, editable, and ready to order &amp; produce in-house. No competitor in the research offers this; the closest (Pixelcut/OpenArt) generate a pretty 2D image that can't be mapped to a real shell or manufactured. <sup><a href="#s-pixelcut">[4]</a></sup></p>
+<div class="callout note"><b>Why this is your moat:</b> AI generators make <em>images</em>; design studios make <em>files</em> by hand. You'd be the only one turning an <b>untrained customer's rough idea into a precise, editable, manufacturable 3D livery</b> — and you already own the production line to make it real.</div>
+
+<h3>What "upload" needs to handle</h3>
+<ul>
+  <li><b>A photo of paper</b> (perspective-skewed, shadows, background clutter) → detect, de-warp, clean.</li>
+  <li><b>A flat digital concept</b> (PNG/JPG/PDF) → use directly as a design source.</li>
+  <li><b>A photo of an existing helmet</b> → understand it's already a 3D object; extract the livery.</li>
+  <li><b>A rough sketch</b> ("blue with lightning + my number 7") → interpret intent, generate a polished version.</li>
+</ul>
+
+<!-- PIPELINE -->
+<h2 class="sec" data-n="05" id="pipeline">The AI pipeline — 3 approaches, ship them in order</h2>
+
+<h3>Approach A · Clean &amp; project <span class="tag">Phase 1 / MVP</span></h3>
+<p>No generative AI required (or only light cleanup). Treat the upload as artwork and place it on the shell with your existing Layers/Decal system. Best first ship: cheap, fast, deterministic.</p>
+<div class="flow">
+  <div class="step"><div class="n">01</div><h5>Upload</h5><p>Photo or file in. Validate, store.</p><div class="tech">Vercel Blob / R2</div></div>
+  <div class="arrow">→</div>
+  <div class="step"><div class="n">02</div><h5>Clean</h5><p>Remove background, de-warp perspective (paper→flat), auto-crop, upscale.</p><div class="tech">rembg · OpenCV.js · Real-ESRGAN</div></div>
+  <div class="arrow">→</div>
+  <div class="step"><div class="n">03</div><h5>Project</h5><p>Apply as a decal / planar-projected layer the user can position &amp; scale on the shell.</p><div class="tech">three.js DecalGeometry / UV projection</div></div>
+  <div class="arrow">→</div>
+  <div class="step"><div class="n">04</div><h5>Edit &amp; order</h5><p>Drops into existing Layers; tweak, price, checkout, send to printer.</p><div class="tech">your current pipeline</div></div>
+</div>
+<p class="legend"><b>Limit:</b> a flat drawing won't perfectly wrap a compound-curved shell — expect some stretching at the crown/chin. Good enough for logos, side panels, and simple liveries; sets up the data flow for Approaches B/C. <sup><a href="#s-decals">[2]</a></sup></p>
+
+<h3>Approach B · AI re-render with geometry control <span class="tag">Phase 2</span></h3>
+<p>The "wow" version. Render your 3D helmet's <b>depth/edge maps</b> from the current camera, then use <b>ControlNet + img2img</b> so a diffusion model repaints the helmet using the uploaded design's colors/motifs/style — <em>constrained to the actual helmet geometry</em>. This is exactly how tools like StableProjectorz work (ControlNet Depth + img2img inpaint into masked areas). <sup><a href="#s-stableproj">[5]</a></sup></p>
+<div class="flow">
+  <div class="step"><div class="n">01</div><h5>Render control maps</h5><p>From three.js, output depth + canny/lineart + a region mask of the shell for the current view.</p><div class="tech">WebGL render targets</div></div>
+  <div class="arrow">→</div>
+  <div class="step"><div class="n">02</div><h5>Prompt + design</h5><p>Send control maps + cleaned upload + text ("apply this livery, glossy") to a hosted SDXL+ControlNet.</p><div class="tech">Replicate / fal.ai / Stability</div></div>
+  <div class="arrow">→</div>
+  <div class="step"><div class="n">03</div><h5>Generate views</h5><p>Produce front/side/back consistently (the hard part: multi-view consistency).</p><div class="tech">ControlNet depth · IP-Adapter</div></div>
+  <div class="arrow">→</div>
+  <div class="step"><div class="n">04</div><h5>Present</h5><p>Photoreal preview render for approval, gallery &amp; marketing. Optionally bake to texture (→ Approach C).</p><div class="tech">your gallery + admin</div></div>
+</div>
+<p class="legend"><b>Strength:</b> interprets rough sketches beautifully and looks photoreal. <b>Watch-outs:</b> keeping all angles consistent, GPU latency (seconds), per-call cost — run async (see <a href="#infra">§06</a>).</p>
+
+<h3>Approach C · AI texture bake onto the real UV <span class="tag">Phase 3 / endgame</span></h3>
+<p>The true-3D version: generate a full <b>UV texture map</b> for the helmet from the reference image, baked for multi-view consistency, applied as the model's albedo so it's fully orbitable, editable in your Layers, and exportable to your production sheet. Off-the-shelf APIs (Meshy, 3D AI Studio) auto-handle UV/seams/texel density from a reference photo; research methods (Make-A-Texture, TexGen, FlexPainter, Meta 3D TextureGen) do depth-aware multi-view diffusion if you self-host later. <sup><a href="#s-meshy">[3]</a> <sup><a href="#s-research">[6]</a></sup></p>
+<div class="flow">
+  <div class="step"><div class="n">01</div><h5>Send model + image</h5><p>Helmet GLB/OBJ + cleaned design reference to a texture API.</p><div class="tech">Meshy / 3D AI Studio API</div></div>
+  <div class="arrow">→</div>
+  <div class="step"><div class="n">02</div><h5>AI bakes UV texture</h5><p>API projects, places seams, balances texel density across the shell automatically.</p><div class="tech">depth-aware multi-view diffusion</div></div>
+  <div class="arrow">→</div>
+  <div class="step"><div class="n">03</div><h5>Apply in three.js</h5><p>Returned texture → albedo map; fully orbitable real 3D, no stretching.</p><div class="tech">MeshPhysicalMaterial.map</div></div>
+  <div class="arrow">→</div>
+  <div class="step"><div class="n">04</div><h5>Edit · price · produce</h5><p>Layer it, adjust, instant price, checkout, in-house production sheet.</p><div class="tech">your full stack</div></div>
+</div>
+<div class="callout win"><b>Recommended path:</b> ship <b>A</b> now (reuses what you have), add <b>B</b> as a paid "AI Reimagine" button for the wow factor and marketing imagery, then graduate the winners to <b>C</b> for true editable 3D that flows into production. Each phase reuses the previous phase's upload + storage plumbing.</div>
+
+<!-- INFRA -->
+<h2 class="sec" data-n="06" id="infra">Infrastructure on your stack</h2>
+<div class="callout warn"><b>Key constraint:</b> GPU diffusion <b>cannot run inside Vercel serverless functions</b> (no GPU, short timeouts). Your Vercel function should be the <em>orchestrator</em>, not the model host.</div>
+<ul>
+  <li><b>Storage:</b> uploads + generated outputs in <b>Vercel Blob</b>, <b>Cloudflare R2</b>, or S3 (you have Cloudflare available). Never inline large images through functions.</li>
+  <li><b>Async jobs:</b> diffusion takes seconds–minutes &gt; function timeout. Pattern: function creates a job → calls GPU API (Replicate/fal.ai/Meshy) → returns a job id → client polls or you receive a <b>webhook</b> → store result → notify via your existing admin/notification system.</li>
+  <li><b>GPU compute options (managed → self-hosted):</b> Replicate / fal.ai / Stability (easiest, per-call) → Modal / RunPod (your own ControlNet pipeline) → dedicated GPU box (cheapest at scale, most ops).</li>
+  <li><b>Queue:</b> a lightweight queue (Cloudflare Queues, Upstash QStash, or a DB table) to manage concurrency &amp; retries.</li>
+  <li><b>Caching:</b> hash uploads to dedupe; cache cleaned images so re-renders are cheap.</li>
+</ul>
+<pre>Client (three.js)
+  │  upload image
+  ▼
+Vercel function ──► Blob/R2 (store)            ┌─ poll / webhook ─┐
+  │  create job, call GPU API ─────────────►  GPU worker (SDXL+ControlNet
+  │                                            or Meshy texture bake)
+  ▼                                                   │
+Admin + notifications  ◄──── result stored ◄──────────┘
+  │
+  ▼  apply texture / show preview → edit → checkout → in-house production</pre>
+
+<!-- RISKS -->
+<h2 class="sec" data-n="07" id="risks">Risks: IP, moderation, cost</h2>
+<ul>
+  <li><b>Copyright / trademarks:</b> customers will upload F1 team liveries, brand logos, characters. Decide policy (allow sponsor logos the racer owns rights to; flag obvious IP). Add a terms checkbox asserting they have rights. This is a real liability since <b>you manufacture the physical product.</b></li>
+  <li><b>Content moderation:</b> run an automated NSFW / unsafe-content filter on uploads before they hit production (hosted moderation APIs or an open model).</li>
+  <li><b>Cost control:</b> generative calls cost real money (cents–dimes each). Gate AI generation behind your <b>paid/checkout flow</b> or a small credit system; keep Approach A (cheap) free as the funnel.</li>
+  <li><b>Quality gate:</b> AI output should be a <b>proposal a human approves</b> before it enters your production queue — protects your in-house paint/print step from garbage-in.</li>
+  <li><b>Latency UX:</b> show a progress state + let users keep editing while a render runs; never block the editor.</li>
+</ul>
+
+<!-- ROADMAP -->
+<h2 class="sec" data-n="08" id="roadmap">Phased roadmap &amp; effort/impact matrix</h2>
+<table>
+  <tr><th>Phase</th><th>Ship</th><th>Impact</th><th>Effort</th></tr>
+  <tr><td><span class="pill now">Quick wins</span></td><td>HDRI lighting + ACES tone mapping · shareable links · 5-view production sheet · asset compression</td><td>High realism + sharing for low cost</td><td><span class="pill easy">Low</span></td></tr>
+  <tr><td><span class="pill now">Realism</span></td><td>PBR special-effect finishes (clearcoat, carbon, candy, chrome) · AR preview</td><td>Reaches Helmade/VELDT tier</td><td><span class="pill med">Medium</span></td></tr>
+  <tr><td><span class="pill now">AI Phase 1</span></td><td><b>Upload → clean → project (Approach A)</b></td><td>Launches the flagship; reuses Layers</td><td><span class="pill med">Medium</span></td></tr>
+  <tr><td><span class="pill now">AI Phase 2</span></td><td><b>"AI Reimagine" (Approach B)</b> — ControlNet re-render, paid</td><td>Wow factor + marketing imagery + revenue</td><td><span class="pill hard">High</span></td></tr>
+  <tr><td><span class="pill now">AI Phase 3</span></td><td><b>AI texture bake (Approach C)</b> — true editable 3D into production</td><td>Endgame moat; nobody else has it</td><td><span class="pill hard">High</span></td></tr>
+  <tr><td><span class="pill now">Growth</span></td><td>Per-model SEO pages · gallery feed · sponsor-logo library · more shells</td><td>Fixes the real gap: traffic</td><td><span class="pill med">Medium</span></td></tr>
+</table>
+<div class="callout win"><b>One-line strategy:</b> spend low-effort points on realism + sharing first (fast credibility), then make <b>"upload your design"</b> the headline feature that no competitor can match — and that feeds straight into the production line you already own.</div>
+
+<!-- SOURCES -->
+<h2 class="sec" data-n="09" id="sources">Sources</h2>
+<ul class="src">
+  <li id="s-emersya">[1] Emersya real-time 3D/AR platform &amp; finishes (PBR, AR), as used by VELDT — <a href="https://www.emersya.com/3d-ar-platform/">emersya.com/3d-ar-platform</a> · <a href="https://www.emersya.com/3d-configurator-examples/">configurator examples</a></li>
+  <li id="s-decals">[2] three.js decal projection / raycast-to-UV painting on curved meshes — <a href="https://github.com/mrdoob/three.js/blob/dev/examples/webgl_decals.html">three.js webgl_decals example</a> · <a href="https://tympanus.net/codrops/2020/01/07/playing-with-texture-projection-in-three-js/">Codrops: Texture Projection in three.js</a> · <a href="https://discourse.threejs.org/t/projecting-texture-onto-mesh-and-applying-result-to-mesh-texture-for-mesh-painting/75779">three.js forum: mesh painting</a></li>
+  <li id="s-meshy">[3] AI texture-from-image with automatic UV/seam/texel handling — <a href="https://www.meshy.ai/features/ai-texture-generator">Meshy AI Texture Generator</a> · <a href="https://www.3daistudio.com/TextureGenerator">3D AI Studio Texture Generator</a></li>
+  <li id="s-pixelcut">[4] AI image generators (2D only, non-manufacturable) — <a href="https://www.pixelcut.ai/create/motorcycle-helmet-design-generator">Pixelcut helmet generator</a> · <a href="https://openart.ai/generator/helmet">OpenArt helmet generator</a></li>
+  <li id="s-stableproj">[5] ControlNet (depth) + img2img projection onto 3D models — <a href="https://stableprojectorz.com/">StableProjectorz</a></li>
+  <li id="s-research">[6] Depth-aware multi-view texture-generation research (self-host path) — <a href="https://arxiv.org/pdf/2412.07766">Make-A-Texture</a> · <a href="https://arxiv.org/pdf/2506.02620">FlexPainter</a> · <a href="https://arxiv.org/pdf/2410.04738">Diffusion Models in 3D Vision: A Survey</a></li>
+</ul>
+
+<footer>
+  <p><b>Scope:</b> This is a forward-looking engineering/product roadmap. Architecture choices (Vercel-as-orchestrator, GPU offload, async jobs) reflect your confirmed stack (three.js front end, Vercel serverless backend, in-house production). AI technology references are to current (2024–2026) tools and research; exact provider choice depends on cost, latency, and self-host appetite.</p>
+  <p>Prepared 2026-06-28 for KR Design Studio.</p>
+</footer>
+
+</div>
+</body>
+</html>
