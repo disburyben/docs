@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KR Design Studio — Editor Rebuild: Implementation Spec</title>
+<style>
+  :root{
+    --bg:#0c0c0c; --fg:#ededed; --mut:#8a8a8a; --line:#ededed; --line-dim:#2a2a2a;
+    --card:#131313; --accent:#d7ff2e; --blue:#1f4fe0; --red:#ff3b30; --green:#34d058; --purp:#a06bff;
+    --disp:'Space Grotesk',-apple-system,Segoe UI,Roboto,sans-serif;
+    --mono:'Space Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--disp);-webkit-font-smoothing:antialiased;}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-dim);}
+  a:hover{border-color:var(--accent);}
+  .wrap{max-width:1040px;margin:0 auto;padding:40px 22px 120px;}
+  header.hero{border:3px solid var(--line);padding:32px 28px;margin-bottom:14px;box-shadow:8px 8px 0 var(--blue);background:#000;}
+  header.hero .kicker{font:700 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.22em;color:var(--blue);}
+  header.hero h1{font:700 clamp(26px,5vw,42px)/1.03 var(--disp);letter-spacing:-.03em;text-transform:uppercase;margin:14px 0 10px;}
+  header.hero p{color:var(--mut);font:400 14px/1.5 var(--mono);margin:0;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+  .meta span{border:2px solid var(--line-dim);padding:6px 10px;font:700 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--mut);}
+  .meta span b{color:var(--fg);}
+  nav.toc{border:2px solid var(--line);padding:18px 22px;margin:22px 0 36px;background:var(--card);}
+  nav.toc h2{font:700 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.18em;color:var(--blue);margin:0 0 12px;}
+  nav.toc ol{margin:0;padding-left:20px;font:500 14px/1.9 var(--disp);}
+  h2.sec{font:700 clamp(19px,3vw,26px)/1.12 var(--disp);text-transform:uppercase;letter-spacing:-.02em;margin:52px 0 6px;padding-top:18px;border-top:3px solid var(--line);}
+  h2.sec::before{content:attr(data-n);display:inline-block;color:var(--blue);font:700 14px/1 var(--mono);margin-right:12px;vertical-align:middle;}
+  h3{font:700 18px/1.2 var(--disp);text-transform:uppercase;letter-spacing:-.01em;margin:26px 0 8px;}
+  h4{font:700 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin:18px 0 6px;}
+  p{margin:8px 0;} ul,ol{margin:8px 0;padding-left:22px;} li{margin:5px 0;}
+  .lead{font-size:17px;color:#cfcfcf;}
+  .card{border:2px solid var(--line);background:var(--card);padding:20px 22px;margin:18px 0;box-shadow:5px 5px 0 #000;}
+  .card.crit{box-shadow:5px 5px 0 var(--red);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;} @media(max-width:720px){.grid2{grid-template-columns:1fr;}}
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px;}
+  th,td{border:2px solid var(--line-dim);padding:9px 11px;text-align:left;vertical-align:top;}
+  th{background:#000;color:var(--accent);font:700 11px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.06em;}
+  tr:nth-child(even) td{background:#101010;}
+  code{font:400 13px var(--mono);background:#000;border:1px solid var(--line-dim);padding:1px 5px;color:var(--accent);}
+  pre{background:#000;border:2px solid var(--line-dim);padding:14px 16px;overflow-x:auto;font:400 12.5px/1.55 var(--mono);color:#d6d6d6;}
+  pre .k{color:var(--purp);} pre .s{color:var(--accent);} pre .c{color:#6a6a6a;}
+  .pill{display:inline-block;font:700 10px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;padding:4px 7px;border:1px solid var(--line-dim);margin:2px 3px 2px 0;}
+  .pill.easy{border-color:var(--green);color:var(--green);} .pill.med{border-color:var(--accent);color:var(--accent);} .pill.hard{border-color:var(--red);color:var(--red);} .pill.crit{border-color:var(--red);color:#fff;background:var(--red);}
+  .callout{border-left:4px solid var(--accent);background:#101010;padding:14px 18px;margin:16px 0;font-size:14.5px;}
+  .callout.warn{border-color:var(--red);} .callout.win{border-color:var(--green);} .callout.note{border-color:var(--blue);}
+  .ac{border:2px solid var(--green);padding:12px 16px;margin:14px 0;background:#0e140e;}
+  .ac h4{color:var(--green);margin-top:0;}
+  .ac li{font:400 13.5px/1.5 var(--disp);}
+  footer{margin-top:60px;border-top:3px solid var(--line);padding-top:20px;color:var(--mut);font:400 12px/1.6 var(--mono);}
+  .legend{font:400 12px/1.5 var(--mono);color:var(--mut);}
+  .badge{display:inline-block;font:700 10px/1 var(--mono);padding:3px 8px;border:2px solid var(--blue);color:var(--blue);text-transform:uppercase;letter-spacing:.06em;margin-left:6px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">Engineering Spec · v1</div>
+  <h1>Helmet Editor Rebuild —<br>Implementation Spec</h1>
+  <p>Build-ready spec for 5 changes: remove presets · fix move/resize · rework layers · region-based colour · structured save &amp; paint-team spec sheet. Backbone: one shared design data model.</p>
+  <div class="meta">
+    <span>Date <b>2026-06-28</b></span>
+    <span>App <b>KR Design Studio (three.js)</b></span>
+    <span>Backend <b>Vercel serverless</b></span>
+    <span>Status <b>Spec — pre-implementation</b></span>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#scope">Scope, assumptions &amp; access note</a></li>
+    <li><a href="#model">The backbone: DesignDocument data model</a></li>
+    <li><a href="#item1">#1 — Remove preset designs, new entry point</a></li>
+    <li><a href="#item2">#2 — Move / resize / rotate artwork</a></li>
+    <li><a href="#item3">#3 — Layer system rework</a></li>
+    <li><a href="#item4">#4 — Colours &amp; colour regions</a></li>
+    <li><a href="#item5">#5 — Structured save &amp; paint-team spec sheet ★</a></li>
+    <li><a href="#order">Build order &amp; effort</a></li>
+  </ol>
+</nav>
+
+<!-- SCOPE -->
+<h2 class="sec" data-n="01" id="scope">Scope, assumptions &amp; access note</h2>
+<p class="lead">This spec covers the five editor changes you listed. It assumes the app stays on its current stack: <b>three.js / WebGL</b> front end, <b>Vite</b> build, <b>Vercel serverless</b> backend, with accounts, orders, payments, admin and in-house production already live.</p>
+<div class="callout note"><b>Access note:</b> the app source lives in a separate GitHub repo not reachable from this session (scoped to <code>disburyben/docs</code>). This document is therefore the deliverable; when you want me to implement, grant access to that repo (or move/copy the source) and I'll code against it.</div>
+<div class="callout warn"><b>The single most important change is #5.</b> If the editor currently flattens a design to one PNG, your paint team cannot break it down. Everything in #2–#4 should be built <em>on top of the structured <a href="#model">DesignDocument</a></em> so that #5 — a faithful, per-layer, Pantone-coded spec sheet — falls out for free. Design the data model first, UI second.</div>
+<h4>Assumptions to confirm</h4>
+<ul>
+  <li>Each helmet shell is a glTF model with a <b>single, sane UV unwrap</b> (or can be re-unwrapped). Region masking (#4) depends on this.</li>
+  <li>"Save Design" currently persists <em>something</em> — confirm whether it stores structured layer data or a flattened image/screenshot. This determines how much of #5 is new vs. refactor.</li>
+  <li>The Spec Sheet PDF is generated client-side (e.g. jsPDF/pdf-lib) or server-side. Recommendation: <b>server-side</b> render for consistency and to attach production assets.</li>
+</ul>
+
+<!-- MODEL -->
+<h2 class="sec" data-n="02" id="model">The backbone: <code>DesignDocument</code> data model</h2>
+<p>Everything serializes to one JSON document. The 3D view, the editable layer panel, the saved design, and the paint-team spec sheet are all <b>projections of this object</b>. Store it as JSONB in your DB and as the canonical save format.</p>
+<pre><span class="c">// ---- Canonical design document (TypeScript-style) ----</span>
+<span class="k">interface</span> DesignDocument {
+  id: string;
+  schemaVersion: <span class="s">"1.0"</span>;
+  helmet: {
+    modelId: string;           <span class="c">// e.g. "arai-gp7"</span>
+    brand: string; model: string; size?: string;
+    shellGltfUrl: string;      <span class="c">// the 3D asset used</span>
+    uvSet: string;             <span class="c">// which UV unwrap regions reference</span>
+  };
+  finishDefault: Finish;       <span class="c">// base shell finish</span>
+  regions: Region[];           <span class="c">// painted zones (#4)</span>
+  layers: Layer[];             <span class="c">// ordered bottom→top (#3)</span>
+  meta: { createdBy: string; createdAt: string; updatedAt: string;
+          orderId?: string; status: "draft"|"submitted"|"in_production"|"done"; };
+}
+
+<span class="k">type</span> Finish = { type: "gloss"|"matte"|"satin"|"metallic"|"carbon"|"chrome"|"candy"|"pearl";
+                clearcoat?: number; flakeSize?: number; };
+
+<span class="k">interface</span> ColorSpec {                <span class="c">// EVERY colour carries production codes</span>
+  hex: string;                          <span class="c">// screen value</span>
+  pantone?: string; ral?: string;       <span class="c">// what painters actually mix</span>
+  name?: string; finish?: Finish;
+}
+
+<span class="k">interface</span> Region {                     <span class="c">// a paintable area of the shell (#4)</span>
+  id: string; name: string;             <span class="c">// "Shell", "Chin bar", "Vents", "Visor trim"</span>
+  maskTextureUrl: string;               <span class="c">// grayscale mask in UV space</span>
+  fill: ColorSpec | Gradient;
+}
+
+<span class="k">interface</span> Layer {                      <span class="c">// artwork/decal/text/shape (#2,#3)</span>
+  id: string; name: string;
+  type: "image"|"text"|"shape"|"aiTexture";
+  visible: boolean; locked: boolean; opacity: number; blend: BlendMode;
+  z: number;                            <span class="c">// explicit z-order</span>
+  groupId?: string;
+  source: { assetUrl?: string; text?: string; font?: string; color?: ColorSpec;
+            originalUploadUrl?: string; };   <span class="c">// keep the raw upload for the paint team</span>
+  placement: Placement;                 <span class="c">// see #2</span>
+}
+
+<span class="k">interface</span> Placement {                  <span class="c">// UV-space transform = stable &amp; printable</span>
+  space: "uv"|"decal";
+  uv?: { x:number; y:number; w:number; h:number; rotation:number; };   <span class="c">// normalized 0..1</span>
+  decal?: { position:[number,number,number]; orientation:[number,number,number];
+            size:[number,number,number]; };  <span class="c">// three.js DecalGeometry params</span>
+}</pre>
+<div class="callout win"><b>Why UV-space placement matters:</b> storing each layer's transform in normalized UV coordinates (not just as a baked pixel) means the same document can drive (a) the live 3D view, (b) a flat per-view production layout, and (c) re-editing later — without ever flattening. This is the hinge that makes #5 possible.</div>
+
+<!-- ITEM 1 -->
+<h2 class="sec" data-n="03" id="item1">#1 — Remove preset designs, replace the entry point <span class="badge">Low effort</span></h2>
+<h4>Problem</h4>
+<p>The current bundle ships a "wrap-design picker (Tier C)" with <code>.design-thumb</code> preset thumbnails and a canned decal set — filler that cheapens first impression.</p>
+<h4>Change</h4>
+<ul>
+  <li><b>Remove</b> the preset wrap-design strip and the placeholder decal presets from the UI and the asset manifest.</li>
+  <li><b>Replace</b> the empty state with a deliberate <b>"Start" chooser</b>: <span class="pill">Start blank</span> <span class="pill">Upload your design</span> <span class="pill">Pick a real template</span>. Don't drop users into a blank shell with no guidance.</li>
+  <li>Keep a <b>curated template slot</b> for later — but only populate it with genuine racing liveries built on the new <a href="#model">DesignDocument</a> format, so a "template" is just a starter document the user can fully edit.</li>
+</ul>
+<div class="ac"><h4>Acceptance criteria</h4><ul>
+  <li>No placeholder/preset designs appear anywhere in the editor or shipped assets.</li>
+  <li>First-run shows the Start chooser; each path loads a valid empty/started <code>DesignDocument</code>.</li>
+  <li>Removing presets does not break save/load of existing customer designs (migration: ignore unknown preset refs).</li>
+</ul></div>
+
+<!-- ITEM 2 -->
+<h2 class="sec" data-n="04" id="item2">#2 — Move / resize / rotate artwork <span class="badge">High effort — biggest UX win</span></h2>
+<h4>Problem</h4>
+<p>Placement is "click to place" via <code>DecalGeometry</code>; moving/resizing is clumsy and decals stretch on compound curves (crown, chin).</p>
+<h4>Target behaviour</h4>
+<ul>
+  <li><b>Direct manipulation</b> on the shell: drag to move, scroll/pinch to scale, on-surface rotate ring. Live bounding box + handles.</li>
+  <li><b>Snapping &amp; guides:</b> center line of the shell, mirror across the centerline, equal-spacing guides, numeric nudge.</li>
+  <li><b>Two placement modes</b> (store which in <code>Placement.space</code>):
+    <ul>
+      <li><b>Decal mode</b> — small artwork/logos: keep <code>DecalGeometry</code> (raycast hit → position/orientation/size). Good for stickers; bad for full liveries. <sup><a href="#s-decal">[1]</a></sup></li>
+      <li><b>UV mode</b> — large artwork/liveries: edit on a <b>flattened 2D UV layout</b> of the shell, then render via the texture. Eliminates the stretching that plagues decals on curved panels. <sup><a href="#s-proj">[2]</a></sup></li>
+    </ul>
+  </li>
+  <li><b>Undo/redo</b> (command stack over the DesignDocument), and full <b>touch support</b> (drag/pinch/rotate gestures).</li>
+</ul>
+<h4>Implementation notes</h4>
+<ul>
+  <li>Raycast from pointer → mesh → barycentric → <b>UV coordinate</b>; that UV is the layer's <code>placement.uv</code> anchor. <sup><a href="#s-proj">[2]</a></sup></li>
+  <li>Render the editable layer stack to an offscreen <b>canvas/texture in UV space</b>, then apply as the shell's <code>map</code>/decal — so manipulation is 2D math (cheap, exact) while the result shows in 3D.</li>
+  <li>Provide a toggle: <b>"Edit on 3D" vs "Edit on flat layout"</b> — power users and your paint team will want the flat view.</li>
+</ul>
+<div class="ac"><h4>Acceptance criteria</h4><ul>
+  <li>A user can place artwork, then move/scale/rotate it smoothly with mouse and touch, with visible handles and snapping.</li>
+  <li>Large artwork in UV mode shows no visible stretching across crown/chin vs. current decal behaviour.</li>
+  <li>Every transform persists to <code>placement</code> and survives save → reload identically.</li>
+  <li>Undo/redo covers move, scale, rotate, add, delete.</li>
+</ul></div>
+
+<!-- ITEM 3 -->
+<h2 class="sec" data-n="05" id="item3">#3 — Layer system rework <span class="badge">Medium effort</span></h2>
+<h4>Problem</h4>
+<p>Layer primitives exist (<code>.layer-card</code>) but the model/operations are limited.</p>
+<h4>Target behaviour</h4>
+<div class="grid2">
+  <div class="card">
+    <h4>Per-layer controls</h4>
+    <ul>
+      <li>Drag-to-reorder (z-order), show/hide, lock, rename, duplicate, delete.</li>
+      <li>Opacity slider + <b>blend mode</b> (normal, multiply, screen, overlay).</li>
+      <li>Thumbnail preview per layer; selected-layer highlight synced with the 3D view.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Structure</h4>
+    <ul>
+      <li><b>Groups/folders</b> (sponsor pack, base livery, numbers).</li>
+      <li>Layer types: image · text · shape · aiTexture (future).</li>
+      <li>Multi-select + group transform.</li>
+    </ul>
+  </div>
+</div>
+<h4>Implementation notes</h4>
+<ul>
+  <li>Layer panel is a pure view over <code>DesignDocument.layers</code> sorted by <code>z</code>; all ops mutate the document then re-render.</li>
+  <li>Compositing: render layers bottom→top into the UV texture honoring opacity + blend; cache unchanged layers for performance.</li>
+  <li>Keep <code>source.originalUploadUrl</code> for every image layer — the paint team needs the raw file, not just the composited result.</li>
+</ul>
+<div class="ac"><h4>Acceptance criteria</h4><ul>
+  <li>Reordering layers visibly changes overlap order in 3D; opacity/blend apply live.</li>
+  <li>Hide/lock/rename/duplicate/group all persist and round-trip through save.</li>
+  <li>Selecting a layer in the panel highlights it in the 3D view and vice-versa.</li>
+</ul></div>
+
+<!-- ITEM 4 -->
+<h2 class="sec" data-n="06" id="item4">#4 — Colours &amp; colour regions <span class="badge">Medium–High effort</span></h2>
+<h4>Problem</h4>
+<p>Colour is applied broadly; there's no concept of discrete paintable areas, and colours are hex-only (useless to a painter).</p>
+<h4>Target behaviour</h4>
+<ul>
+  <li><b>Defined regions/zones</b> per shell (Shell, Chin bar, Top vents, Side pods, Rear spoiler, Visor trim, Edge trim) — each a grayscale <b>UV mask</b> baked once per model. Tapping a region selects it; colour/finish applies only there.</li>
+  <li><b>Per-region finish</b> (gloss/matte/metallic/carbon/candy…) independent of colour.</li>
+  <li><b>Gradients</b> and a per-design <b>palette</b> (saved swatches, reusable).</li>
+  <li><b>Brand/sponsor colours</b> library; <b>eyedropper</b> from an uploaded image.</li>
+  <li><b>Pantone/RAL mapping required:</b> every colour stores <code>{hex, pantone?, ral?}</code>. Offer a "nearest Pantone" suggestion on pick; let the user override. This is the data your painters mix from.</li>
+</ul>
+<h4>Implementation notes</h4>
+<ul>
+  <li>Region masks live in <code>Region.maskTextureUrl</code>; the shader/compositor multiplies fill colour by mask to confine paint to the zone.</li>
+  <li>Authoring masks: one-time per shell in Blender/Substance (paint material IDs → export masks), or an in-app "magic-wand by UV island" helper later.</li>
+  <li>Nearest-Pantone: small lookup table (sRGB→Pantone Coated) client-side; flag that screen colour ≠ mixed paint and that final sign-off is on the physical proof.</li>
+</ul>
+<div class="ac"><h4>Acceptance criteria</h4><ul>
+  <li>User can select a named region and recolour only that area; adjacent regions unaffected.</li>
+  <li>Each region carries an independent finish.</li>
+  <li>Every colour in the document has a hex and an assigned/overridable Pantone (or RAL) code.</li>
+  <li>Palette swatches and eyedropper work and persist.</li>
+</ul></div>
+
+<!-- ITEM 5 -->
+<h2 class="sec" data-n="07" id="item5">#5 — Structured save &amp; paint-team spec sheet <span class="pill crit">Critical / production</span></h2>
+<h4>Problem (the one that matters)</h4>
+<p>If "Save Design" stores a flattened image, your paint team can't break the design down into mixable colours, placeable artwork, and per-panel instructions. The save must be the structured <a href="#model">DesignDocument</a>, and the spec sheet must enumerate it.</p>
+<h4>Save behaviour</h4>
+<ul>
+  <li>Persist the full <code>DesignDocument</code> JSON (DB JSONB + versioned). Never store only a screenshot.</li>
+  <li>Store <b>all source assets</b> (each layer's <code>originalUploadUrl</code> + composited region masks) in Blob/R2 with the order.</li>
+  <li>On submit/checkout, snapshot an immutable copy tied to the <code>orderId</code> so later edits don't mutate a design already in production.</li>
+</ul>
+<h4>Spec sheet (PDF) — what the paint team receives</h4>
+<table>
+  <tr><th>Section</th><th>Contents</th></tr>
+  <tr><td>Header</td><td>Order id, customer, helmet brand/model/size, shell glTF id, base finish, date, status.</td></tr>
+  <tr><td>5-view renders</td><td>Left, right, front, back, top — high-res renders of the final 3D design.</td></tr>
+  <tr><td>Flat layout</td><td>The UV-flattened livery (the "unwrapped" paint map) with layer outlines — what gets masked/sprayed.</td></tr>
+  <tr><td><b>Colour schedule</b></td><td>Table of every colour: swatch · hex · <b>Pantone/RAL</b> · finish · which region(s) it fills.</td></tr>
+  <tr><td><b>Layer breakdown</b></td><td>Ordered list: each layer's name, type, thumbnail, blend/opacity, and placement (region or UV coords + size + rotation), with a link to the raw source asset.</td></tr>
+  <tr><td>Region map</td><td>Diagram naming each painted zone and its colour/finish.</td></tr>
+  <tr><td>Production assets</td><td>Downloadable: layer source files, region masks, and a print-ready vector/raster of the flat layout (mask-cut friendly).</td></tr>
+  <tr><td>Notes</td><td>Free-text instructions + customer rights/IP attestation (you manufacture, so this matters).</td></tr>
+</table>
+<h4>Implementation notes</h4>
+<ul>
+  <li>Generate the sheet <b>server-side</b> (a Vercel function renders the 5 views via headless three.js / stored render targets, fills a PDF template with the colour schedule + layer table, bundles assets into a zip). Keeps output consistent and lets you attach files the browser can't.</li>
+  <li>The colour schedule and layer table are <b>direct serializations of the DesignDocument</b> — no manual authoring. That's the payoff of building #2–#4 on the shared model.</li>
+  <li>Give the paint team an <b>admin view</b> of the same breakdown (live, not just PDF) tied to the order/job dashboard you already have.</li>
+</ul>
+<div class="ac"><h4>Acceptance criteria</h4><ul>
+  <li>Saved design reloads byte-for-byte identical (all layers/regions/colours/transforms intact).</li>
+  <li>Spec sheet lists <b>every</b> colour with a Pantone/RAL code and <b>every</b> layer with placement + source asset link.</li>
+  <li>Paint team can reproduce the design from the sheet alone — no guessing, no flattened-image reverse-engineering.</li>
+  <li>An order in production is immutable against later customer edits.</li>
+</ul></div>
+
+<!-- ORDER -->
+<h2 class="sec" data-n="08" id="order">Build order &amp; effort</h2>
+<table>
+  <tr><th>Step</th><th>Item</th><th>Why this order</th><th>Effort</th></tr>
+  <tr><td>1</td><td><a href="#model">DesignDocument model</a> + save refactor</td><td>Everything else depends on it; unlocks #5 immediately</td><td><span class="pill med">Medium</span></td></tr>
+  <tr><td>2</td><td>#5 spec-sheet generation</td><td>Production-critical; validates the model end-to-end</td><td><span class="pill med">Medium</span></td></tr>
+  <tr><td>3</td><td>#3 layer system over the model</td><td>Core editing UX; needed before colour/placement polish</td><td><span class="pill med">Medium</span></td></tr>
+  <tr><td>4</td><td>#4 colour regions + Pantone</td><td>Biggest production-quality lever after the model</td><td><span class="pill hard">Med–High</span></td></tr>
+  <tr><td>5</td><td>#2 move/resize (decal + UV modes)</td><td>Highest UX effort; build once layers/regions are stable</td><td><span class="pill hard">High</span></td></tr>
+  <tr><td>6</td><td>#1 remove presets + new entry</td><td>Quick; do last so the new start flow points at the finished editor</td><td><span class="pill easy">Low</span></td></tr>
+</table>
+<div class="callout win"><b>Sequencing logic:</b> model first, then the production payoff (#5), then editing UX inward-out. #1 is trivial and best done last so the new entry point lands users in the rebuilt editor, not the old one.</div>
+
+<h4>Sources</h4>
+<ul class="legend">
+  <li id="s-decal">[1] three.js DecalGeometry (sticker projection, curved-surface limits) — <a href="https://github.com/mrdoob/three.js/blob/dev/examples/webgl_decals.html">three.js webgl_decals example</a></li>
+  <li id="s-proj">[2] Raycast→UV &amp; texture projection / mesh painting in three.js — <a href="https://tympanus.net/codrops/2020/01/07/playing-with-texture-projection-in-three-js/">Codrops: Texture Projection</a> · <a href="https://discourse.threejs.org/t/projecting-texture-onto-mesh-and-applying-result-to-mesh-texture-for-mesh-painting/75779">three.js forum: mesh painting</a></li>
+</ul>
+
+<footer>
+  <p>This is an implementation spec, not code. It is intentionally stack-faithful (three.js + Vercel serverless + existing commerce/production). When the app repo is accessible, the work can be implemented in the build order above; each item has acceptance criteria to verify against.</p>
+  <p>Prepared 2026-06-28 for KR Design Studio.</p>
+</footer>
+
+</div>
+</body>
+</html>
