@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Helmet Design App — Competitor Research Report</title>
+<style>
+  :root{
+    --bg:#0c0c0c; --fg:#ededed; --mut:#8a8a8a; --line:#ededed; --line-dim:#2a2a2a;
+    --card:#131313; --accent:#d7ff2e; --blue:#1f4fe0; --red:#ff3b30; --green:#34d058;
+    --disp:'Space Grotesk',-apple-system,Segoe UI,Roboto,sans-serif;
+    --mono:'Space Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 var(--disp);
+    -webkit-font-smoothing:antialiased;}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--line-dim);}
+  a:hover{border-color:var(--accent);}
+  .wrap{max-width:1080px;margin:0 auto;padding:40px 22px 120px;}
+  header.hero{border:3px solid var(--line);padding:34px 28px;margin-bottom:14px;
+    box-shadow:8px 8px 0 var(--accent);background:#000;}
+  header.hero .kicker{font:700 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.22em;color:var(--accent);}
+  header.hero h1{font:700 clamp(28px,5vw,46px)/1.02 var(--disp);letter-spacing:-.03em;
+    text-transform:uppercase;margin:14px 0 10px;}
+  header.hero p{color:var(--mut);font:400 14px/1.5 var(--mono);margin:0;}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+  .meta span{border:2px solid var(--line-dim);padding:6px 10px;font:700 11px/1 var(--mono);
+    text-transform:uppercase;letter-spacing:.08em;color:var(--mut);}
+  .meta span b{color:var(--fg);}
+  nav.toc{border:2px solid var(--line);padding:18px 22px;margin:22px 0 36px;background:var(--card);}
+  nav.toc h2{font:700 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.18em;color:var(--accent);margin:0 0 12px;}
+  nav.toc ol{margin:0;padding-left:20px;columns:2;column-gap:30px;font:500 14px/1.9 var(--disp);}
+  @media(max-width:640px){nav.toc ol{columns:1;}}
+  h2.sec{font:700 clamp(20px,3vw,28px)/1.1 var(--disp);text-transform:uppercase;letter-spacing:-.02em;
+    margin:54px 0 6px;padding-top:18px;border-top:3px solid var(--line);}
+  h2.sec::before{content:attr(data-n);display:inline-block;color:var(--accent);font:700 14px/1 var(--mono);
+    margin-right:12px;vertical-align:middle;}
+  h3{font:700 19px/1.2 var(--disp);text-transform:uppercase;letter-spacing:-.01em;margin:30px 0 8px;}
+  h4{font:700 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin:18px 0 6px;}
+  p{margin:8px 0;}
+  .lead{font-size:17px;color:#cfcfcf;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:5px 0;}
+  .card{border:2px solid var(--line);background:var(--card);padding:22px 24px;margin:18px 0;
+    box-shadow:5px 5px 0 #000;}
+  .card.rival{box-shadow:5px 5px 0 var(--red);}
+  .rank-badge{display:inline-block;border:2px solid var(--accent);color:var(--accent);
+    font:700 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.08em;padding:5px 9px;margin-left:8px;vertical-align:middle;}
+  .url{font:400 12px/1 var(--mono);color:var(--mut);word-break:break-all;}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px;}
+  th,td{border:2px solid var(--line-dim);padding:9px 11px;text-align:left;vertical-align:top;}
+  th{background:#000;color:var(--accent);font:700 11px/1.2 var(--mono);text-transform:uppercase;letter-spacing:.06em;}
+  tr:nth-child(even) td{background:#101010;}
+  .score{font:700 14px/1 var(--mono);}
+  .bar{display:inline-block;height:10px;background:var(--accent);vertical-align:middle;margin-left:6px;}
+  .pill{display:inline-block;font:700 10px/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;
+    padding:4px 7px;border:1px solid var(--line-dim);margin:2px 3px 2px 0;}
+  .pill.d3{border-color:var(--green);color:var(--green);}
+  .pill.d2{border-color:var(--red);color:var(--red);}
+  .pill.ai{border-color:var(--blue);color:#7d9bff;}
+  .callout{border-left:4px solid var(--accent);background:#101010;padding:14px 18px;margin:16px 0;font-size:14.5px;}
+  .callout.warn{border-color:var(--red);}
+  .callout.win{border-color:var(--green);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:720px){.grid2{grid-template-columns:1fr;}}
+  .src{font:400 12px/1.5 var(--mono);}
+  .src a{color:#9fb0ff;}
+  footer{margin-top:60px;border-top:3px solid var(--line);padding-top:20px;color:var(--mut);font:400 12px/1.6 var(--mono);}
+  .legend{font:400 12px/1.5 var(--mono);color:var(--mut);margin:6px 0 0;}
+  .tag-real{font:700 13px/1 var(--mono);color:var(--accent);}
+  sup a{font-size:11px;border:none;color:#9fb0ff;}
+  code{font:400 13px var(--mono);background:#000;border:1px solid var(--line-dim);padding:1px 5px;color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">Competitive Research Dossier</div>
+  <h1>Race-Car Helmet<br>Design Apps — Market &amp; Rivals</h1>
+  <p>Benchmarking <b>KR Design Studio</b> (helmet-mockup-editor.vercel.app) against 10 online helmet customization tools — tech stacks, backends, realism, and a demand × competition × buildability ranking.</p>
+  <div class="meta">
+    <span>Prepared <b>2026-06-28</b></span>
+    <span>Subject <b>KR Design Studio</b></span>
+    <span>Competitors <b>10</b></span>
+    <span>Method <b>Cited / sourced</b></span>
+  </div>
+</header>
+
+<nav class="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#summary">Executive summary</a></li>
+    <li><a href="#method">Method &amp; sourcing caveat</a></li>
+    <li><a href="#baseline">The baseline: KR Design Studio</a></li>
+    <li><a href="#market">Market overview &amp; demand</a></li>
+    <li><a href="#profiles">The 10 competitor profiles</a></li>
+    <li><a href="#realism">Realism scorecard (X/10)</a></li>
+    <li><a href="#rankings">Rankings: demand · competition · buildability</a></li>
+    <li><a href="#playbook">How KR wins — strategic playbook</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ol>
+</nav>
+
+<!-- ============ SUMMARY ============ -->
+<h2 class="sec" data-n="01" id="summary">Executive summary</h2>
+<p class="lead">KR Design Studio is technically <b>ahead of most of its niche</b> — a real-time three.js/WebGL editor sits above the 2D template tools that dominate the market — and, confirmed by the owner, it is also <b>vertically integrated</b>: a working Vercel-serverless backend with user accounts, saved designs, <b>order/job management, live payments/checkout, an admin dashboard with notifications, and "send to printer" feeding the owner's own in-house production</b>. <sup><a href="#s-owner">[OWN]</a></sup> That combination — modern self-serve 3D editor <em>plus</em> integrated commerce <em>plus</em> in-house fulfillment — is rare: most rivals have one or two of those, not all three. The gaps that remain are <b>realism polish, brand legitimacy, and traffic/marketing</b> — not the product itself.</p>
+<ul>
+  <li><b>Only two competitors are true self-serve 3D rivals:</b> <a href="#helmade">Helmade</a> (agency-built WebGL) and <a href="#veldt">VELDT Paris</a> (which <em>licenses</em> the Emersya 3D platform rather than building it). Everyone else is 2D templates, concierge design services, or AI image generators.</li>
+  <li><b>The single biggest realism gap</b> is photoreal PBR materials (metalflake, carbon weave, chrome, candy/iridescent) + HDRI lighting + AR — exactly what Emersya and Helmade do and KR's gloss/matte does not yet. <sup><a href="#s-emersya-ex">[E]</a></sup></li>
+  <li><b>The fulfillment layer — KR's hidden strength.</b> The "design → produce a helmet" step that <a href="#ohd">Online Helmet Designer / Barth</a>, <a href="#censport">Censport</a>, <a href="#lidslab">LidsLab</a> and <a href="#spindrift">Spindrift</a> all monetize is already built into KR: order/job management, live payments/checkout, an admin dashboard with notifications, and "send to printer" feeding the owner's <b>own in-house production</b>. <sup><a href="#s-owner">[OWN]</a></sup> Unlike the design-only studios that hand off to third-party painters, KR controls the whole chain — a structural advantage that should be marketed, not buried.</li>
+  <li><b>Best opportunity tier:</b> karting + amateur/club racing self-serve, where Spindrift/Censport are too expensive and Helmade/VELDT are motorcycle/luxury-skewed. KR can own "design it in 5 minutes, get an instant price, send a paint-ready spec to a shop."</li>
+  <li><b>Market is real and growing:</b> racing-helmet market ~$2.1–2.4B (2023) → ~$3.5–3.9B by 2032 (CAGR ~5.5–7.8%); custom paint jobs run <b>$700–$4,000</b> with <b>3–4 month</b> waits. <sup><a href="#s-market1">[M]</a></sup></li>
+</ul>
+
+<!-- ============ METHOD ============ -->
+<h2 class="sec" data-n="02" id="method">Method &amp; sourcing caveat</h2>
+<p>Research combined live web search, the target app's own served HTML (fetched via an authenticated Vercel tool), agency case studies, third-party press/forums, and company profiles. <b>Every factual claim links to a source</b> in the <a href="#sources">Sources</a> section.</p>
+<div class="callout warn">
+  <b>Honest limitation:</b> most competitor domains (helmade.com, veldt.fr, censport.com, customhelmetdesign.com, signaturecd.com, enkeydesign.com, onlinehelmetdesigner.com, spindriftmedia.com, pixelcut.ai) <b>refused direct page fetches</b> (HTTP 403 from their WAFs and/or this environment's egress policy). Their on-page copy was therefore read through <b>search-result excerpts that quote those pages</b>, plus third-party sources. Where a tool's exact rendering engine or CMS could not be confirmed by viewing its code, it is explicitly marked <b>(inference)</b>. Realism scores are reasoned estimates, not pixel measurements, because the live renderers could not all be loaded. The one exception is KR Design Studio itself, whose full HTML/asset manifest <em>was</em> retrieved and analyzed directly.
+</div>
+
+<!-- ============ BASELINE ============ -->
+<h2 class="sec" data-n="03" id="baseline">The baseline: KR Design Studio</h2>
+<p>The target app served as <code>KR Design Studio — 3D Helmet Studio</code>. Its HTML and asset manifest were retrieved directly, so this section is <b>verified, not inferred</b>. <sup><a href="#s-target">[T]</a></sup></p>
+<div class="grid2">
+  <div class="card">
+    <h4>Confirmed tech stack</h4>
+    <ul>
+      <li><b>three.js / WebGL</b> 3D engine (<code>modulepreload</code> of <code>/assets/three-*.js</code>).</li>
+      <li><b>Vite</b> build (hashed ES module bundle <code>/assets/index-*.js</code>).</li>
+      <li>Hosted on <b>Vercel</b> (server header + cache headers).</li>
+      <li>Neo-brutalist UI — Space Grotesk / Space Mono, lime <code>#d7ff2e</code> accent, hard borders, offset box-shadows.</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>Confirmed features (editor)</h4>
+    <ul>
+      <li>Orbiting 3D viewport (drag-orbit, scroll-zoom); <b>Rotate / Place</b> modes.</li>
+      <li><b>Parts/Visor</b> selection · <b>Finish</b> options · <b>Shell Livery with a Layers system</b> · <b>click-to-place Decals</b>.</li>
+      <li>Scene controls (auto-rotate, BG color), <b>Save Design</b> with guest/account auth.</li>
+      <li><b>Submit Design</b>, <b>Price Calculator</b>, <b>Spec Sheet PDF</b>, <b>Export PNG @2048</b>.</li>
+    </ul>
+  </div>
+</div>
+<div class="card" style="box-shadow:5px 5px 0 var(--green);">
+  <h4>Confirmed backend &amp; fulfillment (owner-confirmed)</h4>
+  <ul>
+    <li><b>Vercel serverless</b> backend powering the app.</li>
+    <li><b>User accounts</b> + per-user <b>saved designs</b>.</li>
+    <li><b>Order / job management</b> for incoming designs.</li>
+    <li><b>Live payments / checkout</b> — real transactions, not just quotes.</li>
+    <li><b>Admin dashboard + notifications</b> for the owner.</li>
+    <li><b>"Send to printer" → owner's own in-house production</b> (vertically integrated; no third-party painter dependency).</li>
+  </ul>
+  <p class="legend" style="margin-top:8px">Source: confirmed directly by the app owner, 2026-06-28. <sup><a href="#s-owner">[OWN]</a></sup></p>
+</div>
+<p class="legend">Scale: solo-built, but <b>not a hobby front end</b> — it is a vertically integrated design-to-production business (editor + commerce + in-house fulfillment) on a lean serverless stack. Its strength is the rare full-stack combination; its remaining weaknesses are realism polish, brand legitimacy, and traffic/marketing — not capability.</p>
+
+<!-- ============ MARKET ============ -->
+<h2 class="sec" data-n="04" id="market">Market overview &amp; demand</h2>
+<table>
+  <tr><th>Signal</th><th>Figure</th><th>Source</th></tr>
+  <tr><td>Racing-helmet market (2023)</td><td>~$2.1–2.4B</td><td class="src"><a href="#s-market2">dataintelo / verified</a></td></tr>
+  <tr><td>Forecast 2032</td><td>~$3.5–3.9B (CAGR ~5.5–7.8%)</td><td class="src"><a href="#s-market2">dataintelo</a></td></tr>
+  <tr><td>Typical custom paint job</td><td>$700–$2,500 (up to $4,000+ detailed)</td><td class="src"><a href="#s-market1">Alibaba buyer guide</a></td></tr>
+  <tr><td>Typical wait time</td><td>3–4 months (demand &gt; capacity)</td><td class="src"><a href="#s-market1">Alibaba buyer guide</a></td></tr>
+  <tr><td>Demand driver</td><td>F1/MotoGP popularity, social media, "helmet as identity"</td><td class="src"><a href="#s-market3">market research</a></td></tr>
+</table>
+<p>Demand is real, growing, and increasingly <b>aspirational/mainstream</b> (Instagram/Reddit visibility of custom builds), but the <b>painting capacity is the bottleneck</b> — multi-month waits at the premium shops. That bottleneck is precisely where a fast, self-serve design front end creates value.</p>
+
+<!-- ============ PROFILES ============ -->
+<h2 class="sec" data-n="05" id="profiles">The 10 competitor profiles</h2>
+<p class="legend">Legend: <span class="pill d3">3D self-serve</span> <span class="pill d2">2D / template</span> <span class="pill ai">AI generator</span> · "Realism" = how photoreal the customer-facing preview feels.</p>
+
+<!-- 1 HELMADE -->
+<div class="card rival" id="helmade">
+  <h3>1 · Helmade <span class="rank-badge">Most dangerous rival</span></h3>
+  <p class="url">helmade.com · <span class="pill d3">3D self-serve</span> · <span class="tag-real">Realism 8.5/10</span></p>
+  <p><b>What it is:</b> German custom-helmet brand (founded 2015, Frankfurt) built around "mass customization"; claims the "world's first online helmet configurator." A productized paint-shop + configurator hybrid. <sup><a href="#s-helmade-home">[H1]</a></sup></p>
+  <p><b>Design program / tech:</b> True <b>3D WebGL</b> configurator, built by agency <b>Demodern</b> with <b>747studios</b> modeling/rendering all products from scratch at deliberate <b>low-poly</b> with rich textures for mobile performance; 100+ color/finish variants. Exact engine (three.js vs Babylon) not publicly disclosed <b>(inference)</b>. <sup><a href="#s-demodern">[H2]</a></sup></p>
+  <p><b>How customers use it:</b> Pick model/"product world" → colors (100+) → finish (matte/gloss) → signature/personalization → live 3D preview with presets + save/share → order online; Demodern aimed for a "native app" feel. <sup><a href="#s-demodern">[H2]</a></sup></p>
+  <p><b>Backend &amp; how the owner uses it:</b> <b>Magento</b> e-commerce integrated to a production/ordering system; handmade helmets; ship in your own shell or buy a new branded one. Motorsports delivery <b>~7 weeks</b>; scooter line priced ~$439–489. <sup><a href="#s-helmade-paint">[H3]</a></sup></p>
+  <p><b>Why it beats KR:</b> Pro 3D asset pipeline; real commerce+production backend; OEM partnerships (Arai/Bell/Stilo/Schuberth — named Arai Germany's design partner); <b>Awwwards</b> Honorable Mention + RideApart coverage. <sup><a href="#s-awwwards">[H4]</a></sup></p>
+  <p><b>How KR beats it:</b> Helmade's stack is ~2015-era (Magento + early WebGL). KR's Vite/three.js base can ship a snappier editor with things Helmade doesn't surface publicly — a <b>Layers livery system</b>, <b>click-to-place decals</b>, <b>2048px PNG</b>, <b>Spec Sheet PDF</b>. Position KR as a creator-first design+export tool feeding any painter, undercutting the 7-week premium model. <em>(feature-gap = inference)</em></p>
+  <p><b>Demand / Competition / Buildability:</b> High demand (awards, press, OEM deals); <b>highest competition</b> (only true direct 3D self-serve rival); <b>low buildability</b> — replicating it took an agency + a 3D studio + Magento + a paint operation. A solo dev matches the editor, not the moat. <sup><a href="#s-awwwards">[H4]</a></sup></p>
+</div>
+
+<!-- 2 VELDT -->
+<div class="card rival" id="veldt">
+  <h3>2 · VELDT Paris <span class="rank-badge">Best 3D realism</span></h3>
+  <p class="url">veldt.fr/mark-1/configurator/ · <span class="pill d3">3D self-serve</span> · <span class="tag-real">Realism 8.5/10</span></p>
+  <p><b>What it is:</b> French luxury maker of hand-made custom motorcycle/bike/ski helmets; positioned at the very top ("world's most expensive helmet" press). <sup><a href="#s-veldt-home">[V1]</a></sup></p>
+  <p><b>Design program / tech — key finding:</b> VELDT did <b>not build its own 3D</b> — the configurator is powered by <b>Emersya</b>, a commercial real-time 3D/AR SaaS (WebGL viewer + rules engine + JS API, "photorealistic real-time rendering"), per Emersya's own case study. Live finishes include solid/metallic/glitter/exposed-carbon/gold-or-silver-leaf, matte/gloss varnish, real-time engraving, and <b>AR</b>. CMS unconfirmed <b>(inference)</b>. <sup><a href="#s-emersya-case">[V2]</a></sup></p>
+  <p><b>How customers use it:</b> Pick pattern → colors/finishes → interior materials → shield/visor → painted number / engraved name → rivets, screws, chin guard, strap, vents → downloadable preview → order. <sup><a href="#s-emersya-ex">[V3]</a></sup></p>
+  <p><b>Backend &amp; owner:</b> Made-to-order, hand-made; ~10-week worldwide shipping, 5-yr warranty, ECE/DOT certs; the Emersya rules engine likely turns a saved config into a production spec <b>(inference)</b>. Pricing ~€390–590 (open-face→full-face); webBikeWorld cites "from $700," carbon configs much higher. <sup><a href="#s-veldt-review">[V4]</a></sup></p>
+  <p><b>Why it beats KR:</b> Photoreal special-effect finishes, built-in AR, a category-leading platform (Emersya won an IEEE 3D-retail grand challenge), and a real certified manufactured product. <sup><a href="#s-ieee">[V5]</a></sup></p>
+  <p><b>How KR beats it:</b> Emersya configs are largely <b>preset-pattern driven</b>; KR's bespoke three.js can offer deeper <b>layers + free decal placement</b>. Close the gap with <b>PBR special-effect shaders</b> and a cheap <b>WebXR/&lt;model-viewer&gt; AR</b> add-on. KR's PDF spec sheet + 2048px PNG already beat VELDT's single downloadable image. Compete on tool depth, not manufacturing. Skeptical note: reviewers flagged real product flaws (visor gap, wind noise) — the slick tool oversells an imperfect product. <sup><a href="#s-veldt-review">[V4]</a></sup></p>
+  <p><b>Demand / Competition / Buildability:</b> Solid luxury-niche demand (repeated press, brand collabs); medium-high competition (3D self-serve, but moto/luxury-skewed); <b>low buildability of the renderer</b> — but note you can <em>license</em> Emersya rather than build it. <sup><a href="#s-veldt-ride">[V6]</a></sup></p>
+</div>
+
+<!-- 3 SPINDRIFT -->
+<div class="card" id="spindrift">
+  <h3>3 · Spindrift Motorsport <span class="rank-badge">Highest output realism</span></h3>
+  <p class="url">spindriftmedia.com/helmet-design · <span class="pill d2">Agency / done-for-you</span> · <span class="tag-real">Realism 9/10 (manual)</span></p>
+  <p><b>What it is:</b> High-end bespoke motorsport design agency (20+ yrs) for pro drivers/teams — helmet design, liveries, branding, sponsorship. <b>Not self-serve.</b> <sup><a href="#s-spin-design">[SP1]</a></sup></p>
+  <p><b>Design program / tech:</b> Studio production, <b>not a web configurator</b>. Every job starts with a 5-view technical elevation; delivers <b>photorealistic 3D renders or exact 2D technical illustrations</b> with Pantone-mapped logos. Pipeline is pro 3D/CAD + Adobe <b>(inference)</b>. Handles Arai GP-7, Bell HP7, Schuberth SK1. <sup><a href="#s-spin-guide">[SP2]</a></sup></p>
+  <p><b>How customers use it:</b> Contact → concept sketches → shell selection (they procure) → technical elevation + render approval → they oversee pro paint → customer unboxes finished helmet. <sup><a href="#s-spin-design">[SP1]</a></sup></p>
+  <p><b>Backend &amp; owner:</b> Agency/services; bespoke quotes (no public pricing); handles hardware + design + paint as one managed pipeline; supplies Arai/Bell/Schuberth. <sup><a href="#s-spin-supply">[SP3]</a></sup></p>
+  <p><b>Why it beats KR:</b> Elite clientele (McLaren P1 GTR/650S GT3/570S GT4; Logan Sargeant Williams F1; Stefano Modena; Sam Hancock), full design-to-paint delivery, render quality beyond real-time WebGL. <sup><a href="#s-spin-sargeant">[SP4]</a></sup></p>
+  <p><b>How KR beats it (different tier):</b> Don't out-prestige a 20-yr agency — serve the amateur/club/karting tier they're too expensive for. Instant free 3D vs. slow bespoke quotes; be the "design it yourself, then optionally send to a painter" funnel; even white-label KR <em>to</em> agencies as a client-facing concepting front end.</p>
+  <p><b>Demand / Competition / Buildability:</b> Strong but low-volume premium B2B demand; low direct competition (not a tool); <b>near-zero buildability</b> — the moat is 20 yrs of paddock relationships, unreplicable by software. <em>(Founder identity unverified — "Sam Hancock" is a client, "Andy Blackmore" is a separate designer.)</em> <sup><a href="#s-spin-zoom">[SP5]</a></sup></p>
+</div>
+
+<!-- 4 ENKEY -->
+<div class="card" id="enkey">
+  <h3>4 · EnkeyDesign</h3>
+  <p class="url">enkeydesign.com · <span class="pill d2">2D + optional 3D preview</span> · <span class="tag-real">Realism 6–7/10</span></p>
+  <p><b>What it is:</b> Motorsport/e-sport graphic-design studio ("Motorsport Art Creator") — helmets, liveries, suits. Service-led, not self-serve. Credits: Team Speed Car Aston DBR9 (2013), JEV F1 helmet (2013). <sup><a href="#s-enkey-home">[E1]</a></sup></p>
+  <p><b>Design program / tech:</b> Primary deliverable is a <b>realistic 2D preview</b>, with an <b>optional 3D preview</b> for Arai/Bell/Stilo/Zamp (e.g., Arai Serie 6, Bell Serie 3 &amp; 7). 2D likely Photoshop/template, 3D a separate renderer <b>(inference)</b>. The self-serve interactive tool effectively lives at onlinehelmetdesigner.com (strongly linked operator). <sup><a href="#s-enkey-home">[E1]</a></sup></p>
+  <p><b>How customers use it:</b> Email the studio → studio makes a 2D (or 3D) preview → supplies a paint-effect file to your painter, or routes to certified painters. Concierge, not checkout. <sup><a href="#s-enkey-home">[E1]</a></sup></p>
+  <p><b>Backend &amp; owner:</b> No published e-commerce; design service handing off to a painter network. Pricing not published on-site. <sup><a href="#s-enkey-home">[E1]</a></sup></p>
+  <p><b>Why it beats KR:</b> Real human studio with F1/GT pedigree; audience (~8.1K Instagram, ~1.9K FB); brand-accurate previews + working painter pipeline. <sup><a href="#s-enkey-ig">[E2]</a></sup></p>
+  <p><b>How KR beats it:</b> EnkeyDesign gates the bespoke path behind email; KR is instant + self-serve. Offer live 3D orbit + instant decal placement + instant PNG/PDF, then add a "request a quote / send to painter" button to capture the same downstream revenue.</p>
+  <p><b>Demand / Competition / Buildability:</b> Moderate niche demand (~8K IG, real client history); moderate competition; <b>moderate buildability</b> — the hard part is the painter network + reputation, not the software.</p>
+</div>
+
+<!-- 5 OHD -->
+<div class="card rival" id="ohd">
+  <h3>5 · Online Helmet Designer (by Barth Designs) <span class="rank-badge">Most beatable on tech</span></h3>
+  <p class="url">onlinehelmetdesigner.com · designsbybarth.com · <span class="pill d2">2D real-time editor</span> · <span class="tag-real">Realism 4.5–5/10</span></p>
+  <p><b>What it is:</b> A <b>free, self-serve 2D helmet configurator</b> that funnels to a quote + painter network — the productized tool of one-person studio <b>Barth Designs</b> (founder/designer Julia Barth). <sup><a href="#s-ohd-home">[O1]</a></sup></p>
+  <p><b>Design program / tech:</b> <b>2D browser real-time editor</b> ("see changes immediately"); templates "professionally drawn by helmet artists," recolor editable sections + add effects + visor stickers. Almost certainly <b>SVG/canvas layer recoloring</b>, not 3D <b>(inference)</b>; WordPress/WooCommerce hints from URL structure <b>(inference)</b>. A sister "Online Vehicle Livery Designer" uses the same approach for cars. <sup><a href="#s-ohd-how">[O2]</a></sup></p>
+  <p><b>How customers use it:</b> Pick from <b>25 free templates</b> (each "250,000+ variations," up to 25 versions, "5 minutes, no drawing skills"; per-model sets e.g. 12 each for Arai SK-6 / CK-6) → customize live → request a quote (no signup, no upfront pay) → partner painter executes. <sup><a href="#s-ohd-arai">[O3]</a></sup></p>
+  <p><b>Backend &amp; owner:</b> Quote-first lead-gen → network of pro painters across Europe/America/Australia. No checkout for the helmet; pricing not published. <sup><a href="#s-ohd-custom">[O4]</a></sup></p>
+  <p><b>Why it beats KR:</b> A <b>zero-friction funnel that already converts</b> (free, no signup, instant quote form, 3-continent painter network) + breadth of professionally-drawn, model-specific templates + a proven secondary product (car liveries). <sup><a href="#s-ohd-home">[O1]</a></sup></p>
+  <p><b>How KR beats it (its most beatable rival on tech):</b> KR is real-time 3D where this is flat 2D. (1) Match the frictionless funnel — wire KR's existing guest mode + Submit to a painter handoff. (2) Match template-library depth per real shell, then beat it with orbitable 3D + 2048px PNG + Spec Sheet PDF. (3) Keep the instant Price Calculator visible (they make users wait for a quote).</p>
+  <p><b>Demand / Competition / Buildability:</b> Real demand via free top-of-funnel; <b>direct self-serve competition</b> (same job-to-be-done); <b>high buildability</b> — a 2D SVG recolor tool + quote form is well within solo reach; KR's tech already exceeds it. Hard traffic numbers not found. <sup><a href="#s-ohd-home">[O1]</a></sup></p>
+</div>
+
+<!-- 6 CENSPORT -->
+<div class="card" id="censport">
+  <h3>6 · Censport Graphics</h3>
+  <p class="url">censport.com · <span class="pill d2">Downloadable templates + 2D illustration</span> · <span class="tag-real">Realism 5.5/10 (preview)</span></p>
+  <p><b>What it is:</b> Premium US custom helmet painter (Boise, ID; since 2005) for elite/pro racers; in-house chroming + hand-applied gold leaf; bespoke-only. <sup><a href="#s-cen-who">[C1]</a></sup></p>
+  <p><b>Design program / tech:</b> <b>No interactive tool.</b> Customer <b>downloads a design template</b> for their model, hand-sketches, emails it back; Censport produces a 2D illustration for critique. Templates for Stilo/Bell/Arai. Likely PDF/PSD + WordPress <b>(inference)</b>. <sup><a href="#s-cen-templates">[C2]</a></sup></p>
+  <p><b>How customers use it:</b> New-client form + $100 deposit → wait list → download/sketch/email → illustration → iterate → 50% down → progress updates → balance before completion → UPS ship. <sup><a href="#s-cen-process">[C3]</a></sup></p>
+  <p><b>Backend &amp; owner:</b> Paint shop with chroming/gold-leaf; <b>authorized Bell Racing distributor</b>; sells Arai/Bell/Stilo. Manual order management (forms, milestone payments); custom bids (a forum data point cites ~$800–900 for a simpler design). <sup><a href="#s-cen-bell">[C4]</a></sup></p>
+  <p><b>Why it beats KR:</b> 20-yr reputation + elite clientele (forum-showcased on Rennlist/6speedonline); Bell distributor legitimacy; physical premium product with rare techniques. <sup><a href="#s-cen-6speed">[C5]</a></sup></p>
+  <p><b>How KR beats it:</b> Censport's weakest link is the <b>pre-approval UX</b> (download PDF → hand-sketch → email → wait). KR's instant interactive 3D is dramatically better at ideation. Offer a <b>5-view paint-ready export</b> matching Stilo/Bell/Arai outlines so a KR design drops into their process; add shareable interactive links; the visible Price Calculator answers what Censport deflects. Partner (be the design layer), don't compete on paint.</p>
+  <p><b>Demand / Competition / Buildability:</b> Strong durable demand (since 2005, distributor status, forum presence); low direct competition (no tool); <b>low–moderate buildability</b> — the moat is craftsmanship + distributor status, and there's a clear unfilled gap for a good front end. <sup><a href="#s-cen-zoom">[C6]</a></sup></p>
+</div>
+
+<!-- 7 LIDSLAB -->
+<div class="card" id="lidslab">
+  <h3>7 · LidsLab (customhelmetdesign.com)</h3>
+  <p class="url">customhelmetdesign.com · <span class="pill d2">Design service, 2D static renders</span> · <span class="tag-real">Realism 6.5/10</span></p>
+  <p><b>What it is:</b> Small Dutch design-and-paint service (Groningen) specializing exclusively in <b>karting/autosport</b> helmets; "one-stop-shop." <sup><a href="#s-lids-home">[L1]</a></sup></p>
+  <p><b>Design program / tech:</b> <b>Human design service, no configurator.</b> Outputs 2D digital design files / flat side-view renders (L/R + optional front/back/top). Likely Photoshop/Illustrator/Procreate over templates <b>(inference)</b>; static multi-page site. <sup><a href="#s-lids-process">[L2]</a></sup></p>
+  <p><b>How customers use it:</b> Contact → discuss → first digital design → revise → on approval, receive file and use own sprayer or have LidsLab paint. <sup><a href="#s-lids-faq">[L3]</a></sup></p>
+  <p><b>Backend &amp; owner:</b> Design + paint workshop; ~3–4 weeks, waiting list up to several months in winter; paints Arai/Bell/Stilo/Schuberth (some Sparco/Zamp). Pricing: digital design <b>from €150</b>; design+paint typically <b>€1,250–1,750</b>. <sup><a href="#s-lids-faq">[L3]</a></sup></p>
+  <p><b>Why it beats KR:</b> Delivers real painted helmets + production-ready files; human artistry; deep karting niche credibility. (On tooling, it does <em>not</em> beat KR.)</p>
+  <p><b>How KR beats it:</b> KR's 3D editor is a strictly better front end. Bridge KR's output into LidsLab's exact workflow — generate the <b>L/R/front/back/top flat layouts painters need</b> (KR already has PDF + 2048px PNG). Target karting explicitly (kart shells, sponsor placement); self-serve + instant pricing beats email-and-wait; offer a "hand-off to a painter" referral.</p>
+  <p><b>Demand / Competition / Buildability:</b> Real but tiny/artisan demand (capacity-limited, multi-month winter backlog → demand &gt; capacity); low direct competition (no tool); <b>high buildability</b> as software (weakest tech competitor); moat is artistic skill. <sup><a href="#s-lids-ig">[L4]</a></sup></p>
+</div>
+
+<!-- 8 SIGNATURE -->
+<div class="card" id="signature">
+  <h3>8 · Signature Custom Designs</h3>
+  <p class="url">signaturecd.com/helmet-configurator · <span class="pill d2">2D vinyl-kit configurator</span> · <span class="tag-real">Realism 4/10</span></p>
+  <p><b>What it is:</b> Family-owned (since ~2012) seller of premium <b>cast-vinyl decal/sticker kits</b> for adventure/sport bikes + helmets; "world's largest selection for BMW Motorcycle decals." It's vinyl, not paint. <sup><a href="#s-sig-profile">[SG1]</a></sup></p>
+  <p><b>Design program / tech:</b> "Helmet configurator" for BMW/Schuberth/Shoei/Arai/HJC/MT — a <b>2D product-finder/color-picker</b> for pre-engineered kits, <b>not</b> marketed as 3D. WordPress + WooCommerce signals; likely a WooCommerce decal-designer plugin <b>(inference)</b>. <sup><a href="#s-sig-config">[SG2]</a></sup></p>
+  <p><b>How customers use it:</b> Pick brand/model → pick styling-kit theme → configure colors → order; kit arrives as multi-piece pre-cut vinyl, self-applied. <sup><a href="#s-sig-kits">[SG3]</a></sup></p>
+  <p><b>Backend &amp; owner:</b> WooCommerce store <b>(inference)</b>; kits made in-house from premium cast vinyl (3M/Arlon/Hexis/Oracal); designs become <b>shipped adhesive decals</b> — no painting. Pricing not surfaced. <sup><a href="#s-sig-advmoto">[SG4]</a></sup></p>
+  <p><b>Why it beats KR:</b> Real revenue business with fulfillment (buy + apply today); 14-yr brand with ambassadors; model-specific fit. <sup><a href="#s-sig-advmoto">[SG4]</a></sup></p>
+  <p><b>How KR beats it:</b> KR's interactive 3D viewport is a genuinely better preview than flat decal images on curved shells; offer paint-style liveries vinyl can't reproduce; the PNG/PDF export is painter-agnostic vs. Signature locking you into their vinyl; Layers + decals beat a fixed-kit color picker on creative freedom.</p>
+  <p><b>Demand / Competition / Buildability:</b> Modest footprint (~2.5K Instagram, ADVMoto coverage); low-moderate competition (different product = vinyl); <b>high buildability</b> (WooCommerce + off-the-shelf plugin); moat is the vinyl-cutting op, not software. <sup><a href="#s-sig-ig">[SG5]</a></sup></p>
+</div>
+
+<!-- 9 PIXELCUT -->
+<div class="card" id="pixelcut">
+  <h3>9 · Pixelcut AI Helmet Generator</h3>
+  <p class="url">pixelcut.ai/create/motorcycle-helmet-design-generator · <span class="pill ai">AI image gen</span> · <span class="tag-real">Realism 7/10 looks · 2/10 buildable</span></p>
+  <p><b>What it is:</b> A large general AI photo editor; the "helmet design generator" is an SEO landing page wrapping its text-to-image engine. Adjacent category, not a configurator. <sup><a href="#s-pix-gen">[P1]</a></sup></p>
+  <p><b>Design program / tech:</b> <b>2D AI image generation only</b> — no 3D, no geometry, no editable model. Prompt → diffusion output; runs multiple models (Nano Banana, Veo, Sora, Kling, FLUX). <sup><a href="#s-pix-home">[P2]</a></sup></p>
+  <p><b>How customers use it:</b> Type a description → generate → download a 2D concept "as a reference for a paint job or to share." Inspiration art, <b>not a manufacturable spec</b> (no per-part control, no orbit, no geometric consistency). <sup><a href="#s-pix-gen">[P1]</a></sup></p>
+  <p><b>Backend &amp; owner:</b> SaaS credits; free tier capped, paid from ~$10/mo; no painting/fulfillment — purely digital output. <sup><a href="#s-pix-home">[P2]</a></sup></p>
+  <p><b>Why it beats KR:</b> Zero-effort, infinite styles in seconds; massive distribution/brand (claims 70M+ creators; ~200k downloads/mo, ~$700k/mo est. revenue); mature billing. <sup><a href="#s-pix-tracxn">[P3]</a></sup></p>
+  <p><b>How KR beats / exploits it:</b> Own the gap AI can't fill — <b>precision + manufacturability</b> (consistent, editable, all-angle, spec-exportable). Better: adopt AI as a feature — "AI inspiration → rebuild editably on the 3D shell," and AI-generated <b>textures/decals</b> dropped onto KR's existing Layers. Lean on sponsor-logo accuracy AI fumbles.</p>
+  <p><b>Demand / Competition / Buildability:</b> Huge but <b>diffuse/generic</b> demand (not committed to helmets); adjacent threat (could add a real configurator); their helmet feature is trivially buildable (a prompt wrapper), but the AI infra + 70M-user distribution are not matchable by a solo dev. <sup><a href="#s-pix-cb">[P4]</a></sup></p>
+</div>
+
+<!-- 10 OPENART -->
+<div class="card" id="openart">
+  <h3>10 · OpenArt AI Helmet Generator</h3>
+  <p class="url">openart.ai/generator/helmet · <span class="pill ai">AI image gen</span> · <span class="tag-real">Realism 7/10 looks · 2/10 buildable</span></p>
+  <p><b>What it is:</b> A major freemium AI-art platform with a helmet-generator landing page — same category as Pixelcut, a generic diffusion engine behind a helmet prompt. <sup><a href="#s-oa-gen">[OA1]</a></sup></p>
+  <p><b>Design program / tech:</b> <b>2D AI diffusion</b>; credit-based (unlimited free on 4 basic models + 50 trial credits). No 3D/geometry/editability. <sup><a href="#s-oa-pricing">[OA2]</a></sup></p>
+  <p><b>How customers use it:</b> Prompt → generate → download a 2D concept image as inspiration. Same non-manufacturable limitation as Pixelcut. <sup><a href="#s-oa-gen">[OA1]</a></sup></p>
+  <p><b>Backend &amp; owner:</b> SaaS credits, paid from ~$7/mo up to ~$240/mo; no fulfillment. <sup><a href="#s-oa-pricing">[OA2]</a></sup></p>
+  <p><b>Why it beats KR:</b> Large AI-art audience + instant infinite concepts; mature freemium monetization. <sup><a href="#s-oa-pricing">[OA2]</a></sup></p>
+  <p><b>How KR beats / exploits it:</b> Same as Pixelcut — be the specialist that converts a pretty AI concept into a precise, editable, paint-ready 3D spec; optionally pipe AI output in as a starting texture layer.</p>
+  <p><b>Demand / Competition / Buildability:</b> Large diffuse AI demand; adjacent (not helmet-committed) competition; underlying platform not matchable, but the helmet "feature" is a trivial prompt wrapper. <sup><a href="#s-oa-pricing">[OA2]</a></sup></p>
+</div>
+
+<!-- ============ REALISM ============ -->
+<h2 class="sec" data-n="06" id="realism">Realism scorecard — "how real does it feel" (X/10)</h2>
+<p class="legend">Customer-facing preview realism. Estimates (live renderers not all loadable); AI tools split into "looks" vs "usable-as-buildable-spec."</p>
+<table>
+  <tr><th>#</th><th>Tool</th><th>Type</th><th>Realism /10</th><th>Why</th></tr>
+  <tr><td>3</td><td>Spindrift</td><td>Agency render</td><td class="score">9.0</td><td>Photoreal 3D renders, Pantone/geometric accuracy — but manual, not self-serve <sup><a href="#s-spin-guide">[SP2]</a></sup></td></tr>
+  <tr><td>1</td><td>Helmade</td><td>3D WebGL</td><td class="score">8.5</td><td>Agency-modeled low-poly+textured, Awwwards-tuned <sup><a href="#s-awwwards">[H4]</a></sup></td></tr>
+  <tr><td>2</td><td>VELDT</td><td>3D WebGL (Emersya)</td><td class="score">8.5</td><td>PBR finishes, AR, IEEE-award platform <sup><a href="#s-ieee">[V5]</a></sup></td></tr>
+  <tr><td>9/10</td><td>Pixelcut / OpenArt</td><td>AI 2D</td><td class="score">7.0 / 2.0</td><td>Gorgeous but non-repeatable, geometrically inconsistent, unbuildable <sup><a href="#s-pix-gen">[P1]</a></sup></td></tr>
+  <tr><td>4</td><td>EnkeyDesign</td><td>2D (+opt 3D)</td><td class="score">6–7</td><td>Convincing for approval; flat unless 3D preview used <sup><a href="#s-enkey-home">[E1]</a></sup></td></tr>
+  <tr><td>7</td><td>LidsLab</td><td>2D static</td><td class="score">6.5</td><td>Hand-crafted side profiles; not interactive/lit <sup><a href="#s-lids-process">[L2]</a></sup></td></tr>
+  <tr><td>6</td><td>Censport</td><td>2D illustration</td><td class="score">5.5</td><td>Static hand-drawn proof after manual loop <sup><a href="#s-cen-process">[C3]</a></sup></td></tr>
+  <tr><td>5</td><td>Online Helmet Designer</td><td>2D editor</td><td class="score">4.5–5</td><td>Flat SVG recolor; fast but no depth/lighting <sup><a href="#s-ohd-home">[O1]</a></sup></td></tr>
+  <tr><td>8</td><td>Signature CD</td><td>2D vinyl picker</td><td class="score">4.0</td><td>Flat product/decal imagery <sup><a href="#s-sig-config">[SG2]</a></sup></td></tr>
+  <tr><td>★</td><td><b>KR Design Studio</b></td><td>3D WebGL</td><td class="score">~6.5</td><td>Real-time orbitable three.js — ahead of all 2D rivals; trails Helmade/VELDT/Spindrift, gated by gloss/matte-only finishes and basic lighting <sup><a href="#s-target">[T]</a></sup></td></tr>
+</table>
+<div class="callout win"><b>Takeaway:</b> KR's real-time 3D already <b>out-renders 6 of the 10</b>. To jump from ~6.5 to ~8.5 needs only <b>PBR special-effect materials + HDRI lighting</b> — a focused, achievable upgrade.</div>
+
+<!-- ============ RANKINGS ============ -->
+<h2 class="sec" data-n="07" id="rankings">Rankings — demand · competition · buildability</h2>
+<p class="legend">Analytical 1–10 scores synthesized from the sourced signals above. <b>Demand</b> = market pull for that offering. <b>Competition</b> = threat level as a direct rival to KR. <b>Buildability</b> = how feasibly KR (solo) could build/match that tool (higher = easier). <b>Opportunity</b> = Demand + Buildability − Competition (where KR should focus).</p>
+<table>
+  <tr><th>Tool</th><th>Demand</th><th>Competition (threat)</th><th>Buildability (ease)</th><th>Opportunity</th></tr>
+  <tr><td><b>Online Helmet Designer / Barth</b></td><td>7</td><td>7</td><td>8</td><td class="score">8 — clone the funnel, out-build on 3D</td></tr>
+  <tr><td><b>LidsLab</b></td><td>5</td><td>3</td><td>6</td><td class="score">8 — be its front end; own karting</td></tr>
+  <tr><td><b>Censport</b></td><td>7</td><td>4</td><td>4</td><td class="score">7 — supply the missing UI + spec export</td></tr>
+  <tr><td><b>Signature CD</b></td><td>6</td><td>5</td><td>7</td><td class="score">8 — 3D preview &gt; flat vinyl picker</td></tr>
+  <tr><td><b>EnkeyDesign</b></td><td>6</td><td>5</td><td>6</td><td class="score">7 — instant self-serve beats concierge</td></tr>
+  <tr><td><b>Helmade</b></td><td>9</td><td>9</td><td>3</td><td class="score">3 — strongest rival; out-feature, don't out-brand</td></tr>
+  <tr><td><b>VELDT</b></td><td>7</td><td>7</td><td>3</td><td class="score">3 — license Emersya-class tech or differentiate</td></tr>
+  <tr><td><b>Spindrift</b></td><td>6</td><td>5</td><td>2</td><td class="score">3 — partner / white-label, different tier</td></tr>
+  <tr><td><b>Pixelcut</b></td><td>9</td><td>6</td><td>4</td><td class="score">5 — absorb as a feature, not a rival</td></tr>
+  <tr><td><b>OpenArt</b></td><td>8</td><td>5</td><td>3</td><td class="score">5 — same: AI-inspiration input layer</td></tr>
+</table>
+
+<div class="grid2">
+  <div class="card">
+    <h4>Ranked by demand (highest first)</h4>
+    <ol>
+      <li>Pixelcut <span class="legend">(9 — diffuse/generic)</span></li>
+      <li>Helmade <span class="legend">(9 — committed niche)</span></li>
+      <li>OpenArt <span class="legend">(8)</span></li>
+      <li>Online Helmet Designer · Censport · VELDT <span class="legend">(7)</span></li>
+      <li>EnkeyDesign · Signature CD <span class="legend">(6)</span></li>
+      <li>Spindrift <span class="legend">(6, low-volume premium)</span></li>
+      <li>LidsLab <span class="legend">(5, capacity-limited)</span></li>
+    </ol>
+  </div>
+  <div class="card">
+    <h4>Ranked by competition / threat to KR</h4>
+    <ol>
+      <li>Helmade <span class="legend">(9 — direct 3D self-serve)</span></li>
+      <li>Online Helmet Designer · VELDT <span class="legend">(7)</span></li>
+      <li>Pixelcut <span class="legend">(6 — adjacent AI)</span></li>
+      <li>EnkeyDesign · Signature CD · Spindrift · OpenArt <span class="legend">(5)</span></li>
+      <li>Censport <span class="legend">(4 — no tool)</span></li>
+      <li>LidsLab <span class="legend">(3 — no tool)</span></li>
+    </ol>
+  </div>
+</div>
+<div class="card">
+  <h4>Ranked by buildability (easiest for KR to match/exceed first)</h4>
+  <ol>
+    <li>Online Helmet Designer <span class="legend">(8 — KR's 3D already exceeds its 2D)</span></li>
+    <li>Signature CD <span class="legend">(7 — WooCommerce + plugin)</span></li>
+    <li>LidsLab · EnkeyDesign <span class="legend">(6 — service, not tool)</span></li>
+    <li>Censport · Pixelcut <span class="legend">(4 — craft / AI-infra moats)</span></li>
+    <li>Helmade · VELDT · OpenArt <span class="legend">(3 — agency 3D / licensed SaaS / AI platform)</span></li>
+    <li>Spindrift <span class="legend">(2 — 20-yr relationships, unreplicable)</span></li>
+  </ol>
+</div>
+
+<!-- ============ PLAYBOOK ============ -->
+<h2 class="sec" data-n="08" id="playbook">How KR wins — strategic playbook</h2>
+<div class="callout win"><b>Thesis:</b> KR's editor already beats 7 of 10 rivals <em>and</em> it already has the commerce + in-house fulfillment layer the others charge for. <sup><a href="#s-owner">[OWN]</a></sup> So the priority is <b>not</b> building more product — it's <b>making the existing full-stack advantage visible (marketing/brand/traffic), closing the realism gap to the top 3, and owning the underserved karting/amateur tier</b>.</div>
+<h4>Priority 1 — Leverage &amp; market the fulfillment you already own</h4>
+<ul>
+  <li>You already have order/job management, payments/checkout, admin + notifications, and "send to printer" → in-house production. <sup><a href="#s-owner">[OWN]</a></sup> Unlike Online Helmet Designer, Censport, LidsLab and Spindrift, you don't hand off to third-party painters — so <b>lead with vertical integration</b>: one place to design, pay, and produce.</li>
+  <li>Turn it into a <b>speed claim</b>: the market norm is 3–4 month waits because painting capacity is the bottleneck. <sup><a href="#s-market1">[M]</a></sup> If in-house production lets you quote a faster, transparent turnaround, that is a headline differentiator against every premium shop.</li>
+  <li>Use the <b>instant Price Calculator + live checkout</b> as the wedge against rivals who make customers email and wait for a quote (Censport, LidsLab, EnkeyDesign, Spindrift). Surface a real price and "order now," not "request a quote."</li>
+  <li>Internally, generate a <b>5-view production sheet</b> (L/R/front/back/top) from the existing PDF/2048px exports to streamline your own paint/print step — not for a painter handoff, but to speed your shop. <sup><a href="#s-cen-process">[C3]</a></sup></li>
+</ul>
+<h4>Priority 2 — Close the realism gap to the top 3</h4>
+<ul>
+  <li>Add <b>PBR special-effect materials</b> (metalflake, carbon weave, chrome, candy/iridescent) + <b>HDRI lighting</b> — the exact finishes VELDT/Emersya and Helmade showcase. <sup><a href="#s-emersya-ex">[V3]</a></sup></li>
+  <li>Add a cheap <b>WebXR / &lt;model-viewer&gt; AR preview</b> to match VELDT's headline feature. <sup><a href="#s-emersya-platform">[V7]</a></sup></li>
+</ul>
+<h4>Priority 3 — Pick a beachhead the giants ignore</h4>
+<ul>
+  <li><b>Karting + amateur/club racing</b>: Spindrift/Censport are too expensive there; Helmade/VELDT lean motorcycle/luxury. Add kart-specific shells (Arai/Bell/Stilo/Sparco/Zamp) + sponsor-logo placement. <sup><a href="#s-lids-faq">[L3]</a></sup></li>
+  <li>Lead with <b>instant + free + shareable interactive 3D link</b> vs. everyone's email-and-wait quote cycle.</li>
+</ul>
+<h4>Priority 4 — Turn AI from threat into feature</h4>
+<ul>
+  <li>Add "AI inspiration → rebuild editably on the 3D shell" and AI-generated decal/texture layers, so KR captures Pixelcut/OpenArt's idea-generation speed while keeping precision + manufacturability they lack. <sup><a href="#s-pix-gen">[P1]</a></sup></li>
+</ul>
+<div class="callout warn"><b>Don't do:</b> Don't try to out-brand Helmade, out-prestige Spindrift, or out-scale established paint shops on craft reputation overnight. Your defensible wins are <b>the rare full-stack combination (3D editor + commerce + in-house production), instant UX/pricing, faster turnaround, and a focused niche beachhead</b> — lean on owning the whole chain rather than competing on legacy brand or OEM deals.</div>
+
+<!-- ============ SOURCES ============ -->
+<h2 class="sec" data-n="09" id="sources">Sources</h2>
+<p class="legend">Every numbered marker above resolves here. Inferences (marked in-text) are analytical, not sourced.</p>
+
+<h4>Target app &amp; market</h4>
+<ul class="src">
+  <li id="s-target">[T] KR Design Studio served HTML / asset manifest (retrieved via authenticated Vercel fetch) — <a href="https://helmet-mockup-editor.vercel.app">helmet-mockup-editor.vercel.app</a></li>
+  <li id="s-owner">[OWN] Backend &amp; fulfillment capabilities (Vercel serverless; user accounts + saved designs; order/job management; live payments/checkout; admin dashboard + notifications; "send to printer" → in-house production) — confirmed directly by the app owner, 2026-06-28. Not independently verifiable from public sources.</li>
+  <li id="s-market1">[M] Custom helmet paint cost &amp; wait-time buyer guide — <a href="https://carinterior.alibaba.com/buyingguides/custom-helmet-paint-costs-buyer%E2%80%99s-guide">Alibaba buyer's guide</a></li>
+  <li id="s-market2">Racing-helmets market size/forecast — <a href="https://dataintelo.com/report/global-racing-helmets-market">dataintelo</a> · <a href="https://www.verifiedmarketreports.com/product/racing-helmets-market/">Verified Market Reports</a> · <a href="https://dataintelo.com/report/motorsport-helmet-market">Motorsport helmet report</a></li>
+  <li id="s-market3">Custom-helmet demand drivers — <a href="https://tro.bike/motorcycle-modification/helmet-painting/">TRO</a> · <a href="https://veneratiodesigns.com/price-guide/">Veneratio price guide</a></li>
+</ul>
+
+<h4>Helmade</h4>
+<ul class="src">
+  <li id="s-helmade-home">[H1] <a href="https://www.helmade.com/en_us/">helmade.com</a> · <a href="https://www.helmade.com/en_us/helmets/motorsports/">motorsports 3D designer</a> · <a href="https://www.helmade.com/en/helmets/arai/">helmade x Arai</a></li>
+  <li id="s-demodern">[H2] <a href="https://demodern.com/projects/helmade">Demodern — helmade WebGL configurator</a> · <a href="https://www.demodern.de/en/projects/helmade-3d-configurator">Demodern.de project</a> · <a href="https://www.demodern.de/en/blog/demodern-entwickelt-produktkonfigurator-fuer-helmade">Demodern blog</a></li>
+  <li id="s-helmade-paint">[H3] <a href="https://www.helmade.com/en_us/helmets/helmet-design-paintwork-only-helmade/">helmade paintwork/delivery</a> · <a href="https://www.helmade.com/en_us/helmets/design-your-own-scooter-helmet/">scooter pricing</a></li>
+  <li id="s-awwwards">[H4] <a href="https://www.awwwards.com/sites/helmade">Awwwards — Helmade</a> · <a href="https://www.rideapart.com/news/523850/helmade-custom-helmet-designs/">RideApart</a> · <a href="https://forums.kartpulse.com/t/helmade-helmets-a-review/10866">KartPulse review</a></li>
+</ul>
+
+<h4>VELDT Paris (+ Emersya)</h4>
+<ul class="src">
+  <li id="s-veldt-home">[V1] <a href="https://veldt.fr/">veldt.fr</a> · <a href="https://veldt.fr/mark-1/configurator/">Mark-1 configurator</a></li>
+  <li id="s-emersya-case">[V2] <a href="https://publish.emersya.com/en/articles/veldt-retro-helmet-customization-in-interactive-3d">Emersya — VELDT case study</a></li>
+  <li id="s-emersya-ex">[V3 / E] <a href="https://www.emersya.com/3d-configurator-examples/">Emersya 3D configurator examples (finishes)</a></li>
+  <li id="s-veldt-review">[V4] <a href="https://www.webbikeworld.com/retro-veldt-motorcycle-helmet-review/">webBikeWorld review (pricing + flaws)</a> · <a href="https://www.webbikeworld.com/veldt-worlds-expensive-helmet/">"most expensive helmet"</a></li>
+  <li id="s-ieee">[V5] <a href="https://spectrum.ieee.org/augmented-reality-consumers-customize-products/emersya">IEEE Spectrum — Emersya AR award</a></li>
+  <li id="s-veldt-ride">[V6] <a href="https://rideapart.com/articles/veldt-motorcycle-helmet">RideApart — Veldt</a> · <a href="https://www.webbikeworld.com/check-out-the-limited-edition-veldt-x-crd-helmet/">VELDT x CRD</a></li>
+  <li id="s-emersya-platform">[V7] <a href="https://www.emersya.com/3d-ar-platform/">Emersya 3D &amp; AR platform (WebGL/AR/JS API)</a> · <a href="https://www.photorobot.com/blog/emersya-product-experiences-in-3d-ar-and-vr">PhotoRobot writeup</a></li>
+</ul>
+
+<h4>Spindrift Motorsport</h4>
+<ul class="src">
+  <li id="s-spin-design">[SP1] <a href="https://www.spindriftmedia.com/helmet-design">Spindrift helmet design</a> · <a href="https://www.spindriftmedia.com/about">About</a></li>
+  <li id="s-spin-guide">[SP2] <a href="https://www.spindriftmedia.com/insights/custom-helmet-design-guide">Custom helmet design guide (renders/elevations)</a></li>
+  <li id="s-spin-supply">[SP3] <a href="https://www.spindriftmedia.com/motorsport-helmet-supply">Helmet supply</a> · <a href="https://www.spindriftmedia.com/motorsport-helmet-painting">Helmet painting</a></li>
+  <li id="s-spin-sargeant">[SP4] <a href="https://www.spindriftmedia.com/portfolio/logan-sargeant">Logan Sargeant portfolio</a> · <a href="https://www.spindriftmedia.com/portfolio/sam-hancock">Sam Hancock portfolio</a></li>
+  <li id="s-spin-zoom">[SP5] <a href="https://www.zoominfo.com/c/spindrift-media-group-llc/368301230">ZoomInfo profile</a> · <a href="https://www.motorsportprospects.com/listings/services/andy-blackmore-design/">Andy Blackmore (separate designer)</a></li>
+</ul>
+
+<h4>EnkeyDesign</h4>
+<ul class="src">
+  <li id="s-enkey-home">[E1] <a href="https://www.enkeydesign.com/en/">enkeydesign.com</a> · <a href="https://www.enkeydesign.com/en/project-page/">Project page (F1/GT credits)</a></li>
+  <li id="s-enkey-ig">[E2] <a href="https://www.instagram.com/enkeydesign/">Instagram (~8.1K)</a> · <a href="https://www.facebook.com/enkeydesign">Facebook</a> · <a href="https://x.com/enkeydesign">X</a></li>
+</ul>
+
+<h4>Online Helmet Designer / Barth Designs</h4>
+<ul class="src">
+  <li id="s-ohd-home">[O1] <a href="https://onlinehelmetdesigner.com/">onlinehelmetdesigner.com</a> · <a href="https://designsbybarth.com/helmet-designing-service/">Barth Designs helmet service</a> · <a href="https://www.linkedin.com/in/juliabarth/">Julia Barth LinkedIn</a></li>
+  <li id="s-ohd-how">[O2] <a href="https://onlinehelmetdesigner.com/how-to-design-your-own-helmet/">How it works (real-time 2D editor)</a> · <a href="https://onlinehelmetdesigner.com/ovld/">Online Vehicle Livery Designer</a></li>
+  <li id="s-ohd-arai">[O3] <a href="https://onlinehelmetdesigner.com/arai-sk-6-design-your-own/">Arai SK-6 templates</a> · <a href="https://onlinehelmetdesigner.com/arai-ck-6-helmet/">Arai CK-6 templates</a></li>
+  <li id="s-ohd-custom">[O4] <a href="https://onlinehelmetdesigner.com/custom-helmet-designing/">Custom designing / painter network</a></li>
+</ul>
+
+<h4>Censport Graphics</h4>
+<ul class="src">
+  <li id="s-cen-who">[C1] <a href="https://www.censport.com/company/who-we-are/">Who we are</a> · <a href="https://www.censport.com/">censport.com</a></li>
+  <li id="s-cen-templates">[C2] <a href="https://www.censport.com/custom-paint/design-templates/">Design templates (Stilo/Bell/Arai)</a></li>
+  <li id="s-cen-process">[C3] <a href="https://www.censport.com/custom-paint/process/">Process</a> · <a href="https://www.censport.com/custom-paint/price-list-design-services/">Price guide</a></li>
+  <li id="s-cen-bell">[C4] <a href="https://www.us.bellracing.com/distributor-details/censport-graphics-boise/">Bell Racing distributor listing</a> · <a href="https://www.censport.com/store/">Store</a></li>
+  <li id="s-cen-6speed">[C5] <a href="https://www.6speedonline.com/forums/gt3-gt2/204015-custom-helmet-censport-graphics.html">6SpeedOnline thread</a> · <a href="https://rennlist.com/forums/racing-and-drivers-education-forum/803684-helmet-graphics-by-censport.html">Rennlist thread</a></li>
+  <li id="s-cen-zoom">[C6] <a href="https://www.zoominfo.com/c/censport-graphics/351317389">ZoomInfo profile</a></li>
+</ul>
+
+<h4>LidsLab</h4>
+<ul class="src">
+  <li id="s-lids-home">[L1] <a href="https://customhelmetdesign.com/en/">customhelmetdesign.com</a></li>
+  <li id="s-lids-process">[L2] <a href="https://customhelmetdesign.com/en/process.html">Process</a></li>
+  <li id="s-lids-faq">[L3] <a href="https://customhelmetdesign.com/en/faq.html">FAQ (pricing, timelines, brands)</a> · <a href="https://customhelmetdesign.com/en/contact/">Contact</a></li>
+  <li id="s-lids-ig">[L4] <a href="https://www.instagram.com/customhelmetdesign/">Instagram</a></li>
+</ul>
+
+<h4>Signature Custom Designs</h4>
+<ul class="src">
+  <li id="s-sig-profile">[SG1] <a href="https://www.signaturecd.com/our-profile/">Our profile</a> · <a href="https://www.signaturecd.com/">signaturecd.com</a></li>
+  <li id="s-sig-config">[SG2] <a href="https://www.signaturecd.com/helmet-configurator/">Helmet configurator</a> · <a href="https://codecanyon.net/item/woocommerce-custom-decal-design/21389155">WooCommerce decal plugin (tech inference)</a></li>
+  <li id="s-sig-kits">[SG3] <a href="https://www.signaturecd.com/product-category/helmets-styling-kits/">Helmet styling kits</a> · <a href="https://www.signaturecd.com/shop/page/3/">Shop (URL structure)</a></li>
+  <li id="s-sig-advmoto">[SG4] <a href="https://adventuremotorcycle.com/news/signature-custom-designs">ADVMoto coverage</a></li>
+  <li id="s-sig-ig">[SG5] <a href="https://www.instagram.com/signature.cd/">Instagram (~2.5K)</a> · <a href="https://www.advrider.com/f/threads/signature-custom-design-graphics-experiences.1447225/">ADVrider thread</a></li>
+</ul>
+
+<h4>Pixelcut &amp; OpenArt (AI)</h4>
+<ul class="src">
+  <li id="s-pix-gen">[P1] <a href="https://www.pixelcut.ai/create/motorcycle-helmet-design-generator">Pixelcut helmet generator</a> · <a href="https://www.pixelcut.ai/create/motocross-helmet-graphic-generator">Motocross variant</a></li>
+  <li id="s-pix-home">[P2] <a href="https://www.pixelcut.ai/">Pixelcut home (models, pricing)</a> · <a href="https://apps.apple.com/us/app/pixelcut-ai-photo-editor/id1534785237">App Store</a></li>
+  <li id="s-pix-tracxn">[P3] <a href="https://tracxn.com/d/companies/pixelcut/__2qUjLGXgtSWZ0uAABgr0u3N_vbo7b2yIBxvpWvZVBIU">Tracxn (downloads/revenue estimates)</a></li>
+  <li id="s-pix-cb">[P4] <a href="https://www.crunchbase.com/organization/pixelcut">Crunchbase</a> · <a href="https://www.cbinsights.com/company/pixelcut/financials">CB Insights</a></li>
+  <li id="s-oa-gen">[OA1] <a href="https://openart.ai/generator/helmet">OpenArt helmet generator</a></li>
+  <li id="s-oa-pricing">[OA2] <a href="https://www.saasworthy.com/product/openart-ai/pricing">OpenArt pricing (SaaSworthy)</a></li>
+</ul>
+
+<footer>
+  <p><b>Confidence:</b> Highest for business models, 2D-vs-3D category, and named clients (quoted on-page copy + third parties). Lowest for exact rendering engines, CMS stacks, and follower counts (target sites blocked direct inspection). Realism scores are reasoned estimates. The VELDT→Emersya, Helmade→Demodern/747studios/Magento, and KR→three.js/Vite/Vercel stack findings are well-sourced. KR's backend &amp; in-house-fulfillment capabilities are <b>owner-confirmed</b> (2026-06-28) and revised this report's earlier assumption that KR lacked a fulfillment layer.</p>
+  <p><b>Note:</b> EnkeyDesign and Online Helmet Designer / Barth Designs share strong operator/process links; treated as distinct entries because they present as separate brands/tools.</p>
+  <p>Generated 2026-06-28 · Competitive research dossier for KR Design Studio.</p>
+</footer>
+
+</div>
+</body>
+</html>
