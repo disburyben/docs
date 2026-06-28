@@ -105,11 +105,11 @@
 
 <!-- ============ SUMMARY ============ -->
 <h2 class="sec" data-n="01" id="summary">Executive summary</h2>
-<p class="lead">KR Design Studio is technically <b>ahead of most of its niche</b> — a real-time three.js/WebGL editor sits above the 2D template tools that dominate the market. The gap that matters is not the editor; it is <b>fulfillment, brand legitimacy, and traffic</b>. Every serious competitor monetizes the step KR doesn't yet touch: turning a design into a painted helmet.</p>
+<p class="lead">KR Design Studio is technically <b>ahead of most of its niche</b> — a real-time three.js/WebGL editor sits above the 2D template tools that dominate the market — and, confirmed by the owner, it is also <b>vertically integrated</b>: a working Vercel-serverless backend with user accounts, saved designs, <b>order/job management, live payments/checkout, an admin dashboard with notifications, and "send to printer" feeding the owner's own in-house production</b>. <sup><a href="#s-owner">[OWN]</a></sup> That combination — modern self-serve 3D editor <em>plus</em> integrated commerce <em>plus</em> in-house fulfillment — is rare: most rivals have one or two of those, not all three. The gaps that remain are <b>realism polish, brand legitimacy, and traffic/marketing</b> — not the product itself.</p>
 <ul>
   <li><b>Only two competitors are true self-serve 3D rivals:</b> <a href="#helmade">Helmade</a> (agency-built WebGL) and <a href="#veldt">VELDT Paris</a> (which <em>licenses</em> the Emersya 3D platform rather than building it). Everyone else is 2D templates, concierge design services, or AI image generators.</li>
   <li><b>The single biggest realism gap</b> is photoreal PBR materials (metalflake, carbon weave, chrome, candy/iridescent) + HDRI lighting + AR — exactly what Emersya and Helmade do and KR's gloss/matte does not yet. <sup><a href="#s-emersya-ex">[E]</a></sup></li>
-  <li><b>The single biggest commercial gap</b> is a "design → send to a painter for a quote" funnel. <a href="#ohd">Online Helmet Designer / Barth</a>, <a href="#censport">Censport</a>, <a href="#lidslab">LidsLab</a> and <a href="#spindrift">Spindrift</a> all monetize this; KR has the front-end pieces (Submit, Price Calculator, PDF spec sheet, guest auth) but no painter handoff. <sup><a href="#s-ohd-how">[O]</a></sup></li>
+  <li><b>The fulfillment layer — KR's hidden strength.</b> The "design → produce a helmet" step that <a href="#ohd">Online Helmet Designer / Barth</a>, <a href="#censport">Censport</a>, <a href="#lidslab">LidsLab</a> and <a href="#spindrift">Spindrift</a> all monetize is already built into KR: order/job management, live payments/checkout, an admin dashboard with notifications, and "send to printer" feeding the owner's <b>own in-house production</b>. <sup><a href="#s-owner">[OWN]</a></sup> Unlike the design-only studios that hand off to third-party painters, KR controls the whole chain — a structural advantage that should be marketed, not buried.</li>
   <li><b>Best opportunity tier:</b> karting + amateur/club racing self-serve, where Spindrift/Censport are too expensive and Helmade/VELDT are motorcycle/luxury-skewed. KR can own "design it in 5 minutes, get an instant price, send a paint-ready spec to a shop."</li>
   <li><b>Market is real and growing:</b> racing-helmet market ~$2.1–2.4B (2023) → ~$3.5–3.9B by 2032 (CAGR ~5.5–7.8%); custom paint jobs run <b>$700–$4,000</b> with <b>3–4 month</b> waits. <sup><a href="#s-market1">[M]</a></sup></li>
 </ul>
@@ -135,7 +135,7 @@
     </ul>
   </div>
   <div class="card">
-    <h4>Confirmed features</h4>
+    <h4>Confirmed features (editor)</h4>
     <ul>
       <li>Orbiting 3D viewport (drag-orbit, scroll-zoom); <b>Rotate / Place</b> modes.</li>
       <li><b>Parts/Visor</b> selection · <b>Finish</b> options · <b>Shell Livery with a Layers system</b> · <b>click-to-place Decals</b>.</li>
@@ -144,7 +144,19 @@
     </ul>
   </div>
 </div>
-<p class="legend">Scale: indie / solo-built hobby project on a free-tier-friendly stack. This is its strength (modern, fast, feature-dense editor) and its weakness (no brand, no fulfillment, no traffic moat).</p>
+<div class="card" style="box-shadow:5px 5px 0 var(--green);">
+  <h4>Confirmed backend &amp; fulfillment (owner-confirmed)</h4>
+  <ul>
+    <li><b>Vercel serverless</b> backend powering the app.</li>
+    <li><b>User accounts</b> + per-user <b>saved designs</b>.</li>
+    <li><b>Order / job management</b> for incoming designs.</li>
+    <li><b>Live payments / checkout</b> — real transactions, not just quotes.</li>
+    <li><b>Admin dashboard + notifications</b> for the owner.</li>
+    <li><b>"Send to printer" → owner's own in-house production</b> (vertically integrated; no third-party painter dependency).</li>
+  </ul>
+  <p class="legend" style="margin-top:8px">Source: confirmed directly by the app owner, 2026-06-28. <sup><a href="#s-owner">[OWN]</a></sup></p>
+</div>
+<p class="legend">Scale: solo-built, but <b>not a hobby front end</b> — it is a vertically integrated design-to-production business (editor + commerce + in-house fulfillment) on a lean serverless stack. Its strength is the rare full-stack combination; its remaining weaknesses are realism polish, brand legitimacy, and traffic/marketing — not capability.</p>
 
 <!-- ============ MARKET ============ -->
 <h2 class="sec" data-n="04" id="market">Market overview &amp; demand</h2>
@@ -366,11 +378,13 @@
 
 <!-- ============ PLAYBOOK ============ -->
 <h2 class="sec" data-n="08" id="playbook">How KR wins — strategic playbook</h2>
-<div class="callout win"><b>Thesis:</b> KR's editor is already better than 7 of 10 rivals. Don't add more editor features first — <b>add the business layer they all monetize and the realism layer the top 3 use</b>, then own the underserved karting/amateur tier.</div>
-<h4>Priority 1 — Monetize fulfillment (copy the funnel everyone else has)</h4>
+<div class="callout win"><b>Thesis:</b> KR's editor already beats 7 of 10 rivals <em>and</em> it already has the commerce + in-house fulfillment layer the others charge for. <sup><a href="#s-owner">[OWN]</a></sup> So the priority is <b>not</b> building more product — it's <b>making the existing full-stack advantage visible (marketing/brand/traffic), closing the realism gap to the top 3, and owning the underserved karting/amateur tier</b>.</div>
+<h4>Priority 1 — Leverage &amp; market the fulfillment you already own</h4>
 <ul>
-  <li>Wire existing <b>Submit Design + guest auth + Price Calculator</b> into a "request a quote / send to a painter" flow — directly mirroring Online Helmet Designer, Censport, LidsLab and Spindrift. <sup><a href="#s-ohd-how">[O2]</a></sup></li>
-  <li>Ship a <b>5-view paint-ready spec sheet</b> (L/R/front/back/top) as the export painters actually need — this is the universal missing piece across LidsLab/Censport. KR already has PDF + 2048px PNG to build on. <sup><a href="#s-cen-process">[C3]</a></sup></li>
+  <li>You already have order/job management, payments/checkout, admin + notifications, and "send to printer" → in-house production. <sup><a href="#s-owner">[OWN]</a></sup> Unlike Online Helmet Designer, Censport, LidsLab and Spindrift, you don't hand off to third-party painters — so <b>lead with vertical integration</b>: one place to design, pay, and produce.</li>
+  <li>Turn it into a <b>speed claim</b>: the market norm is 3–4 month waits because painting capacity is the bottleneck. <sup><a href="#s-market1">[M]</a></sup> If in-house production lets you quote a faster, transparent turnaround, that is a headline differentiator against every premium shop.</li>
+  <li>Use the <b>instant Price Calculator + live checkout</b> as the wedge against rivals who make customers email and wait for a quote (Censport, LidsLab, EnkeyDesign, Spindrift). Surface a real price and "order now," not "request a quote."</li>
+  <li>Internally, generate a <b>5-view production sheet</b> (L/R/front/back/top) from the existing PDF/2048px exports to streamline your own paint/print step — not for a painter handoff, but to speed your shop. <sup><a href="#s-cen-process">[C3]</a></sup></li>
 </ul>
 <h4>Priority 2 — Close the realism gap to the top 3</h4>
 <ul>
@@ -386,7 +400,7 @@
 <ul>
   <li>Add "AI inspiration → rebuild editably on the 3D shell" and AI-generated decal/texture layers, so KR captures Pixelcut/OpenArt's idea-generation speed while keeping precision + manufacturability they lack. <sup><a href="#s-pix-gen">[P1]</a></sup></li>
 </ul>
-<div class="callout warn"><b>Don't do:</b> Don't try to out-brand Helmade, out-prestige Spindrift, or out-manufacture VELDT/Censport. The defensible wins are <b>tool depth, instant UX, paint-ready export, and a niche beachhead</b> — not paint shops or OEM deals.</div>
+<div class="callout warn"><b>Don't do:</b> Don't try to out-brand Helmade, out-prestige Spindrift, or out-scale established paint shops on craft reputation overnight. Your defensible wins are <b>the rare full-stack combination (3D editor + commerce + in-house production), instant UX/pricing, faster turnaround, and a focused niche beachhead</b> — lean on owning the whole chain rather than competing on legacy brand or OEM deals.</div>
 
 <!-- ============ SOURCES ============ -->
 <h2 class="sec" data-n="09" id="sources">Sources</h2>
@@ -395,6 +409,7 @@
 <h4>Target app &amp; market</h4>
 <ul class="src">
   <li id="s-target">[T] KR Design Studio served HTML / asset manifest (retrieved via authenticated Vercel fetch) — <a href="https://helmet-mockup-editor.vercel.app">helmet-mockup-editor.vercel.app</a></li>
+  <li id="s-owner">[OWN] Backend &amp; fulfillment capabilities (Vercel serverless; user accounts + saved designs; order/job management; live payments/checkout; admin dashboard + notifications; "send to printer" → in-house production) — confirmed directly by the app owner, 2026-06-28. Not independently verifiable from public sources.</li>
   <li id="s-market1">[M] Custom helmet paint cost &amp; wait-time buyer guide — <a href="https://carinterior.alibaba.com/buyingguides/custom-helmet-paint-costs-buyer%E2%80%99s-guide">Alibaba buyer's guide</a></li>
   <li id="s-market2">Racing-helmets market size/forecast — <a href="https://dataintelo.com/report/global-racing-helmets-market">dataintelo</a> · <a href="https://www.verifiedmarketreports.com/product/racing-helmets-market/">Verified Market Reports</a> · <a href="https://dataintelo.com/report/motorsport-helmet-market">Motorsport helmet report</a></li>
   <li id="s-market3">Custom-helmet demand drivers — <a href="https://tro.bike/motorcycle-modification/helmet-painting/">TRO</a> · <a href="https://veneratiodesigns.com/price-guide/">Veneratio price guide</a></li>
@@ -480,7 +495,7 @@
 </ul>
 
 <footer>
-  <p><b>Confidence:</b> Highest for business models, 2D-vs-3D category, and named clients (quoted on-page copy + third parties). Lowest for exact rendering engines, CMS stacks, and follower counts (target sites blocked direct inspection). Realism scores are reasoned estimates. The VELDT→Emersya, Helmade→Demodern/747studios/Magento, and KR→three.js/Vite/Vercel stack findings are well-sourced.</p>
+  <p><b>Confidence:</b> Highest for business models, 2D-vs-3D category, and named clients (quoted on-page copy + third parties). Lowest for exact rendering engines, CMS stacks, and follower counts (target sites blocked direct inspection). Realism scores are reasoned estimates. The VELDT→Emersya, Helmade→Demodern/747studios/Magento, and KR→three.js/Vite/Vercel stack findings are well-sourced. KR's backend &amp; in-house-fulfillment capabilities are <b>owner-confirmed</b> (2026-06-28) and revised this report's earlier assumption that KR lacked a fulfillment layer.</p>
   <p><b>Note:</b> EnkeyDesign and Online Helmet Designer / Barth Designs share strong operator/process links; treated as distinct entries because they present as separate brands/tools.</p>
   <p>Generated 2026-06-28 · Competitive research dossier for KR Design Studio.</p>
 </footer>
