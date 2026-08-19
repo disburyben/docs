@@ -22,6 +22,12 @@
             ]
           },
           {
+            "group": "Playbooks",
+            "pages": [
+              "playbooks/agentic-automation-build-partner"
+            ]
+          },
+          {
             "group": "Customization",
             "pages": [
               "essentials/settings",
